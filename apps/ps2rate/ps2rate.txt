@@ -1,0 +1,19 @@
+PS/2 mouse sampling rate changer for Windoze 95/98
+(C) 2001 UDP Soft Ltd. - http://www.udpsoft.com
+Use at your own risk.
+
+v0.4
+- dialog based interface
+- can now automagically update Startup folder ("make default")
+- for VIA chipset mobos (SOYO) you may need to check "don't detect".
+
+FAQ:
+Q: How does this thing work?
+A: It writes a rate-change command directly to the mouse hardware.
+
+Q: Are there any drawbacks or side-effects?
+A: Some mice have been reported to break after being subjected to 200Hz
+   speeds for long periods of time. These are usually very old models.
+
+Q: Will you make one for serial mice? How about WinNT?
+A: Impossible for serial mouse. WinNT/2K PS/2 version might happen.
