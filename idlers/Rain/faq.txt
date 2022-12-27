@@ -1,0 +1,110 @@
+Leading Wintech
+Frequently Asked Questions
+--------------------------
+
+This file covers frequently asked questions about Waterfall and Rain.
+
+Q: How do Rain and Waterfall work?
+A: They're both small programs that issue HLT commands to idle parts 
+of the CPU, so that they don't generate heat while they're idle.
+
+Q: What's a HLT command?
+A: It's a command that puts a certain part of the CPU into suspend mode.
+In advanced CPUs, this command can be executed while parts of the CPU are
+idle so that they can save power and stay cool. 
+
+Q: What's the difference between Rain and Waterfall?
+A: Rain is the most efficient CPU cooling software there is. With Rain,
+you can expect your temperature decrease to be greater than with Waterfall.
+Waterfall however is more secure (that doesn't mean that Rain is buggy or
+will crash all the time, but Waterfall is more difficult to crash). Waterfall
+also has some additional features such as CPU busy state checking and a CPU
+monitor, which are not avalible in Rain. 
+
+Q: Okay, okay, I get the picture... but which one should I choose?
+A: That depends on your needs. If you don't need a CPU monitor, then we 
+recommend you to try Rain first. If Rain crashes under your system (don't worry,
+the fact that Waterfall is safer doesn't mean that Rain is unstable), then
+we recommend you to try Waterfall instead.
+
+Q: How do Rain and Waterfall compare to other cooling softwares, such as CPUIdle?
+A: To help you understand the difference between Rain, Waterfall and CPUIdle,
+we created this small comparisson chart.
+
+			Rain		Waterfall	CPUIdle		CPUIdle -loadonly
+System  Performance	Excellent	Excellent	Good		Excellent
+Cooling Performance	Excellent	Very Good	Very Good	Fair
+Secure  Performance	Very good	Excellent	Fair    	Poor
+Memory requirement	300K		300KB		1.6MB		100KB
+CPU Monitor		No		Yes		No		No
+
+Note: CPUIdle -loadonly may require an additional optimizer in order to work 
+properly with some CPUs. Rain, Waterfall and CPUIdle (without -loadonly) don't need 
+any additional software to work properly.
+
+Q: Sometimes the background in Waterfall's traybar icon becomes all red (but the icon
+itself remains blue), what does that mean?
+A: It means that your CPU is 100% busy - it doesn't mean that Waterfall is disabled 
+though 
+
+Q: Does using Waterfall and/or Rain decrease my overall performance?
+A: Well... the task that Waterfall & Rain both execute doesn't decrease your overall
+performance. However, no matter how small they are, Waterfall & Rain are programs, and
+just like any other program, while they're running, they do use some resources. However,
+the amount of resources that they use is negligible, so the impact on performance is 
+almost null.
+
+Q: I've tried several fake performance boosters, wow do I know that Waterfall or Rain 
+really work?
+A: The only way to notice that they are really working is to measure your CPU and/or
+heatsink temperature. But, believe me, it works.
+
+Q: I hear some buzzing sound coming out of my speakers when using Rain or Waterfall, 
+is something wrong?
+A: That's a very common problem. This is not a bug in either Rain or Waterfall, it's just
+that some hardware components have weird behaviors when a HLT instruction is executed. This
+buzzing sound seems to be the most usual problem - although some people think it's annoying,
+it's actually harmless.
+
+Q: I experience some weird side effects when running Waterfall or Rain. What should I do?
+A: The best thing to do is to try to identify if the problem is with the program itself or
+the HLT instruction. The only way to do that would be to install CPUIdle (another cooling 
+program) and see if it works. If it doesn't, then contact your hardware manufacturers 
+(especially your motherboard manufacturer) and ask them about any conflicts with the HLT 
+instruction. Notice that if there is a conflict with HLT instructions, then this is not 
+Waterfall or Rain's fault, in fact, the problem will be reproduced under any OS that uses
+HLT instructions (such as Windows NT for example).
+
+If you run CPUIdle and the problem disappears, then please contact the author of Waterfall
+and report this bug, along with a description of your hardware & of any softwares that you
+might have running on background.
+
+Another good way of getting help is to access Leading Wintech's message board. However, before
+you do that, we strongly recommend you to check if there's any hardware conflict with the HLT 
+instructions- because if there is one, then there's very little we can do to help.
+
+Q: Do Rain and Waterfall work under Windows NT?
+A: No. Windows NT doesn't need CPU cooling programs that execute HLT instructions, such as 
+Rain, Waterfall and CPUIdle, because it already comes with an option to execute HLT 
+instructions when the CPU is idle.
+
+Q: Why is it that System Monitor and other CPU monitors indicate that my CPU is 100% busy
+when running Rain or Waterfall?
+A: That happens because these monitors only detect that a certain percentage of the CPU isn't
+being used when it's idle. Both Rain and Waterfall replace this idle mode with a suspend mode
+generated by the HLT instructions. Therefore, these monitors will always show that your CPU
+is 100% busy. There's no fix for this unless someone releases a patch for these monitors.
+
+Q: When running Rain or Waterfall, I get weird scores under Wintune. Why is that?
+A: Wintune isn't a good utility for measuring your system's performance, it's results can't
+really be trusted. If you run a Cyrix 6x86MX PR200 at 166Mhz and an Intel Pentium MMX at
+166Mhz, it'll show exactly the same scores, but we know that the Cyrix CPU is much faster
+(when comparing Mhz per Mhz). Try using Winbench for a real performance benchmark.
+
+Q: Can I use Rain, Waterfall and CPUIdle at the same time for a better cooling?
+A: All of these programs do basically the same thing, so only one of them will work if you
+run all of them together. 
+
+
+
+Copyright (c) 1998, Leading Wintech  

@@ -1,0 +1,40 @@
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg = Explore.AddReg
+CopyFiles = Explore.CopyFiles.Inf
+
+[ExploreInstall]
+AddReg = Explore.AddReg
+CopyFiles = Explore.CopyFiles.Inf
+
+[DefaultUninstall]
+DelReg = Explore.AddReg
+DelFiles = Explore.CopyFiles.Inf
+
+[Explore_Remove]
+DelReg = Explore.AddReg
+DelFiles = Explore.CopyFiles.Inf
+
+[Explore.AddReg]
+HKCR,Folder\shell\rootexplore,,,"%EXPLORE_DESC%"
+HKCR,Folder\shell\rootexplore\command,,,"Explorer.exe /e,/root,/idlist,%I"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\rootexplore,DisplayName,,"%Explore_REMOVE_DESC%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\rootexplore,UninstallString,,"RunDll setupx.dll,InstallHinfSection Explore_remove 4 Explore.inf"
+
+[Explore.CopyFiles.Inf]
+Explore.Inf
+
+[SourceDisksNames]
+55="Explore From Here","",1
+
+[SourceDisksFiles]
+Explore.Inf=55
+
+[DestinationDirs]
+Explore.CopyFiles.Inf = 17
+
+[Strings]
+Explore_DESC = "Explore From Here"
+EXPLORE_REMOVE_DESC = "Explore From Here (Remove only)"

@@ -1,0 +1,102 @@
+;
+;   Find Extensions version 1.1
+;
+;   Microsoft Windows 95 PowerToys
+;
+;   Copyright 1995-1996 Microsoft Corporation
+;
+;   The "Find Extensions" PowerToy places all the shortcuts in your
+;   Windows\Start Menu\Find folder onto your Start menu (under "Find").
+;
+;   The following shortcuts are created during installation:
+;
+;   *	Find On the Internet:  Search the Internet for keywords you
+;	select.  (Requires Internet Explorer 3.0 or later.)
+;
+;   *	Find In the Knowledge Base: The Microsoft Knowledge Base is
+;	an online database of troubleshooting tips for all Microsoft
+;	products.
+;
+;   *	Find Address:  Searches your Exchange Personal Address Book.
+;	(Installed only if Exchange is installed.)
+;
+;   *	Find Email Message:  Searches your Exchange mail folders.
+;	(Installed only if Exchange is installed.)
+;
+;   Configuring your "Find Extensions" can be done by going to the
+;   Add/Remove Software icon of the Control Panel and double-clicking
+;   "Find Extensions".
+;
+;   Tips and tricks:
+;
+;   *	If you include an ampersand (&) in the file name in front
+;	of a character, that character will be used as the keyboard
+;	accelerator for the shortcut.
+;
+;   Notes for users of FindX version 1.0:
+;
+;   *	The location of the Find folder has changed!  You will need
+;	to move your customizations from the old location to the new
+;	location.  This change was necessary to fix a bug in version
+;	1.0 which required you to restart the computer after customizing
+;	the Find folder.
+;
+;
+[version]
+signature="$CHICAGO$"
+
+[FindXInstall]
+CopyFiles = FindX.Files.Ext
+AddReg    = FindX.Add.Reg, FindX.Once.Reg
+Ini2Reg	  = FindX.Add.Ini2Reg
+
+[DefaultInstall]
+CopyFiles = FindX.Files.Ext
+AddReg    = FindX.Add.Reg, FindX.Once.Reg
+Ini2Reg	  = FindX.Add.Ini2Reg
+
+[DefaultUnInstall]
+DelFiles  = FindX.Files.Ext
+DelReg    = FindX.Del.Reg
+
+[DestinationDirs]
+FindX.Files.Ext = 11,%SubDir%
+
+[SourceDisksNames]
+1="Find... Extensions","",1
+
+[SourceDisksFiles]
+FindX.DLL=1
+FindX.INF=1
+
+[FindX.Files.Ext]
+FindX.Dll
+FindX.INF
+
+[FindX.Add.Ini2Reg]
+win.ini,Desktop,Wallpaper,HKLM,%BK%,2
+win.ini,Desktop,TileWallpaper,HKLM,%BK%,2
+
+[FindX.Once.Reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce\Setup,%FindX%,,"RUNDLL32.EXE %11%\%SubDir%\FINDX.DLL,Install %11%\%SubDir%\FINDX.INF"
+
+[FindX.Add.Reg]
+HKLM,%UIF%,DisplayName,,"%FindX%"
+HKLM,%UIF%,UninstallString,,"RUNDLL32.EXE %11%\%SubDir%\FINDX.DLL,Configure %11%\%SubDir%\FINDX.INF"
+HKLM,%FIND%\%GUID%,,,"%FindX%"
+HKCR,CLSID\%GUID%,,,"%FindX%"
+HKCR,CLSID\%GUID%\InProcServer32,,,"%11%\%SubDir%\FindX.dll"
+HKCR,CLSID\%GUID%\InProcServer32,ThreadingModel,,"Apartment"
+
+[FindX.Del.Reg]
+HKLM,%UIF%
+HKLM,%FIND%\%GUID%
+HKCR,CLSID\%GUID%
+
+[Strings]
+FindX="Find... Extensions"
+SubDir = "ShellExt"
+UIF="Software\Microsoft\Windows\CurrentVersion\Uninstall\FindX"
+FIND="Software\Microsoft\Windows\CurrentVersion\Explorer\FindExtensions"
+GUID="{97E2C371-FDDD-11CF-807F-02608C8D98DF}"
+BK="Software\Microsoft\Windows\CurrentVersion\Setup"

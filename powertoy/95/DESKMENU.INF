@@ -1,0 +1,63 @@
+[version]
+;LayoutFile=powerlay.inf
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DefaultInstall]
+CopyFiles=DeskMenu.copy.prog, DeskMenu.copy.hlp, DeskMenu.copy.win, DeskMenu.copy.sys
+UpdateInis=DeskMenu.Links
+
+
+[DeskMenuInstall]
+CopyFiles=DeskMenu.copy.prog, DeskMenu.copy.hlp, DeskMenu.copy.win, DeskMenu.copy.sys
+UpdateInis=DeskMenu.Links
+
+[DefaultUnInstall]
+CopyFiles=DeskMenu.copy.prog, DeskMenu.copy.hlp, DeskMenu.copy.win, DeskMenu.copy.sys
+UpdateInis=DeskMenu.Links
+
+[Optional Components]
+InstallQuickRes
+
+
+OptionDesc     = %DeskMenu_ShortDesc%
+Tip            = %DeskMenu_TIP%
+Parent         = AccessTop
+InstallType    = 10 ;Typical, Custom.
+IconIndex          = 22  ;Windows Logo mini-icon for dialogs
+Uninstall      = MSWordPad_remove
+
+
+[DeskMenu.copy.prog]
+
+[DeskMenu.copy.win]
+Deskmenu.exe
+
+[DeskMenu.copy.sys]
+
+[DeskMenu.copy.hlp]
+
+[Strings]
+PROGRAMF     = "Progra~1"                    ; Wrong!
+DeskMenuPROG      = "Deskmenu"                    ;
+DeskMenuPROG_LOCN = "Accessories"      ; shortcut location
+DeskMenu_Desc     = "Deskmenu"                    ; shortcut name
+DeskMenu_ShortDesc= "Deskmenu"                    ; details view
+StartUp_DESC = "Startup"
+DeskMenu_TIP 	 = "Allows to change resolution and color depth without reboot."
+
+[DestinationDirs]
+DeskMenu.copy.sys=11
+DeskMenu.copy.hlp=18
+DeskMenu.copy.prog=24,%PROGRAMF%\%DeskMenuPROG%
+DeskMenu.copy.win=25
+
+[SourceDisksNames]
+55="Deskmenu","",1
+
+[SourceDisksFiles]
+Deskmenu.exe=55
+
+[DeskMenu.Links]
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%DeskMenu_Desc%"", ""%25%\Deskmenu.Exe"",,,,,%DeskMenu_ShortDesc%"

@@ -1,0 +1,62 @@
+;
+; "Command Prompt Here" PowerToy
+;
+; Copyright 1996 Microsoft Corporation
+;
+[version]
+signature="$CHICAGO$"
+
+[DosHereInstall]
+CopyFiles = DosHere.Files.Inf
+AddReg    = DosHere.Reg
+
+[DefaultInstall]
+CopyFiles = DosHere.Files.Inf
+AddReg    = DosHere.Reg
+
+[DefaultInstall.ntx86]
+CopyFiles = DosHere.Files.Inf
+AddReg    = DosHere.Reg.NT
+
+[DefaultUnInstall]
+DelFiles  = DosHere.Files.Inf
+DelReg    = DosHere.Reg
+
+[DefaultUnInstall.ntx86]
+DelFiles  = DosHere.Files.Inf
+DelReg    = DosHere.Reg.NT
+
+[SourceDisksNames]
+55="DOS Prompt Here","",1
+
+[SourceDisksFiles]
+DOSHERE.INF=55
+
+[DestinationDirs]
+DosHere.Files.Inf = 17
+
+[DosHere.Files.Inf]
+DOSHERE.INF
+
+[DosHere.Reg]
+HKLM,%UDHERE%
+HKLM,%UDHERE%,DisplayName,,"%DosHereName%"
+HKLM,%UDHERE%,UninstallString,,"%10%\rundll.exe setupx.dll,InstallHinfSection DefaultUninstall 132 %17%\DosHere.inf"
+HKCR,Directory\Shell\DosHere,,,"%DosHereAccel%"
+HKCR,Directory\Shell\DosHere\command,,,"%10%\command.com /k cd ""%1"""
+HKCR,Drive\Shell\DosHere,,,"%DosHereAccel%"
+HKCR,Drive\Shell\DosHere\command,,,"%10%\command.com /k cd ""%1"""
+
+[DosHere.Reg.NT]
+HKLM,%UDHERE%
+HKLM,%UDHERE%,DisplayName,,"%DosHereName%"
+HKLM,%UDHERE%,UninstallString,,"rundll32.exe syssetup.dll,SetupInfObjectInstallAction DefaultUninstall 132 %17%\DosHere.inf"
+HKCR,Directory\Shell\DosHere,,,"%DosHereAccel%"
+HKCR,Directory\Shell\DosHere\command,,,"%11%\cmd.exe /k cd ""%1"""
+HKCR,Drive\Shell\DosHere,,,"%DosHereAccel%"
+HKCR,Drive\Shell\DosHere\command,,,"%11%\cmd.exe /k cd ""%1"""
+
+[Strings]
+DosHereName="Command Prompt Here PowerToy"
+DosHereAccel="Command &Prompt Here"
+UDHERE="Software\Microsoft\Windows\CurrentVersion\Uninstall\DosHere"

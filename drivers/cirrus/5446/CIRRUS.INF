@@ -1,0 +1,178 @@
+
+; INF file for Cirrus Logic 5446 Windows 95 display driver
+; Copyright 1995, Cirrus Logic, Inc. All rights reserved.
+
+[version]
+Class=DISPLAY
+signature="$CHICAGO$"
+Provider=%Mfg%
+SetupClass=Base
+
+[DestinationDirs]
+DefaultDestDir  = 11	; LDID_SYS
+Driver.Copy = 11	; LDID_SYS
+Help.Copy = 18		; LDID_HELP
+
+[SourceDisksNames]
+1="CL-GD5436/5446 Driver and DirectDraw/VPM Disk (v1.12)",,0
+
+[SourceDisksFiles]
+cirmm.drv=1
+cir.vxd=1
+clmmdd16.dll=1
+clmmdd32.dll=1
+cl_ref.dll=1
+cl_ref.hlp=1
+clbios16.dll=1
+clbios32.dll=1
+ddraw.dll=1
+ddraw16.dll=1
+ddhelp.exe=1
+dvideo.dll=1
+iccvid.dll=1
+mciavi.drv=1
+cl_media.dll=1
+5446vpm.dll=1
+vpm16t.dll=1
+vpm32t.dll=1
+vpm32ap.exe=1
+vvpmd.vxd=1
+
+[Manufacturer]
+%Mfg%=Mfg
+
+[Mfg]
+%PCI\VEN_1013&DEV_00AC.DeviceDesc%=5436.Install, PCI\VEN_1013&DEV_00AC	;Install for 5436 Display Drivers
+%PCI\VEN_1013&DEV_00B8.DeviceDesc%=5446.Install, PCI\VEN_1013&DEV_00B8	;Install for 5446 Display Drivers
+
+;------- Install Area --------
+[5436.Install]
+CopyFiles=Driver.Copy
+DelReg=Prev.DelReg
+AddReg=5436.AddReg
+UpdateInis=Video.Ini
+Restart
+
+[5446.Install]
+CopyFiles=Driver.Copy,VPM.Copy
+DelReg=Prev.DelReg
+AddReg=5446.AddReg
+UpdateInis=Video.Ini,VPM.Ini
+Restart
+
+[Driver.Copy]
+cirmm.drv
+cir.vxd
+clmmdd16.dll
+clmmdd32.dll
+cl_ref.dll
+cl_ref.hlp
+clbios16.dll
+clbios32.dll
+ddraw.dll
+ddraw16.dll
+ddhelp.exe
+dvideo.dll
+iccvid.dll
+mciavi.drv
+cl_media.dll
+
+[VPM.Copy]
+5446vpm.dll
+vpm16t.dll
+vpm32t.dll
+vpm32ap.exe
+vvpmd.vxd
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\DriverPages"
+
+[5436.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirmm.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cir.vxd
+HKR,DEFAULT,RefreshRate,,-1
+HKR,DEFAULT,DDC,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",,,"CL_Ref.dll"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\CL Refresh CPL Extension",,,"{a2e44d60-ad6b-11ce-93f7-444553540000}"
+HKCR,"CLSID\{fbb31280-3a08-11cf-a6d0-444553540000}\InProcServer32",,,"CL_Media.dll"
+HKCR,"CLSID\{fbb31280-3a08-11cf-a6d0-444553540000}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\CL Multimedia Extension",,,"{fbb31280-3a08-11cf-a6d0-444553540000}"
+
+[5446.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirmm.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cir.vxd
+HKR,DEFAULT,RefreshRate,,-1
+HKR,DEFAULT,DDC,,1
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+;# Not in 5446 # HKR,"MODES\16\1152,864"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",,,"CL_Ref.dll"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\CL Refresh CPL Extension",,,"{a2e44d60-ad6b-11ce-93f7-444553540000}"
+HKCR,"CLSID\{fbb31280-3a08-11cf-a6d0-444553540000}\InProcServer32",,,"CL_Media.dll"
+HKCR,"CLSID\{fbb31280-3a08-11cf-a6d0-444553540000}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\CL Multimedia Extension",,,"{fbb31280-3a08-11cf-a6d0-444553540000}"
+
+;------- Modification on Ini files -------
+[Video.Ini]
+system.ini, drivers32,,"Vids.draw=dvideo.dll",0
+system.ini, drivers32,,"Vidc.cvid=iccvid.dll",0
+system.ini, 386Enh,"device=vvpmd.vxd",,0
+
+[VPM.Ini]
+system.ini, drivers,,"vpm=5446vpm.dll",0
+
+[Strings]
+Mfg="Cirrus Logic"
+PCI\VEN_1013&DEV_00A0.DeviceDesc="Cirrus Logic 5430/M30/40/M40 PCI"
+PCI\VEN_1013&DEV_00A8.DeviceDesc="Cirrus Logic 5434 PCI"
+PCI\VEN_1013&DEV_00AC.DeviceDesc="Cirrus Logic 5436/5446 PCI DirectDraw/VPM (v1.12)"
+PCI\VEN_1013&DEV_00B8.DeviceDesc="Cirrus Logic 5436/5446 PCI DirectDraw/VPM (v1.12)"
+

@@ -1,0 +1,102 @@
+2014.31.01 - new pre-release version of vbemp9x
+
+
+1) support for new resolutions
+
+        dw      832,624   ; MAC, 4:3
+        dw      1366,768  ; Widescreen
+        dw      1440,900  ; Widescreen, VirtualBox
+        dw      1600,900  ; Widescreen
+        dw      1920,1080 ; Widescreen, VirtualBox
+        dw      1920,1200 ; semi-Widescreen
+        dw      2560,1440 ; Widescreen
+        dw      2560,1600 ; Widescreen
+
+2) support for new resolutions (missing in vbemp.inf)
+
+; second add-on
+
+        dw      320,400   ; most ATI, nVidia
+        dw      640,350   ; most ATI
+        dw      720,400   ; most ATI
+        dw      720,480   ; S3 AGP
+        dw      720,576   ; S3 AGP
+        dw      1280,960  ; VMWare SVGA II
+        dw      1400,1050 ; VMWare SVGA II, ATI, nVidia
+        dw      1792,1344 ; VMWare SVGA II
+        dw      1856,1392 ; VMWare SVGA II, ATI
+        dw      2048,1536 ; most nVidia
+
+
+3) fixed aspect ratios table
+
+4) support for adding ANY new modes to these intel chips
+830/845/85x/865/91x/94x/96x/G3x/G4x
+via patching and running TSR VESA BIOS (source included, inteldmp)
+before running win9x shell
+note that you cannot add new modes only replacing old ones (modenum <
+0x60)
+(based on 915resolution, linux guys knows what's this)
+
+5) memory limited versions 32/64/128mb (fixes startup hangs)
+
+6) PCI/AGP/PCIe adapter does not have predefined resources!, vbemp.inf modified
+
+7) 33 modes total
+
+HKR,"MODES\32\320,200"
+HKR,"MODES\32\320,240"
+HKR,"MODES\32\320,400"
+HKR,"MODES\32\400,300"
+HKR,"MODES\32\512,384"
+HKR,"MODES\32\640,350"
+HKR,"MODES\32\640,400"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\720,400"
+HKR,"MODES\32\720,480"
+HKR,"MODES\32\720,576"
+HKR,"MODES\32\800,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1152,864"
+HKR,"MODES\32\1280,800"
+HKR,"MODES\32\1280,960"
+HKR,"MODES\32\1280,1024"
+HKR,"MODES\32\1400,1050"
+HKR,"MODES\32\1600,1200"
+HKR,"MODES\32\1792,1344"
+HKR,"MODES\32\1856,1392"
+HKR,"MODES\32\1920,1440"
+HKR,"MODES\32\832,624"
+HKR,"MODES\32\1366,768"
+HKR,"MODES\32\1440,900"
+HKR,"MODES\32\1600,900"
+HKR,"MODES\32\1920,1080"
+HKR,"MODES\32\1920,1200"
+HKR,"MODES\32\2048,1536"
+HKR,"MODES\32\2560,1440"
+HKR,"MODES\32\2560,1600"
+
+2014.14.02 - new pre-release version of vbemp9x
+
+1) Support for new resolutions
+        dw      1280,600  ; Widescreen
+        dw      1280,720  ; Widescreen, 720p (WXGA-H, min.)
+        dw      1280,768  ; Widescreen, Wide XGA avg., BrightView (WXGA)
+        dw      1360,768  ; Widescreen, alternate mode for 1366x768
+        dw      1680,1050 ; Widescreen, (WSXGA+)
+
+2) In some cases deleting VBE.VXD solves garbage problems (FullScreen DOS Session?)
+
+3) iegdnt.sys/inteldump supports i3/5/7 CPU-based Intel HD Series
+
+4) inteldump compatible with gcc/djgpp
+
+5) inteldump aligns video bios checksum
+
+6) vbemp.drv: found problem accessing VRAM above 8M-1 barrier?
+
+7) vbemp.drv: included debug version and version for buggy AMD/ATI cards.
+
+bw

@@ -1,0 +1,50 @@
+; Author: GeorgeP.
+
+[version]
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DefaultInstall]
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg
+
+[CabViewInstall]
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg
+
+[DefaultUninstall]
+DelFiles=ThisDll.sys.install
+DelReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg
+
+[ThisDll.Add.Reg]
+HKCR,CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}\InProcServer32,,,"%11%\%SubDir%\%ThisDll%"
+HKCR,CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}\InProcServer32,ThreadingModel,,"Apartment"
+
+HKCR,CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}\DefaultIcon,,,"%11%\%SubDir%\%ThisDll%"
+HKCR,CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}\shell\open,,,%Open_DESC%
+HKCR,CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}\shell\open\command,,,"explorer /root,{0CD7A5C0-9F37-11CE-AE65-08002B2E1262},%1"
+HKCR,.cab,,,"CLSID\{0CD7A5C0-9F37-11CE-AE65-08002B2E1262}"
+
+[ThisDll.Uninst.Reg]
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\MSCabFileView,,,
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\MSCabFileView,"DisplayName",,"Cabinet File Viewer"
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\MSCabFileView,"UninstallString",,"rundll32.exe %11%\%SubDir%\%ThisDll%,Uninstall %11%\%SubDir%\cabview.inf"
+
+[ThisDll.sys.install]
+CabView.dll
+CabView.inf
+
+[DestinationDirs]
+ThisDll.sys.install=11,%SubDir% ; to System\%SubDir%
+
+[SourceDisksNames]
+55="CabView 1.0.","",1
+
+[SourceDisksFiles]
+%ThisDll%=55
+
+[Strings]
+Open_DESC = "View"
+
+SubDir = "ShellExt"
+ThisDll = "CabView.dll"

@@ -1,0 +1,39 @@
+; Author: GeorgeP.
+
+[version]
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DefaultInstall]
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg
+
+[ShellFixInstall]
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg
+
+[ThisDll.Add.Reg]
+HKCR,CLSID\{ADF2DE00-D0C6-11CE-AE65-08002B2E1262},,,"%ThisDll_DESC%"
+
+HKCR,CLSID\{ADF2DE00-D0C6-11CE-AE65-08002B2E1262}\InProcServer32,,,"%11%\%SubDir%\%ThisDll%"
+HKCR,CLSID\{ADF2DE00-D0C6-11CE-AE65-08002B2E1262}\InProcServer32,ThreadingModel,,"Apartment"
+
+HKCR,folder\ShellEx\ContextMenuHandlers\ShellFix,,,"{ADF2DE00-D0C6-11CE-AE65-08002B2E1262}"
+HKCR,*\ShellEx\ContextMenuHandlers\ShellFix,,,"{ADF2DE00-D0C6-11CE-AE65-08002B2E1262}"
+
+[ThisDll.sys.install]
+ShellFix.dll
+
+[DestinationDirs]
+ThisDll.sys.install=11,%SubDir% ; to System\%SubDir%
+
+[SourceDisksNames]
+55="ShellFix 1.0.","",1
+
+[SourceDisksFiles]
+%ThisDll%=55
+
+[Strings]
+ThisDll_DESC = "ShellFix Menu"
+SubDir = "ShellExt"
+ThisDll = "shellfix.dll"

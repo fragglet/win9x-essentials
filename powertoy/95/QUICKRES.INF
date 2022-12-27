@@ -1,0 +1,43 @@
+[DefaultInstall]
+CopyFiles=QCD.copy.prog, QCD.copy.hlp, QCD.copy.win, QCD.copy.sys
+UpdateInis=QCD.Links
+
+[QuickResInstall]
+CopyFiles=QCD.copy.prog, QCD.copy.hlp, QCD.copy.win, QCD.copy.sys
+UpdateInis=QCD.Links
+
+[version]
+signature="$CHICAGO$"
+
+[QCD.copy.prog]
+
+[QCD.copy.win]
+QuickRes.exe
+
+[QCD.copy.sys]
+
+[QCD.copy.hlp]
+
+[Strings]
+PROGRAMF     = "Progra~1"                    ; Wrong!
+QCDPROG      = "QuickRes"                    ;
+QCDPROG_LOCN = "Accessories\Multimedia"      ; shortcut location
+QCD_Desc     = "QuickRes"                    ; shortcut name
+QCD_ShortDesc= "QuickRes"                    ; details view
+StartUp_DESC = "Startup"
+
+[DestinationDirs]
+QCD.copy.sys=11
+QCD.copy.hlp=18
+QCD.copy.prog=24,%PROGRAMF%\%QCDPROG%
+QCD.copy.win=25
+
+[SourceDisksNames]
+55="QuickRes","",1
+
+[SourceDisksFiles]
+QuickRes.exe=55
+
+[QCD.Links]
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%QCD_Desc%"", ""%25%\QuickRes.Exe"",,,,,%QCD_ShortDesc%"

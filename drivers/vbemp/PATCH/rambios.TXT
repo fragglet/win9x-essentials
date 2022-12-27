@@ -1,0 +1,14 @@
+Ram BIOS utility Ver 1.5
+ 
+
+RAMBIOS [keys] [InputFilename]
+
+ KEYS:  /?[???]         - This message
+        /i[nit]         - Initialize loaded BIOS
+        /r[om]          - Load BIOS from installed board
+        /bu[sdev]       - Define Bus/Dev for installed board
+        /bm             - Busmaster PCI
+        /d[isable]      - Disable RAM BIOS (board will be reinitialized)
+        /u[ninstall]    - Unload BIOS & Reinit board
+
+ Note:  keywords can be placed on any position inside the command line.

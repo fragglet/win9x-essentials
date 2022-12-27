@@ -1,0 +1,104 @@
+; Author: FelixA.
+; installs FlexiCD and changes the AUTO play to be my app.
+
+[DefaultInstall]
+CopyFiles=QCD.copy.prog, QCD.copy.hlp, QCD.copy.win, QCD.copy.sys, QCD.copy.inf
+UpdateInis=QCD.Links
+AddReg=qcd.reg, QCD.Run
+Uninstall=FlexiCD_remove
+
+[FlexiCDInstall]
+CopyFiles=QCD.copy.prog, QCD.copy.hlp, QCD.copy.win, QCD.copy.sys, QCD.copy.inf
+UpdateInis=QCD.Links
+AddReg=qcd.reg, QCD.Run
+Uninstall=FlexiCD_remove
+
+[FlexiCD_remove]
+DelFiles = QCD.copy.prog, QCD.copy.hlp, QCD.copy.win, QCD.copy.sys, QCD.copy.inf
+AddReg = QCD.reg.restore
+DelReg = QCD.reg.remove, QCD.Run
+UpdateInis = QCD.Links.Remove
+
+[version]
+signature="$CHICAGO$"
+
+; F i l e   c o p y i n g   s e c t i o n s (where the go to).
+[DestinationDirs]
+QCD.copy.sys=11
+QCD.copy.hlp=18
+QCD.copy.prog=24,%PROGRAMF%\%QCDPROG%
+QCD.copy.win=25
+QCD.copy.inf=17
+
+; w h a t   f i l e s   a r e   c o p i e d   w h e r e
+[QCD.copy.prog]
+
+[QCD.copy.win]
+FlexiCD.exe
+
+[QCD.copy.sys]
+
+[QCD.copy.hlp]
+
+[QCD.copy.inf]
+FlexiCD.inf
+
+
+; W h e r e   t h e   f i l e s   c o m e   f r o m
+[SourceDisksNames]
+55="Flexi CD Player","",1
+
+[SourceDisksFiles]
+FlexiCD.exe=55
+FlexiCD.Inf=55
+
+; L o c a l i s e d   s t u f f 
+[Strings]
+PROGRAMF     = "Progra~1"
+QCDPROG      = "FlexiCD"		     ;
+QCDPROG_LOCN = "Accessories\Multimedia"      ; shortcut location
+QCD_Desc     = "FlexiCD"		     ; shortcut name
+QCD_REMOVE_DESC = "FlexiCD (Remove only)"
+QCD_ShortDesc= "Tray notification audio CD Player" ; details view
+StartUp_DESC       = "Startup"
+
+
+; L i n k s   /   S h o r t c u t s
+[QCD.Links]
+setup.ini, progman.groups,,"group55=%QCDPROG_LOCN%"
+setup.ini, group55,,"""%QCD_Desc%"", ""%25%\FlexiCD.Exe"",,,,,%QCD_ShortDesc%"
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%QCD_Desc%"", ""%25%\FlexiCD.Exe /resume"",,,,,%QCD_ShortDesc%"
+
+; L i n k s   /   S h o r t c u t s - Removal.
+[QCD.Links.Remove]
+setup.ini, progman.groups,,"group55=%QCDPROG_LOCN%"
+setup.ini, group55,,"""%QCD_Desc%""
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%QCD_Desc%""
+
+; A u d i o   A s s o c i a t i o n
+[qcd.reg]
+HKCR,AudioCD,,,"AudioCD"
+HKCR,AudioCD,"EditFlags",1,02,00,00,00
+HKCR,AudioCD\DefaultIcon,,,"%11%\shell32.dll,40"
+HKCR,AudioCD\shell,,,"play"
+HKCR,AudioCD\shell\play,,,"&Play"
+HKCR,AudioCD\shell\play\command,,,"%25%\FlexiCD.exe /play %1"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\FlexiCD,DisplayName,,"%QCD_REMOVE_DESC%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\FlexiCD,UninstallString,,"RunDll setupx.dll,InstallHinfSection FlexiCD_remove 4 FlexiCD.inf"
+
+[qcd.reg.remove]
+HKCR,AudioCD\shell\play\command,,,"%25%\FlexiCD.exe /play %1"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\FlexiCD,,,
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\FlexiCD,DisplayName,,"%QCD_DESC%"
+HKLM,Software\Microsoft\Windows\CurrentVersion\Uninstall\FlexiCD,UninstallString,,"RunDll setupx.dll,InstallHinfSection FlexiCD_remove 4 FlexiCD.inf"
+
+; U n d o   A u d i o   A s s o c i a t i o n
+[qcd.reg.restore]
+HKCR,AudioCD\shell\play\command,,,"%25%\cdplayer.exe /play %1"
+
+
+; R u n   o n c e   i n s t a l l e d
+[qcd.run]
+; HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce,foo,,"%10%\FlexiCD.exe"

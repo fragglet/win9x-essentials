@@ -1,0 +1,124 @@
+
+; INF file for Sample Cirrus Logic 5440 Windows 95 display driver
+; Copyright 1995, Cirrus Logic, Inc. All rights reserved.
+
+[version]
+Class=DISPLAY
+signature="$CHICAGO$"
+Provider=%Mfg%
+
+[DestinationDirs]
+DefaultDestDir  = 11	; LDID_SYS
+Driver.Copy = 11
+
+[SourceDisksNames]
+1="CL-GD5440 Driver Disk",,0
+
+[SourceDisksFiles]
+cirmm.drv=1
+cir.vxd=1
+supervga.drv=1
+clmmdd16.dll=1
+clmmdd32.dll=1
+cl_ref.dll=1
+cl_ref.hlp=1
+ref_lang.dll=1
+clbios16.dll=1
+clbios32.dll=1
+ddraw.dll=1
+ddraw16.dll=1
+ddhelp.exe=1
+5440.inf=1
+
+[Manufacturer]
+%Mfg%=Mfg
+
+[Mfg]
+%PCI\VEN_1013&DEV_00A0.DeviceDesc%=Driver.Install, PCI\VEN_1013&DEV_00A0
+
+;------- Obsolete utility removal sections -------
+
+[Diamond.Ini]
+control.ini, MMCPL,"TurboWin=*TURBOWIN.DLL",,1
+
+[Diamond.IniFields]
+win.ini, windows, load, *dcshkey.exe,,1
+
+[STB.IniFields]
+win.ini, windows, load, *stbvisn.exe,,1
+
+;------- Install Area --------
+[Driver.Install]
+CopyFiles=Driver.Copy
+DelReg=Prev.DelReg
+AddReg=Driver.AddReg
+UpdateInis=Diamond.Ini                                ;- Added from the MSDDRAW.INF file         
+UpdateIniFields=Diamond.IniFields, STB.IniFields	  ;- Added from the MSDDRAW.INF file         
+LogConfig=VGA.LogConfig								  ;- Added from the MSDDRAW.INF file         
+Restart
+
+[Driver.Copy]
+cirmm.drv
+cir.vxd
+supervga.drv
+clmmdd16.dll
+clmmdd32.dll
+cl_ref.dll
+cl_ref.hlp
+clbios16.dll
+clbios32.dll
+ref_lang.dll
+ddraw.dll
+ddraw16.dll
+ddhelp.exe
+5440.inf
+
+[Prev.DelReg]
+HKR,,Ver
+HKR,,DevLoader
+HKR,DEFAULT
+HKR,MODES
+HKR,CURRENT
+HKLM,"Software\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\DriverPages"
+
+[VGA.LogConfig]
+ConfigPriority=HARDWIRED
+IOConfig=3B0-3BB
+IOConfig=3C0-3DF
+MemConfig=A0000-AFFFF
+MemConfig=B8000-BFFFF
+MemConfig=C0000-C7FFF,D0000-D7FFF,E0000-E5FFF,E0000-E7FFF
+
+[Driver.AddReg]
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,cirmm.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,cir.vxd
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480"
+HKR,"MODES\24\800,600"
+HKR,"MODES\24\1024,768"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",,,"CL_Ref.dll"
+HKCR,"CLSID\{a2e44d60-ad6b-11ce-93f7-444553540000}\InProcServer32",ThreadingModel,,"Apartment"
+HKLM,"SOFTWARE\Microsoft\Windows\CurrentVersion\Controls Folder\Display\shellex\PropertySheetHandlers\CL Refresh CPL Extension",,,"{a2e44d60-ad6b-11ce-93f7-444553540000}"
+
+[Strings]
+Mfg="Cirrus Logic"
+PCI\VEN_1013&DEV_00A0.DeviceDesc="Cirrus Logic 5430/M30/40/M40 PCI"
+PCI\VEN_1013&DEV_00A8.DeviceDesc="Cirrus Logic 5434 PCI"
+PCI\VEN_1013&DEV_00AC.DeviceDesc="Cirrus Logic 5436 PCI"
+
+

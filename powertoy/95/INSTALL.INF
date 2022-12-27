@@ -1,0 +1,37 @@
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+Include = deskmenu.INF, FlexiCd.INF, QuickRes.INF, target.INF, cabview.INF, content.INF, APlayExt.INF, Explore.INF, TweakUI.INF, DosHere.INF, SendToX.INF, FindX.INF
+Needs = DeskMenuInstall, FlexiCDInstall, QuickResInstall, CabViewInstall, ContentInstall, TargetInstall, APlayExtInstall, ExploreInstall, TweakUIInstall, DosHereInstall, SendToXInstall, FindXInstall
+
+CopyFiles = PT.Copy.PowerToy
+
+;-------------------------------------
+; Files to copy
+
+[PT.Copy.PowerToy]
+Clock.exe
+XMouse.exe
+TapiTNA.exe
+
+;-------------------------------------
+; Copy path information
+
+[SourceDisksNames]
+55="PowerToy Collection","",1
+
+[SourceDisksFiles]
+Clock.exe = 55
+Xmouse.exe = 55
+TapiTNA.exe = 55
+
+[DestinationDirs]
+PT.Copy.PowerToy=24,%PROGRAMF%\%PTOY%
+
+;-------------------------------------
+; Strings
+
+[Strings]
+PROGRAMF = "Progra~1"
+PTOY = "PowerToy"  ;Don't add the 's'... this must be SFN

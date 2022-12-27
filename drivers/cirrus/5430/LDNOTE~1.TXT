@@ -1,0 +1,5 @@
+In order to get 16bit color to work with Windows ME, two of the files out of the original driver download had to be replaced.  Should you need to reload this driver for your video again in the future, just point Windows to this disk and it will work.
+
+The original driver file that was downloaded is included on this disk should it be needed.  Copy it to the harddrive and run it, it'll unpack and then you'll have to point windows to that directory.
+
+Otherwise, this should work as it is now.

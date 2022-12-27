@@ -1,0 +1,158 @@
+;
+;   Send To Extensions
+;
+;   Microsoft Windows 95 PowerToys
+;
+;   Copyright 1995-1996 Microsoft Corporation
+;
+;   *	Send To... Any Folder
+;
+;	Send a file or files to Any Folder, and you will be shown
+;	a dialog box that lets you choose where the files should
+;	be copied or moved.
+;
+;   *	Send To... Clipboard as Name
+;
+;	Send a file or files to the Clipboard as Name, and the names
+;	of the files are placed on the clipboard.
+;
+;   *	Send To... Clipboard as Contents
+;
+;	Send a file to the Clipboard as Contents, and the contents
+;	of the file are placed on the clipboard.
+;
+;   *	Send To... Command Line
+;
+;	Send a file to the Command Line, and the "Run" dialog appears,
+;	with name of the file already typed in for you.
+;
+;   *	Send To... Mail Recipient
+;
+;	Send a file or files to a Mail Recipient, and a mail message
+;	will be created with the file(s) already attached.
+;
+;	There are three types of mail recipients.  You probably will
+;	need only one of them. In the "Add/Remove Programs" section
+;	of the Control Panel, double-click "Send To Extensions" to
+;	remove the ones you don't need.
+;
+;	"Mail Recipient MAPI" sends the message via the Microsoft MAPI
+;	protocol.  MAPI is supported by Microsoft Mail 3.x and Microsoft
+;	Exchange.
+;
+;	"Mail Recipient CMC" sends the message via the Common
+;	Messaging Calls protocol, a protocol defined by the X.400 API
+;	association.  CMC is supported by Microsoft Exchange, and
+;	possibly other mail programs.
+;
+;	"Internet Mail Recipient" sends the message via Microsoft Internet 
+;	Mail and News.  It doesn't really work yet, but at least you know
+;	that I'm thinking about it.
+;
+;   Tips and tricks:
+;
+;   *	To add/remove selected extensions, double-click "Send To
+;	Extensions PowerToy" in Control Panel: Add/Remove Programs.
+;
+;   *	To change the name of an item in your Send To menu, click
+;	the Start button, select "Run", then type "sendto".  This
+;	will open a folder view on your Send To menu, at which point
+;	you can create, rename or remove items.
+;
+;   *	When the Send To menu is open, if you hold down the Control
+;	key while you click on the extension you want to send the
+;	file to, the behavior will change slightly.
+;
+;	*   Send To... Any Folder will copy the files with their
+;	    short names.  (Normally, it copies the long names.)
+;
+;	*   Send To... Clipboard as Name will copy the short file
+;	    names to the clipboard.  (Normally, it copies the long
+;	    file name.)
+;
+;	*   Send To... Clipboard as Contents will display a dialog
+;	    box allowing you to override its choice of file content
+;	    type.  Note that if you pick a type that does not match
+;	    the actual type of the file, the data won't quite appear
+;	    the way you intended, if it appears at all.
+;
+;	*   Send To... Command Line will put the short file name
+;	    on the command line.  (Normally, it puts the long file
+;	    name on the command line.)
+;
+;	*   Send To... Mail Recipient will attach the files with
+;	    their short names.  (Normally, the long file name is used.)
+;
+;   Limitations:
+;
+;   *	Send To... Clipboard as Contents
+;
+;	If the file does not contain a recognized format, the
+;	clipboard won't contain anything terribly interesting.
+;
+;	You cannot send folders or multiple files to the clipboard
+;	as contents.
+;
+;   *	Send To... Command Line
+;
+;	You cannot send multiple items to the command line.
+;
+;	To add more than one item to the command line, you can
+;	drag them onto the "Run" dialog box, and they will be
+;	added.
+;
+;   *	Send To... Mail Recipient
+;
+;	You cannot send folders to mail recipients.
+;
+[Version]
+signature = $CHICAGO$
+SetupClass=BASE
+
+[DefaultInstall]
+CopyFiles = SendToX.Copy.Sys
+AddReg	  = SendToX.Reg, SendToX.Uninst.Reg
+Ini2Reg	  = SendToX.Add.Ini2Reg
+
+[SendToXInstall]
+CopyFiles = SendToX.Copy.Sys
+AddReg	  = SendToX.Reg, SendToX.Uninst.Reg
+Ini2Reg	  = SendToX.Add.Ini2Reg
+
+[DefaultUninstall]
+DelFiles  = SendToX.Copy.Sys
+DelReg	  = SendToX.Uninst.Reg
+
+[SendToX.Copy.Sys]
+SENDTOX.DLL
+SENDTOX.INF
+
+[SendToX.Add.Ini2Reg]
+win.ini,Desktop,Wallpaper,HKLM,%BK%,2
+win.ini,Desktop,TileWallpaper,HKLM,%BK%,2
+
+[SendToX.Reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce\Setup,%ISTX%,,"RUNDLL32.EXE %11%\%SubDir%\SENDTOX.DLL,Install %11%\%SubDir%\SENDTOX.INF"
+
+[SendToX.Uninst.Reg]
+HKLM,%UKEY%,,,
+HKLM,%UKEY%,"DisplayName",,"%UNINSTAL_NAME%"
+HKLM,%UKEY%,"UninstallString",,"rundll32.exe %11%\%SubDir%\SENDTOX.DLL,Configure %11%\%SubDir%\SendToX.inf"
+
+[DestinationDirs]
+SendToX.Copy.Sys=11,%SubDir%
+
+[SourceDisksNames]
+55=%DISK_NAME%,"",1
+
+[SourceDisksFiles]
+SENDTOX.DLL=55
+SENDTOX.INF=55
+
+[Strings]
+DISK_NAME="Send To... Extensions"
+UNINSTAL_NAME="Send To Extensions PowerToy"
+SubDir = "ShellExt"
+ISTX="Send To... Extensions"
+UKEY="Software\Microsoft\Windows\CurrentVersion\Uninstall\SendToX.PowerToy"
+BK="Software\Microsoft\Windows\CurrentVersion\Setup"

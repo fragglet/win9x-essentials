@@ -1,0 +1,70 @@
+; Author: GeorgeP.
+
+[version]
+signature="$CHICAGO$"
+SetupClass=BASE
+
+[DefaultInstall]
+Include=ShellFix.Inf
+Needs=ShellFixInstall
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg,ThisDll.RunOnce.Reg
+UpdateInis=ThisDll.Add.Inis
+
+[APlayExtInstall]
+Include=ShellFix.Inf
+Needs=ShellFixInstall
+CopyFiles=ThisDll.sys.install
+AddReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg,ThisDll.RunOnce.Reg
+UpdateInis=ThisDll.Add.Inis
+
+[DefaultUninstall]
+DelFiles=ThisDll.sys.install
+DelReg=ThisDll.Add.Reg,ThisDll.Uninst.Reg
+UpdateInis=ThisDll.Del.Inis
+
+[ThisDll.Add.Reg]
+HKCR,CLSID\{EFB57620-AFA3-11CE-AE65-08002B2E1262},,,"%ThisDll_DESC%"
+
+HKCR,CLSID\{EFB57620-AFA3-11CE-AE65-08002B2E1262}\InProcServer32,,,"%11%\%SubDir%\%ThisDll%"
+HKCR,CLSID\{EFB57620-AFA3-11CE-AE65-08002B2E1262}\InProcServer32,ThreadingModel,,"Apartment"
+
+HKCR,Drive\ShellEx\PropertySheetHandlers\CDAutoPlay,,,"{EFB57620-AFA3-11CE-AE65-08002B2E1262}"
+HKCR,Drive\ShellEx\ContextMenuHandlers\CDAutoPlay,,,"{EFB57620-AFA3-11CE-AE65-08002B2E1262}"
+
+[ThisDll.Uninst.Reg]
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\%Short_DESC%,,,
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\%Short_DESC%,"DisplayName",,%ThisDll_DESC%
+HKLM,SoftWare\Microsoft\Windows\CurrentVersion\Uninstall\%Short_DESC%,"UninstallString",,"rundll32.exe %11%\%SubDir%\%ThisDll%,Uninstall %11%\%SubDir%\APlayExt.Inf"
+
+[ThisDll.RunOnce.Reg]
+HKLM,Software\Microsoft\Windows\CurrentVersion\RunOnce,%Short_DESC%,,"rundll32.exe %11%\%SubDir%\%ThisDll%,CDPlayNotify StartNow"
+
+[ThisDll.Add.Inis]
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%ThisDll_DESC%"", ""rundll32.exe %11%\%SubDir%\%ThisDll%,CDPlayNotify"",%11%\%SubDir%\%ThisDll%,-103
+
+[ThisDll.Del.Inis]
+setup.ini, progman.groups,, "group1=%StartUp_DESC%"
+setup.ini, group1,, """%ThisDll_DESC%"""
+
+[ThisDll.sys.install]
+APlayExt.Dll
+APlayExt.Inf
+
+[DestinationDirs]
+ThisDll.sys.install=11,%SubDir% ; to System\%SubDir%
+
+[SourceDisksNames]
+55="AutoPlay Extender 1.0.","",1
+
+[SourceDisksFiles]
+%ThisDll%=55
+
+[Strings]
+ThisDll_DESC = "AutoPlay Extender"
+Short_DESC = CDAutoPlayExt
+SubDir = "ShellExt"
+ThisDll = "APlayExt.dll"
+
+StartUp_DESC = "StartUp"
