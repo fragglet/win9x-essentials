@@ -1,0 +1,236 @@
+Conventional Memory Tracking
+============================
+
+CONVMEM.VXD tracks the amount of memory allocated by virtual device
+drivers (VxDs) in conventional memory.  Normally, all this memory is
+reported against the VMM32 device rather than being broken down.
+
+To install CONVMEM.VXD, copy the file into your Windows\System directory,
+and add the line
+
+    device=convmem.vxd
+
+to the [386Enh] section of the system.ini file.  Restart Windows 95,
+and then you will find a file called CONVMEM.TXT in your Windows directory.
+
+To uninstall CONVMEM.VXD, delete the file CONVMEM.VXD and remove the
+above line from your system.ini file.
+
+Interpreting the output
+=======================
+
+The CONVMEM.TXT file consists of a table with the following headers:
+
+    Address - The address at which the memory was allocated (hexadecimal)
+    Size    - The size of the memory block (hexadecimal)
+    Align   - The requested memory alignment
+    I       - The letter "I" if the block is instanced, else blank
+    Caller  - The virtual device driver that allocated the memory
+
+A block of memory will be marked as "-- unused --" if it is not assigned
+to any virtual device.  This is normally either due to padding required
+to satisfy a device's alignment request, or unused bytes at the end of
+a page of memory.
+
+Sample Output
+=============
+
+VMM32 conventional memory usage
+
+ Address     Size Align I Caller
+-------- -------- ----- - ------
+0001ddd0 00000006  Byte   VMOUSE(02) + 000001A2
+0001ddd6 0000000a         -- unused --
+0001dde0 00000050  Para   V86MMGR(04) + 000001ED
+0001de30 00000022  Para I VTD(02) + 0000022B
+0001de52 0000000e         -- unused --
+0001de60 00000020  Para   VCDFSD(03) + 0000005D
+0001de80 00000034  Byte   VDD(04) + 000003E5
+0001deb4 0000001f  Byte   VMOUSE(02) + 0000042C
+0001ded3 00000007  Byte   VNETBIOS(04) + 0000037B
+0001deda 00000006         -- unused --
+0001dee0 00000008  Para   NWLINK(03) + 00000435
+0001dee8 00000002  Byte   DOSMGR(04) + 0000032E
+0001deea 0000000e  Byte   VSHARE(02) + 000002DB
+0001def8 00000008         -- unused --
+0001df00 00000037  Para   IFSMGR(02) + 00000726
+0001df37 00000008  Byte   APIX(01) + 00000281
+0001df3f 00000001         -- unused --
+0001df40 00000041  Para I NWREDIR(04) + 00000356
+0001df81 0000003e  Byte I SHELL(05) + 00000551
+0001dfbf 00000041         -- unused --
+000d1400 000001e4  Byte I MSMINI(02) + 000000A2
+000d15e4 00000174  Word I DOSMGR(04) + 00000BF0
+000d1758 00000254 Dword I DOSMGR(04) + 00001710
+000d19ac 00000004         -- unused --
+000d19b0 000003c0  Para   VSHARE(02) + 00000220
+000d1d70 00000290         -- unused --
+000d2000 00001000  Page   V86MMGR(04) + 00000CEC
+000d3000 00000133  Para I IFSMGR(02) + 000006FC
+000d3133 0000000d         -- unused --
+000d3140 000002f7  Para   IFSMGR(02) + 0000136C
+000d3437 00000009         -- unused --
+000d3440 000003d4  Para   NWREDIR(04) + 00000309
+000d3814 00000200  Word I VMM(05) + 00007974
+000d3a14 0000007f  Byte   DOSMGR(04) + 00000473
+000d3a93 0000056d         -- unused --
+
+Total unused = 0000087f
+
+Line-by-line Analysis
+=====================
+
+The following is a line-by-line analysis of the sample output.
+The "Address" and (to a lesser extent) "Size" values may vary
+from machine to machine, but the "Caller" will normally remain
+consistent.  Of course, not all lines may appear on all machines.
+(For example, if your computer does not have a network installed,
+then you won't find any of the network-related lines.)
+
+
+0001ddd0 00000006  Byte   VMOUSE(02) + 000001A2
+
+    These bytes are used by the mouse driver for compatibility
+    with MS-DOS applications which use the Int 33h interface in
+    unusual ways.
+
+	- One byte for the SLICK editor.
+	- One byte for most DOS-extended programs.
+	- Four bytes for old BASIC interpreters.
+
+0001dde0 00000050  Para   V86MMGR(04) + 000001ED
+
+    These bytes are used as part of memory manager emulation.
+
+	- 74 bytes for EMS emulation.
+	-  6 bytes for XMS emulation.
+
+0001de30 00000022  Para I VTD(02) + 0000022B
+
+    These bytes are used by the Virtual Timer Device as part of its
+    timer emulation for MS-DOS programs.
+
+0001de60 00000020  Para   VCDFSD(03) + 0000005D
+
+    These bytes are used by CD-ROM File System driver as part of
+    its MSCDEX emulation.
+
+0001de80 00000034  Byte   VDD(04) + 000003E5
+
+    These bytes are used by the display driver for compatibility
+    with MS-DOS applications which use the Int 10h interface in
+    unusual ways, particularly those which use the Video
+    Electronics Standards Assocation (VESA) interface.
+
+0001deb4 0000001f  Byte   VMOUSE(02) + 0000042C
+
+    These bytes are used by the mouse driver for compatibility
+    with MS-DOS applications which use the Int 10h interface in
+    unusual ways.
+
+0001ded3 00000007  Byte   VNETBIOS(04) + 0000037B
+
+    These bytes are used by the network driver for compatibility
+    with 16-bit network drivers and MS-DOS applications which use
+    network interfaces in unusual ways.
+
+	- 2 bytes for compatibility with 16-bit network drivers
+	- 5 bytes for unusual users of Int 5Ch
+
+0001dee0 00000008  Para   NWLINK(03) + 00000435
+
+    These bytes are used by the network driver for compatibility
+    with the IPX MS-DOS network interface and MS-DOS applications
+    which use network interfaces in unusual ways.
+
+	- 1 byte for compatibility with some applications
+	- 7 bytes for compatibility with IPX
+
+0001dee8 00000002  Byte   DOSMGR(04) + 0000032E
+
+    These bytes are used for compatibility with certain MS-DOS
+    applications which use MS-DOS Int 24h in unusual ways.
+
+	- 2 bytes for compatibility with Wing Commander 3
+
+0001deea 0000000e  Byte   VSHARE(02) + 000002DB
+
+    These bytes are used by the VSHARE device to provide file
+    sharing support to MS-DOS applications.
+
+0001df00 00000037  Para   IFSMGR(02) + 00000726
+
+    These bytes are used by the Installable File System Manager
+    device to provide device driver services for drives which
+    exist only in protected mode.
+
+0001df37 00000008  Byte   APIX(01) + 00000281
+
+    These bytes are used to provide emulation of the Common Access
+    Method (CAM) interface for Small Computer Systems Interface (SCSI)
+    devices.
+
+0001df40 00000041  Para I NWREDIR(04) + 00000356
+
+    These bytes are used to provide MS-DOS emulation for the Novell
+    NetWare-Compatible network redirector.
+
+0001df81 0000003e  Byte I SHELL(05) + 00000551
+
+    These bytes are used by the Windows 95 MS-DOS shell to detect
+    when an application has entered or exited a graphics mode.
+
+000d1400 000001e4  Byte I MSMINI(02) + 000000A2
+
+    These bytes are used by the mouse driver as part of MOUSE.COM
+    emulation.
+
+000d15e4 00000174  Word I DOSMGR(04) + 00000BF0
+
+    These bytes are used by the MS-DOS Manager virtual device in
+    order to start a program in a new MS-DOS session.
+
+000d1758 00000254 Dword I DOSMGR(04) + 00001710
+
+    These bytes are used by the MS-DOS Manager virtual device in
+    order to increase the value of FILES= in config.sys.
+
+000d19b0 000003c0  Para   VSHARE(02) + 00000220
+
+    These bytes are used by the VSHARE device to provide file
+    sharing support to MS-DOS applications which use FCBs.
+
+000d2000 00001000  Page   V86MMGR(04) + 00000CEC
+
+    Memory allocated by V86MMGR(04) + 00000CEC is used as part
+    of service translation.  The size of this memory is typically
+    4096 bytes (1000h), but other VxDs may request that V86MMGR allocate
+    more memory for service translation.
+
+000d3000 00000133  Para I IFSMGR(02) + 000006FC
+
+    These bytes are used by the Installable File System Manager
+    device in order to support long file name operations.
+
+000d3140 000002f7  Para   IFSMGR(02) + 0000136C
+
+    These bytes are used by the Installable File System Manager
+    device to provide device driver information for drives which
+    exist only in protected mode.
+
+000d3440 000003d4  Para   NWREDIR(04) + 00000309
+
+    These bytes are used by the network driver for compatibility
+    with the Novell NetWare MS-DOS network interface.
+
+000d3814 00000200  Word I VMM(05) + 00007974
+
+    These bytes are used when the Virtual Machine Manager needs
+    to execute 16-bit code temporarily on behalf of another
+    virtual device driver.
+
+000d3a14 0000007f  Byte   DOSMGR(04) + 00000473
+
+    These bytes are used by the MS-DOS Manager virtual device in
+    order to increase the number of files that can be opened by
+    Windows.

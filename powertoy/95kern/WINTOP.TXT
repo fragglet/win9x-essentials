@@ -1,0 +1,179 @@
+WinTop
+======
+
+A Windows 95 approximation to the UNIX "top" program.
+
+Installation
+============
+
+Right-click the "wintop.inf" file and select "Install".
+
+Uninstallation
+==============
+
+From Control Panel, double-click "Add/Remove Programs" and double-click
+"WinTop".
+
+WARNING!  Do not uninstall WinTop while it is running!  You have been warned.
+
+Usage
+=====
+
+From the Start Menu, select Run, then type "Wintop".
+
+Every 2 seconds, WinTop recomputes information about the processes running
+in the system.  (The update interval is not configurable, sorry.)  As WinTop
+starts, the numbers may be a bit screwy; wait a few seconds for the numbers
+to settle down.
+
+Icon
+----
+
+A gear icon indicates a system service process.  These processes are necessary
+for the proper functioning of Windows 95 and cannot be terminated.
+
+An MS-DOS icon indicates an MS-DOS application.
+
+A generic application icon indicates some other type of application.
+
+Name
+----
+
+The name of the process.
+
+The "Idle" process is not really a process; it represents how much CPU time
+has been spent in the system's idle loop.
+
+The "KERNEL32.DLL" process is not really a process; it represents the part
+of the system that is responsible for the Win32 subsystem.
+
+The "MSGSRV32.EXE" process acts as the liaison between 16-bit and 32-bit
+system components, manages various system housekeeping tasks, and is also
+used as part of Plug and Play.
+
+The "MPREXE.EXE" process manages your passwords, user profiles, and network
+connections.
+
+The "mmtask.tsk" process manages the system multimedia services.
+
+The "SPOOL32.EXE" process manages the system printer spooler.
+
+% CPU
+-----
+
+The percentage of CPU used by the process/thread in the last two seconds.
+
+Note that CPU time used by the system is also charged to the process/thread
+which was selected to perform the system task (even though the application
+might not have anything specifically to do with that task).  For example,
+swap file compaction and floppy disk access are system operations which will
+be charged against whatever process/thread happens to be available at the
+time.
+
+CPU Time
+--------
+
+The total amount of CPU time (dd:hh:mm:ss) used by the process/thread since
+it was started.  WinTop does its best to track this number, but if a process
+creates and destroys threads, then the CPU time used by destroyed threads may
+be lost, so don't be too surprised if the number sometimes goes *down*.
+
+Threads
+-------
+
+The number of threads created by the process.
+
+You may notice that MS-DOS programs take two threads.  One is for the MS-DOS
+program itself (COMMAND.COM, or whatever).  The other is the thread that
+handles the user interface for the MS-DOS program (toolbar, scroll bars,
+system menu, etc.)
+
+Type
+----
+
+This field describes whether the process is a 16-bit or 32-bit process,
+and lists the operating system for which the process was designed.
+(Windows 95 is considered version 4.0 for the purpose of this column.)
+
+MS-DOS applications are listed simply as "MS-DOS".
+
+Path
+----
+
+Path to the program file.
+
+Note that the path for MS-DOS programs is the name of the module that manages
+the user interface, not the name of the actual MS-DOS program.
+
+Menu options
+============
+
+Process: Show Threads
+---------------------
+
+Toggles the display of threads for the process.
+
+Process: Properties
+-------------------
+
+Displays properties for the process.
+
+    Process: Properties: Memory
+    ---------------------------
+
+    This property sheet page displays the 32-bit memory used by the process.
+    Memory allocated by 16-bit components is not counted.
+
+    "Allocated" memory is memory that the application has obtained from the
+    operating system.  Loading a DLL counts as "allocating" the amount of
+    memory equal to the size of the DLL.
+
+    "In memory" memory is memory that is physically available to the
+    application.  The application can access "in memory" memory with no
+    penalty.
+
+    "In use" memory is memory that the application is actively using.
+
+    When an application A stops using a particular piece of memory M for a
+    period of time, the memory is removed from "In use" status.  If
+    application A accesses M, then M is returned to "In use" status.
+    However, if another application B needs memory, and M is still in
+    "not in use" status, then the memory will be given to application B.
+
+    If application A does not access large chunks of memory for a period
+    of time, the system may decide to remove even the memory that is
+    used to keep track of the memory that application A isn't using.
+    If this happens, the number of "page tables" that have been discarded
+    will be reported at the bottom of the property sheet page, and the
+    memory for which that page table is responsible will not be included
+    in the statistics (because the information is not immediately available).
+
+    Process: Properties: Priority
+    -----------------------------
+
+    This property sheet page displays the priority class of the process.
+    The current version of WinTop does not let you alter the priority
+    class of a process.
+
+    There is also a button that lets you terminate the process.  This button
+    should be used with extreme caution, because it does not give the
+    process a chance to save files or release its system resources.
+
+    WinTop will not let you terminate system services.
+
+View: Show All Threads
+----------------------
+
+Choosing this option causes all threads for all processes to be displayed.
+It is a shortcut for selecting "Show Threads" for each process.
+
+View: Hide All Threads
+----------------------
+
+Choosing this option causes all threads for all processes to be hidden.
+It is a shortcut for de-selecting "Show Threads" for each process.
+
+View: Always on Top
+-------------------
+
+Controls whether WinTop should run as a topmost window.

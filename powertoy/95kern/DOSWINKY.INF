@@ -1,0 +1,100 @@
+;
+;   Windows Logo key control for MS-DOS programs
+;
+;   Microsoft Windows 95 Kernel PowerToys
+;
+;   Copyright 1996 Microsoft Corporation
+;
+;
+;   Yes, DOSWINKY is a goofy name, but I think it's kind of cute.
+;
+;
+;   When this device driver is installed, you can disable the Windows
+;   logo key in MS-DOS programs.  Handy when playing a video game and
+;   you keep pressing that key by mistake.
+;
+;   1. To install DOSWINKY
+;
+;   Right-click this file and select "Install".
+;
+;   Wait for disk activity to stop.
+;
+;   Restart the computer for the changes to take effect.
+;
+;   2. To use DOSWINKY
+;
+;   Here are the steps for disabling the Windows logo key when playing
+;   your game.  Repeat these steps for each of your MS-DOS-based games.
+;
+;	Right-click the MS-DOS program (or its shortcut).
+;
+;	Select "Properties".
+;
+;	Click on the "Misc" tab.
+;
+;	Clear the check-mark from the Ctrl+Esc key to tell Windows
+;	to disable the Ctrl+Esc key when the game is running.
+;	DOSWINKY will also disable the Windows logo key when the
+;	game is running.
+;
+;	Click OK to save your changes.
+;
+;   Double-click the MS-DOS program (or its shortcut) to run the game.
+;   While the game is running, the Windows logo key will not open the
+;   Start Menu.
+;
+;
+;   3. Uninstalling DOSWINKY
+;
+;   Open the Control Panel, double-click Add/Remove Programs, and
+;   double-click "Windows Logo key control for MS-DOS Programs".
+;
+;   Wait for disk activity to stop.
+;
+;   Restart the computer for the changes to take effect.
+;
+[version]
+signature="$CHICAGO$"
+
+[DosWinkyInstall]
+CopyFiles = DosWinky.Files.Inf, DosWinky.Files.Sys
+AddReg    = DosWinky.Add.Reg
+
+[DefaultInstall]
+CopyFiles = DosWinky.Files.Inf, DosWinky.Files.Sys
+AddReg    = DosWinky.Add.Reg
+
+[DefaultUnInstall]
+DelFiles  = DosWinky.Files.Inf, DosWinky.Files.Sys
+DelReg    = DosWinky.Del.Reg
+
+[DestinationDirs]
+DosWinky.Files.Inf = 17
+DosWinky.Files.Sys = 11
+
+[SourceDisksNames]
+1="Windows Logo key control for MS-DOS programs","",1
+
+[SourceDisksFiles]
+DOSWINKY.INF=1
+DOSWINKY.VXD=1
+
+[DosWinky.Files.Inf]
+DosWinky.INF
+
+[DosWinky.Files.Sys]
+DosWinky.VXD
+
+[DosWinky.Add.Reg]
+HKLM,%UIF%,DisplayName,,"%DosWinky%"
+HKLM,%UIF%,UninstallString,,"%10%\rundll.exe setupx.dll,InstallHinfSection DefaultUninstall 132 %17%\DosWinky.inf"
+HKLM,%VXD%,StaticVxD,,"DosWinky.VXD"
+
+[DosWinky.Del.Reg]
+HKLM,%UIF%
+HKLM,%VXD%
+
+[Strings]
+DosWinky="Windows Logo key control for MS-DOS programs"
+UIF="Software\Microsoft\Windows\CurrentVersion\Uninstall\DosWinky"
+VXD="System\CurrentControlSet\Services\VxD\DosWinky"

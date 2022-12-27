@@ -1,0 +1,96 @@
+DOSWZCFG - MS-DOS Mode Configuration Wizard Customization Tool
+
+The fact that you're running doswzcfg in the first place demonstrates that you
+are a hard-core super power user who believes that fancy GUI help files are
+for namby pamby mouse-addicted beginners who think you need exact change to
+get onto a PCI bus.  Plain ASCII text files, that's what real hackers user
+for documentation.
+
+So here it is.
+
+DOSWZCFG
+--------
+
+This program lets you customize the MS-DOS mode configuration wizard.  The
+wizard appears when you right-click an MS-DOS application (or shortcut to same),
+go to the "Program" page, click "Advanced", then click the "Configure" button.
+
+Option
+------
+
+This is a list of MS-DOS mode options that are currently available.  You
+can add new options by clicking the "New" button, or remove an option
+by clicking the "Remove" button.  However, some options cannot be removed
+because they are used internally by the MS-DOS Mode Configuration Wizard.
+
+The next best thing to removing an internal option is to disable it by deleting all the lines from the config.sys and autoexec.bat sections.  (If both the
+config.sys and autoexec.bat sections are blank, then the option will not be
+shown to the user.)
+
+Text
+----
+
+This is the description that appears in the list of configurable options.
+If the text section is left blank, then the option is installed unconditionally
+without being shown to the user.
+
+Sequence
+--------
+
+The MS-DOS Mode Configuration Wizard sorts all the options numerically by their
+sequence number.  Options with lower sequence numbers are processed before
+options with higher sequence numbers.
+
+Tip
+---
+
+This is the "tip" that appears when you select the option.
+
+Install by default
+------------------
+
+If this option is selected, then then the item is initialled checked in the
+list of configurable options.
+
+This check-box is disabled if the Text is empty, indicating that the option
+is mandatory, in which case the option will be installed unconditionally.
+
+Is a memory manager
+-------------------
+
+Check this option if the lines in config.sys or autoexec.bat install an
+MS-DOS memory manager such as EMM386, QEMM, or 386Max.  Windows needs to know
+this information because some programs cannot run if memory managers are
+installed, in which case the option will be automatically removed from the
+config.sys and autoexec.bat files when those types of programs are run.
+
+Config.sys
+----------
+
+Lines entered into this section will be added to the config.sys file.  At
+most ten lines can be added.
+
+Autoexec.bat
+------------
+
+Lines entered into this section will be added to the autoexec.bat file.  At
+most ten lines can be added.
+
+OK
+--
+
+Pushing this button saves all changes and exits the program.
+
+Before the changes are applied, you will be given the opportunity to save
+the old settings.  If you elect to do so, the old settings are saved in REGEDIT
+format so that you can restore them later, should your changes prove not
+to have been the best idea.
+
+If you press Cancel when asked to save the old settings, then the old settings
+are not saved before the new settings are applied.
+
+Cancel
+------
+
+Pushing this button or pressing the ESC key discards all changes and exits
+the program.

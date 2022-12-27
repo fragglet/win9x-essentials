@@ -1,0 +1,59 @@
+[version]
+signature="$CHICAGO$"
+
+[KeyRemapInstall]
+CopyFiles = KeyRemap.Files.Ext, KeyRemap.Files.Inf, KeyRemap.Files.Sys
+AddReg    = KeyRemap.Add.Reg
+
+[DefaultInstall]
+CopyFiles = KeyRemap.Files.Ext, KeyRemap.Files.Inf, KeyRemap.Files.Sys
+AddReg    = KeyRemap.Add.Reg
+
+[DefaultUnInstall]
+DelFiles  = KeyRemap.Files.Ext, KeyRemap.Files.Inf, KeyRemap.Files.Sys
+DelReg    = KeyRemap.Del.Reg
+
+[DestinationDirs]
+KeyRemap.Files.Ext = 11,ShellExt
+KeyRemap.Files.Inf = 17
+KeyRemap.Files.Sys = 11
+
+[SourceDisksNames]
+1="Key Remap","",1
+
+[SourceDisksFiles]
+KeyRemap.DLL=1
+KeyRemap.INF=1
+KeyRemap.VXD=1
+
+[KeyRemap.Files.Ext]
+KeyRemap.Dll
+
+[KeyRemap.Files.Inf]
+KeyRemap.INF
+
+[KeyRemap.Files.Sys]
+KeyRemap.VXD
+
+[KeyRemap.Add.Reg]
+HKLM,%UIF%,DisplayName,,"%KeyRemap%"
+HKLM,%UIF%,UninstallString,,"%10%\rundll.exe setupx.dll,InstallHinfSection DefaultUninstall 132 %17%\KeyRemap.inf"
+HKLM,"%KBD%\%KeyRemap%",,,"%GUID%"
+HKCR,CLSID\%GUID%,,,"%KeyRemap%"
+HKCR,CLSID\%GUID%\InProcServer32,,,"%11%\ShellExt\KeyRemap.dll"
+HKCR,CLSID\%GUID%\InProcServer32,ThreadingModel,,"Apartment"
+HKLM,%VXD%,StaticVxD,,"KeyRemap.VXD"
+
+
+[KeyRemap.Del.Reg]
+HKLM,%UIF%
+HKLM,"%KBD%\%KeyRemap%"
+HKCR,CLSID\%GUID%
+HKLM,%VXD%
+
+[Strings]
+KeyRemap="Key Remap"
+UIF="Software\Microsoft\Windows\CurrentVersion\Uninstall\KeyRemap"
+KBD="Software\Microsoft\Windows\CurrentVersion\Controls Folder\Keyboard\shellex\PropertySheetHandlers"
+VXD="System\CurrentControlSet\Services\VxD\KeyRemap"
+GUID="{176AA2C0-9e15-11cf-bfc7-444553540000}"

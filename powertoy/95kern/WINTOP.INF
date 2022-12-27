@@ -1,0 +1,49 @@
+[version]
+signature="$CHICAGO$"
+
+[WinTopInstall]
+CopyFiles = WinTop.Files.Ext, WinTop.Files.Inf, WinTop.Files.Sys
+AddReg    = WinTop.Add.Reg
+
+[DefaultInstall]
+CopyFiles = WinTop.Files.Ext, WinTop.Files.Inf, WinTop.Files.Sys
+AddReg    = WinTop.Add.Reg
+
+[DefaultUnInstall]
+DelFiles  = WinTop.Files.Ext, WinTop.Files.Inf, WinTop.Files.Sys
+DelReg    = WinTop.Del.Reg
+
+[DestinationDirs]
+WinTop.Files.Ext = 10
+WinTop.Files.Inf = 17
+WinTop.Files.Sys = 11
+
+[SourceDisksNames]
+1="WinTop","",1
+
+[SourceDisksFiles]
+WINTOP.EXE=1
+WINTOP.INF=1
+WINTOP.VXD=1
+
+[WinTop.Files.Ext]
+WINTOP.EXE
+
+[WinTop.Files.Inf]
+WINTOP.INF
+
+[WinTop.Files.Sys]
+WINTOP.VXD
+
+[WinTop.Add.Reg]
+HKLM,%UIF%
+HKLM,%UIF%,DisplayName,,"%WinTop%"
+HKLM,%UIF%,UninstallString,,"%10%\rundll.exe setupx.dll,InstallHinfSection DefaultUninstall 132 %17%\WinTop.inf"
+
+
+[WinTop.Del.Reg]
+HKLM,%UIF%
+
+[Strings]
+WinTop="WinTop"
+UIF="Software\Microsoft\Windows\CurrentVersion\Uninstall\WinTop"
