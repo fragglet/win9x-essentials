@@ -1,0 +1,400 @@
+
+           The Volkov Commander, Version 4.05 shareware
+            Copyright (C) 1991-2000 Vsevolod V. Volkov
+
+
+
+Minimal requirements:
+     Computer. . . . . . . . IBM PC or BIOS-compatible
+     Operation system. . . . DOS 3.20 or higher
+     Free RAM. . . . . . . . about 155 Kb
+
+
+Implementation notes:
+     - all  file and memory management operations implemented on
+       DOS level via Int 21h
+     - keyboard polling implemented on BIOS level via Int 16h
+     - I/O  ports access: port 3DAh is used for snow elimination
+       on CGA
+
+
+Some notes and recommendations:
+
+ 1. The Volkov Commander  allows  you  to select, copy, move and
+    delete  directories (including all contained subdirectories)
+    as well as ordinary files.
+
+ 2. You  can  split and merge files while copying. What you have
+    to  do  for  splitting - if you see  following message while
+    copying file to diskette:
+
+                ษอออออออออออออ Copy ออออออออออออออป
+                บ There isn't enough room to copy บ
+                บ           filename to           บ
+                บ           D:\filename           บ
+                บ        Abort   Continue         บ
+                ศอออออออออออออออออออออออออออออออออผ
+
+    change diskette and select "Continue". First part of splited
+    file  will have such date and time as had source file, other
+    parts will have current date and time.
+
+    How  to  merge  two  files?  You have to copy second part of
+    splitted  file to directory  where  first  part resides. You
+    will see following message
+
+            ษอออออออออออออออออ Copy ออออออออออออออออออป
+            บ        The following file exists        บ
+            บ               D:\filename               บ
+            บ Do you wish to write over the old file? บ
+            บ     Overwrite   All   aPpend   Skip     บ
+            ศอออออออออออออออออออออออออออออออออออออออออผ
+
+    - choose "Append".
+
+ 3. Hotkey  F10  in Copy/Rename dialog box (F5/F6) pops up panel
+    with directory tree of the  drive  specified  in destination
+    path.  Then  you  can choose right place to copy to.  Hotkey
+    Alt-F10 invokes directory tree of the current (source) disk.
+
+ 4. Group  Selection (Grey +) and  Group Inversion (Grey *) acts
+    upon  files  only, while  Unselection  (Grey -) acts on both
+    files and directories.
+
+ 5. After  completion of operation upon  selected group of files
+    you  can  restore selection using Restore Selection (Ctrl-M)
+    command.
+
+ 6. You  can  specify a name of DOS command, executable or batch
+    file  in command  line as a parameter for  VC  which will be
+    executed automatically when the Volkov Commander starts. For
+    example:
+
+                        VC startup.bat
+
+    VC  will start up and then run batch file startup.bat, which
+    may contain DOS commands and resident programs.
+
+ 7. There are two options of residing VC in RAM:
+
+    1. "Small" mode - The Commander  deallocates  memory  before
+       execution  of  each  DOS  command  or  application.  When
+       program started from  VC  is terminated, file  VC.COM  is
+       reloaded  from path it was  originally  started. In  this
+       mode  only  about 12.5 Kbytes of The Commander resides in
+       memory when programs run.
+
+    2. Full-resident mode - VC is totally  allocated in the  RAM
+       (about 76 Kb). While  in  full-resident  mode, executable
+       file  VC.COM is loaded only once and does not need later.
+       This mode is faster.
+
+    Small mode is selected if 'Memory Allocation' option checked
+    in pull-down menu Options. It is possible while being in one
+    of this modes to launch applications in  opposite  execution
+    mode without using menu: you just have to press  Shift-Enter
+    instead  of  Enter. The status of Shift key is also examined
+    when  starting  programs  from  User Menu  (F2)  or  History
+    (Alt-F8).
+
+    Mode choice recommendations:
+
+    1. If  you  have  more  than 65 Kbytes of high  memory (UMB)
+       free - it would be preferable to load VC into  UMB  using
+       command LH VC under  MS-DOS 5.0, HILOAD VC  under  DR-DOS
+       6.0.  In such case it would be better to utilize "maximal
+       mode" for faster operating.
+
+    2. If  you  have  no  UMBs  in  your  system  or UMB size is
+       insufficient - "small mode" will be optimal if you run VC
+       from  hard  disk. If  you  have  RAM-disk it will be even
+       better to copy  VC.COM to RAM-disk and start from it. For
+       example, it could be done in such a way:
+
+                        COPY C:\VC\vc.com E:\
+                        SET VC=C:\VC
+                        E:\vc
+
+       SET VC=... command  specifies  directory   where  VC.INI,
+       VC.HLP, main menu  VC.MNU, etc reside.  If VC environment
+       variable  is not specified, these files are looked for in
+       directory VC.COM was started from.
+
+    3. If you run  VC  from floppy disk - "maximal mode" will be
+       the best choice. In spite of expense of RAM, this  choice
+       save  you from painful waiting for VC.COM reloading after
+       return from applications.
+
+ 8. You  can  compress  VC.COM  by almost any executable packing
+    program, such  as  DIET, LZEXE or PKLITE. Some  packers (for
+    example, LZEXE) support  only  EXE-files. Older  versions of
+    PKLITE or DIET  before v1.44 refusing to pack  COM-files  of
+    size near 64K. In such cases you'll have to transform VC.COM
+    to EXE-format using COM2EXE utility.
+
+ 9. Two methods of launching  DOS commands and applications from
+    VC is available.
+
+    First - standard way: executing COMMAND.COM /C <command>. In
+    this  case  it  is  needed  that  COMSPEC  variable  in  DOS
+    environment  shall be installed  properly  and  presence  of
+    command  processor  on  mentioned path. This is no-risky way
+    (and used by default).
+
+    Second method - using  DOS  interrupt int 2Eh - may not work
+    in some cases (for example 4DOS and NDOS support this method
+    optionally, OS/2  DOS box  does not support it at all). This
+    method  have  some  advantages over the standard method: you
+    are  able  to  modify  master  DOS  environment variables by
+    usual SET, PATH, PROMPT etc. commands, second  copy of shell
+    (COMMAND.COM or replacement) wouldn't be loaded into memory,
+    therefore  commands and applications are executed faster and
+    after loading of resident programs there is no "hole" in RAM
+    after  second  copy  of  COMMAND.COM. There  are  also  some
+    shortcomings inherited in DOS: BATCH-file  interruption with
+    Ctrl-Break  stops  execution but with trying to execute next
+    command, continued  execution of interrupted batch  file and
+    then  ordered  command;  DOS  has  no  possibility of nested
+    execution  through  int 2Eh, so if one program started  with
+    int 2Eh  and then started another one through  int 2Eh also,
+    the control will be given to the process which started first
+    program  and other program is allocated in RAM, though there
+    is no access to it. Shortly  speaking - the choice is yours.
+    You  can  select  second  method  by checking "Quick execute
+    commands" in Advanced options.
+
+10. "Memory Info" (Alt-F5) command  gives you useful information
+    about  programs  loaded into low (first 640 Kbyte) and upper
+    (UMB area)  memory: PSP  segment address, number and size of
+    memory blocks occupied by program, and intercepted interrupt
+    vectors.  You  can  also  remove from memory thouse resident
+    programs which were loaded after the Commander.
+
+    You can select/unselect programs from the list using Insert,
+    Grey -, Grey + keys  and  then remove selected programs from
+    memory by pressing Enter.
+
+    It is not possible to unload resident program if one or more
+    interrupt vectors  originally owned by this program rehooked
+    (intercepted)  by  another TSR. That's why the programs with
+    the    same    intercepted   vectors   could   be   unloaded
+    simultaneously  or  one  by  one   starting  with  the  last
+    intercepting program. 
+
+    When  VC  exits to DOS it unloads all TSR programs installed
+    after VC was started.
+
+11. "File Attributes" command (item in Files menu) allows you to
+    change  the  attributes, date and time of selected files. If
+    you  apply  this  command to subdirectory, attributes of all
+    files in that subdirectory will be changed.
+
+12. You  can  calculate  the  sizes of all subdirectories in the
+    current  panel. The size of directory is the sum of sizes of
+    all  files and subdirectories inside of that directory. This
+    calculation  can  be  done automatically on every file panel
+    re-reading - check "Auto directory sizes" in  Options  menu,
+    or manually - using Alt-F6 combination.
+
+13. File  search  function  Alt-F7  allows  to  search  files by
+    standard  wildcards  template  or  filtered  by context.  If
+    "Containing"  field  is  empty, the template search is going
+    on, and if the "containing" field  is not  empty, the search
+    is running  according  to  the  specified string facing  the
+    template.  This  command  searches  the current or specified
+    directory  and  in  all enclosed directories. Apart from the
+    particular  directory you can specify the drive. You may use
+    *: instead of drive letter if you  want looking for files on
+    all  fixed  disks, i. e. on  all  hard  disk partitions, all
+    virtual and network disks excluding floppy drives and CD-ROM
+    drives. While search is in progress you can move the pointer
+    above  the found files, interrupt search or switch to chosen
+    file into the specified subdirectory of specified drive.
+
+14. There  is  current  drive  label in the Info panel. You  can
+    create, edit or remove it, with the command  Volume label in
+    menu Commands or press Ctrl-F4. To remove the label you have
+    simply  to  delete  all characters in the field of the label
+    name.
+
+15. You can create enclosed  User Menus. For this, you have only
+    to  enter  full  file name containing submenu instead of the
+    command. If path is not specified the search  will be in the
+    same directory from what file executing was loaded. It is an
+    obligation to specify extension .mnu as follows:
+
+                   F1:  Formatting...
+                        format.mnu
+    or
+                        C:\VC\format.mnu
+
+16. It is possible to use macro !@  in extension files and menu,
+    which  creates  file (VC.LST) containing list of highlighted
+    files  and  directories, and  inserts  pathname of this file
+    into  the  command  instead  of  !@. If there is a string in
+    menu:
+
+                        PKZIP -ex ! @!@
+
+    the file VC.LST will be created and command
+
+                PKZIP -ex filename @C:\VC\vc.lst
+
+    would be executed. File  VC.LST is created in home directory
+    of VC or in directry specified in TEMP environment variable.
+
+17. Internal viewer and editor work in both text and hexadecimal
+    modes (F4 switches modes).  While in hexadecimal mode Search
+    operation (F7) allows  to search  file  fragments  and bytes
+    sequences in hexadecimal. For example, if you specify:
+
+                            EB,38,A5,6
+
+    VC  will  try  to  find text "EB,38,A5,6" as well as 4 bytes
+    sequence: EB 38 A5 06. Mentioned  string  could be presented
+    in any convenient way:
+
+                            EB, 38, A5, 6
+                            EB38A56
+                            EB38A506
+                            EB 38 A5 6
+
+18. VC  allows you to associate operation of  Enter, F3  and  F4
+    keys  with  file  extensions. Information  about  associated
+    commands  stored  in  so-called  "extension"  files: VC.EXT,
+    VCVIEW.EXT   and  VCEDIT.EXT  correspondingly.  These files'
+    format is following:
+
+                ฺฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฟ
+                ณ' Comment                      ณ
+                ณext:   command1                ณ
+                ณ       @ command2              ณ
+                ณ       . . . . .               ณ
+                ภฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤฤู
+
+    The  sign ' in  the  first  position  means  that  the  line
+    contains comments. If any other  sign apart from  Space, Tab
+    or ',  VC  tries  to  identify  extension  in such a string.
+    Command1, command2, ...- could be any DOS commands. If there
+    is a symbol @ before  the  command, both  prompt and command
+    are not echoed to  screen (as in BATCH-files). Using 4DOS or
+    NDOS, the following string has to be included into VC.EXT:
+
+                              BTM:     !
+
+    This string allows to run BTM-files simply with Enter press.
+
+    Meanings  of  all sequences of the macro substitutions using
+    ! are in the lower  part of screen  while  editing extension
+    files.
+
+    Viewers  could be run in two ways: either in mentioned above
+    way or with  passing on of the parameters, including 'Socha'
+    string,  information  about  colors,  mouse  etc.,  as  many
+    standard  viewers do. To  pass  on  the  parameters in files
+    VCVIEW.EXT  or  VCEDIT.EXT  the  string  has  to  look like:
+    the command  has  to  contain  only  full name of the viewer
+    including  extension and path; if the path is not specified,
+    the  viewer is being  searched in the  same  directory, from
+    what extension file was read; the command should not contain
+    substitution  symbols  !; only  one  command allowed for the
+    extension. For example, the following lines
+
+                txt:    wpview.exe
+                txt:    C:\VIEWERS\wpview.exe
+
+    will  invoke  viewer  in  proper way, with passing on of the
+    parameters, and the first line  will try to load  wpview.exe
+    from the same directory where are the  files  VCVIEW.EXT  or
+    VCEDIT.EXT  located.  And if the viewer has not found there,
+    internal viewer would be invked instead. But commands
+
+                txt:    wpview
+                txt:    wpview.exe !.!
+                txt:    wpview.exe
+                        cls
+
+    will  be  executed  as  regular commands through the command
+    line.
+
+19. VC  supports  not  only  main (global) version  of extension
+    files  VC.EXT, VCVIEW.EXT, VCEDIT.EXT and menu file  VC.MNU,
+    but  also local ones. Local versions overrides main file for
+    current  directory. What does it mean? VC  looks for "local"
+    versions  of  this  files  in  current  directory of current
+    drive. Only if local  file  does  not exist, VC  looking for
+    main  extension or menu  file  in  directory,  specified  in
+    environment  variable  VC=...,  and  if  this  variable  not
+    specified - in directory VC was started from.
+
+20. Internal  editor  can  edit  quite  long  files,  using  all
+    available free memory.
+
+21. Internal  editor  can  undo  last  character, line  or  word
+    deletion (Ctrl-U).
+
+22. To  hide  the  panels  and  show DOS output screen, move the
+    mouse  into  the  upper  left  corner  and click any button.
+    Click mouse button one more to restore panels. This function
+    is the same as Ctrl-O press.
+
+23. Ctrl-Z displays the Tree-panel in the adjacent window.
+
+24. Ctrl-I  inserts  selected filenames into command line, space
+    delimited.  Ctrl-[ and Ctrl-] inserts path of left and right
+    panels.
+
+25. VC  fully  supports logical drives created by DRIVER.SYS and
+    phantom disk drive B: in systems with one floppy drive.
+
+26. VC is fully compatible with  multitasking  environments like
+    DesqView,  Windows,  OS/2  DOS  boxes  and  does  not  waste
+    processor time while waiting for keyboard input.
+
+27. Country  information  sets  the appearance of date, time and
+    determines  character  converting  from  lower to upper case
+    in   search  operation.  If  this  function  does  not  work
+    properly, be  sure  the  country  code and code page are set
+    correctly in the COUNTRY=... line of CONFIG.SYS file.
+
+28. The program  VCSETUP  allowes you to set a lot of parameters
+    of  screen,  mouse,  panels, view  country  information  and
+    change color palette.
+
+29. You  can  show or hide  directories  with  hidden and system
+    attributes using option 'Show hidden directories' in VCSETUP
+    program. You should  rescan tree to update TREEINFO.NCD file
+    by Ctrl-R in Tree panel after changing this option.
+
+30. You can check for presence of VC in memory and get addresses
+    of VC internal data structures using this INT 21h call:
+
+    INT 21h:
+    Set registers to:
+        CX = 'VC' (5643h)
+        DX = 'OM' (4F4Dh)
+        AH = 2Bh
+        AL - subfunction:
+             AL = 0 - get pointer to left panel data structure
+             AL = 1 - get pointer to right panel data structure
+             AL = 2 - get address or global data varables
+    Returns:
+        AL = 0FFh - if VC.COM is not loaded
+        AL = 0    - if VC.COM loaded
+	AH        - API version (42 for VC 4.02 and 4.03)
+        ES:BX     - pointer to requested data structure
+
+31. VC is year 2000 compliant.
+
+----------------------------------------------------------------
+
+Vsevolod V. Volkov                                 Kiev, Ukraine
+
+Homepage: http://come.to/volkov
+E-mail:   vc@vvv.kiev.ua
+Fidonet:  2:463/62.16
+Phone:    380-44-4842542                  Monday through Friday,
+                               7pm-10pm Kiev time (+2 hours GMT)
+
+
+                         June-16-2000

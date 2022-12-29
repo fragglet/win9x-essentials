@@ -1,0 +1,299 @@
+
+                      History Of Changes
+         The Volkov Commander, Versions 4.00.036 - 4.05
+
+
+Changes in version 4.00.036 beta
+
+- Global  VC.EXT was not being renewed in the RAM after editing.
+  So  you  had  to  exit  VC and then start again VC to load new
+  global VC.EXT.
+- The  panels  were  not being rescaned after Rename/Move of one
+  file with Ctrl-F6.
+- If  option "Auto directory sizes" was  switched on  and choose
+  sort  by size, directories were sorted but after any rescan of
+  the panels the sorting disappeared.
+- Any  control  symbols  is  possible to input using  Alt-NumPad
+  without Ctrl-Q.
+- Commands  from  History with control symbols are being renewed
+  correctly.
+- There  was  no  trace  of repeated commands in History if they
+  were initiated by pressing of the first symbols in the command
+  line and press Ctrl-Enter.
+- Fast mouse reset is working in a proper way.
+- Volume labels on the network disks is indicated properly.
+- Trying  to  create/change/remove  Volume labels on the network
+  disks is blocked.
+- Errors 'Sharing  violation' and 'Lock  violation' are  treated
+  correctly.
+- All files for reading are opened now in Deny None mode instead
+  of  compatibility  mode. This  allows  to read just opened for
+  writing files in multitask environment or in the network.
+- Running under  DesqVIEW extra processor time is given to other
+  tasks  when star sky screen saver is active. Previously it was
+  only during enter expectation.
+- Found  text  containing  Tab  symbols in viewer is highlighted
+  correctly.
+- Mistypings in Help in chapter 'Keyboard reference' is avoided:
+  Cursor movement - Word right - ^F (previously it was ^T).
+
+
+Changes in version 4.00.037 beta
+
+- Added russian Help: file VCR.HLP has to be renamed to VC.HLP.
+- It  is  possible  to  switch  off  the  TSR manager  to  avoid
+  conflicts  with  some  programs.  One byte shall be changed in
+  VC.INI:
+                      01C1:  01 -> 00
+- Error prompts during  Copy/Rename/Move have Ok/Cancel menu. If
+  the choice is Ok  so the following file will be treated (as it
+  was  in  former version), Cancel stops group operation (it was
+  done for Delete and File attributes before).
+- Pressing Ctrl-Break does not lead to ^C presence on the screen
+  before command execution.
+- If  directory  had  long file (number of located clusters more
+  than  65535, the  situation  is  unreal but possible) so after
+  pressing Ctrl-L the computer crashed during Info-panel output.
+- Computer crashed after starting external viewers with some VGA
+  cards.
+- Pressed keys recognition algorithm is changed.  Now Ctrl-Y and
+  Ctrl-Z work on German keyboards, and Ctrl-J = Ctrl-Enter.
+- Some errors in the Help are corrected.
+
+
+Changes in version 4.00.038 beta
+
+- Ctrl-[  and  Ctrl-] inserts into command line full pathname of
+  the left or right panel.
+- The  environment  variable  TEMP=...,  if  defined,  sets  the
+  directory to create list file VC.LST in.
+- File names  containing characters from national alphabets will
+  be  reflected  in  a  right  way (small letters), if parameter
+  COUNTRY=... in CONFIG.SYS is set correctly.
+- Cursor does not skip to 255-th file in panel after starting of
+  any program if there are more than 256 files in the directory.
+- Avoided  error defining the size of selected files in the Mini
+  Status string.
+
+
+Changes in version 4.00.039 beta
+
+- Program  VCSETUP  was added to install different parameters of
+  configuration, screen, mouse, panels, color change.
+- Corrected  error in the TSR manager  which led to the conflict
+  between VC and some other programs using DPMI.
+- Subdirectories are being copied with attributes.
+- Most of dialog boxes appearing during copy, rename, remove and
+  attributes   setting  now  have  item  [Cancel]  to  interrupt
+  execution of group operation.
+- Added  operation  Append  in  moving  file in the range of one
+  logical drive.
+- When  splitting  long  files, first  part has date and time of
+  original file, other  parts  have current date and time.  This
+  allows  to identify the correct sequence during the pasting of
+  the obtained parts.
+- Corrected error in long files splitting under DR-DOS.
+- All new files after copy and files changed during editing will
+  have attribute Archive.
+- To load into UMB instead of 75 Kb, 65 Kb are needed.
+- The load into UMB is supported with HILOAD command in DR-DOS.
+- Memory  info  uses  information from MCB about loaded programs
+  for DR-DOS.
+- In DR-DOS disks labels are shown correctly.
+- In File Find  the template *.* is added to input filename only
+  if the extension is absent (there is no '.').
+- The date did not change  at 24:00 p.m. if  screen  saver (star
+  sky) was on the screen at the moment.
+- Added  function  Rescan (F2)  in  the  Change  Directory  mode
+  (Alt-F10).
+- Checksum of the file  TREEINFO.NCD  formed  incorrectly if the
+  number of directories was more than 255.
+- Added  new  option "Auto rescan tree" to  switch off automatic
+  tree  rescan  after  each  creation, removing  or  renaming of
+  subdirectories. File VC.INI is increased on 1 byte.
+- Disk  reading  error dialog box accepted some ASCII characters
+  in range 128-255 as drive letter in the former version.
+- Algorithm of available disks determination is changed.
+- If  the  DOS  command  line  was  in the last screen string so
+  switching Key Bar left mouse cursor copy.
+- In  some  cases  diskette  rescanning  with Ctrl-R led to file
+  pointer did not set on the first file in panel.
+- Ctrl-\ now rescans disk even if the root directory is current.
+- Symbols ! and !.! in the  User Menu  substitute  the  name  of
+  current file or directory from the file panel. Previously this
+  function worked only on files.
+- Error in viewer while shifting text to the left or right using
+  mouse.
+- Saving  file  in the editor, it is possible to use device name
+  as output file name (for instance PRN or LPT2).
+
+
+Changes in version 4.00.040 beta
+
+- In speed-search mode left button press led to execution of the
+  command ^A, right button ^B, middle button - ^D.
+- Corrected  error  in  switching  to  the  EGA-lines mode, when
+  current page is not zero.
+- Running  under  DesqView  with  switched  off  virtualization,
+  output  always  was  to  zero  screen  page, even  it  was not
+  current.
+- Option Key Bar in VCSETUP was out of order.
+- In the string Key Bar, text was F10-LapTop instead of F10-Quit.
+- While  trying  to  change the Shadow presentation the computer
+  crashed.
+
+
+Changes in version 4.00 shareware (May-9-1994)
+
+- Autorepeat for Ins key.
+- All  files are opened in Deny None mode for reading. If access
+  is denied then trying to open in Compatibility mode.
+- Small impovement in copying: long files are copied faster.
+- Fixed problem in copying subdirectories on some networks.
+- Fixed   uncompatibility  which  prevented  moving  files  from
+  network drives.
+- Ctrl-F6 sets name of highlited file or subdirectory as default
+  target name to edit.
+- Fixed  error  in  deleting  of  not empty subdirectories under
+  Windows NT.
+- Removed supporting of NC.MNU files as local user menus.
+- Items  'Send files', 'Send/Receive mail', 'Commander mail' are
+  removed from the pull-down menu.
+- Size of file up to 4 Gbytes is shown correctly in the internal
+  viewer.
+- While  saving  file  in  the  Editor, set  attributes error is
+  ignored.
+- Fixed error in scanning directory tree when the root directory
+  is unaccessable.
+- Fixed  error  in File Find by contents. The field 'Containing'
+  is  treated now as text string. Previously it was treated also
+  as hexadecimal sequence in some cases.
+- CD-ROM  drives  now  excluded  from searching when *: has been
+  specified to find files on all fixed drives.
+- Fixed  error  in  Find File. Find buffer overlaped next memory
+  control block if too many files were found.
+- Fixed  error in TSR manager. There were string operations with
+  undefined direction flag in INT 21h AH=49h handler.
+- Critical error handler was changed.  Some  error messages were
+  added.
+- Extra  processor  time  is  given to other tasks while running
+  under Windows.
+- When  COMMAND.COM  is  not  found, all  attempts to retry were
+  unsuccessful. This problem is corrected.
+- Added option 'Show logical drive B:' in  VCSETUP  program.  It
+  enables  or  disables appearance of letter 'B' in Change Drive
+  dialog box on PCs with one floppy drive.
+- While  trying  to set the 'Auto change dir delay time' to 1.00
+  in VCSETUP the computer crashed.
+- Some items in color setup of VCSETUP program were mixed.
+- Added help in VCSETUP program.
+- Some errors in the Help are corrected.
+- Added english documentation VCINFO.DOC and VCNEWS.DOC.
+
+
+Changes in version 4.01 shareware (March-21-1996)
+
+- The  character  in  upper left corner was a blank in EGA-lines
+  mode.
+- The list of support sites in REGISTER.DOC was changed.
+
+
+Changes in version 4.02 shareware (October-09-1999)
+
+- Tree, Volume label, Memory info, Directory sizes and Find file
+  functions highlights item in menu bar correctly.
+- Fixed  error  setting dates after year 2000 in File attributes
+  function.
+- Functions F10 and Alt-F10 in Copy/Move dialog box are swapped.
+- Fixed  error bringing up warning under Windows 95 when opening
+  zooming boxes in VC and VCSETUP.
+- VC is not terminated if running under DOS older than 3.20.
+- VCSETUP is not terminated if running under DOS older than 3.0.
+- Error output  messages  about incorrect DOS version and memory
+  usage in VCSETUP.
+- Maximal  number  of  directories in tree panel is changed from
+  512 to 768.
+- Some  functions are mixed if type next hot keys from pull-down
+  menu: Gray +, Gray -, Gray *, Ctrl-M, F10.
+- Fixed  problem  running  VC and VCSETUP in text video modes if
+  number of columns is not 80.
+- Changed  '^M'  to  'Ctrl-M'  in  'Restore selection'  line  of
+  pull-down menu 'Files'.
+- Hotkey  for  function 'Restore selection' in pull-down menu is
+  changed from 'T' to 'S'.
+- Removed  hot  keys  Ctrl-A  and  Ctrl-F  which  were  equal to
+  Ctrl-Left and Ctrl-Right.
+- Added hot key Ctrl-F for calling 'Filter' dialog box.
+- Added hot key Ctrl-H for showing hidden and system files.
+- Added hot key Ctrl-A for calling 'File attributes' dialog box.
+- Added hot key Ctrl-C for comparing directories.
+- Added Word Star hot heys in editor.
+- Added hot key  F3  (Quit)  in internal viewer that is equal to
+  F10 or Esc.
+- Removed handler 'Divide overflow'.
+- Command  line  overlaps  clock  and menu bar if it is in first
+  line.
+- Ctrl-Enter inserts file to command line after '@' symbol.
+- Format  of 'Blocks' field in Memory info dialog box is changed
+  from 3 to 5 digits.
+- Cursor is large in the internal editor when 'Laptop' colors is
+  used.
+- After splitting a file, date and time of first part of file is
+  set incorrectly if first floppy disk has no free space.
+- Reading  panel  with  directory  deleted  from another session
+  under Windows 95 causes hanging.
+- 'Go to' function  in 'Find File' dialog box  sometimes rereads
+  current panel if no files were found.
+- Current file is displayed in status line of 'Find File' dialog
+  box during searching by contents.
+- Error  displaying lines in editor if file contains 0Dh 0Ah 0Dh
+  sequence.
+- Switching 'Memory allocation' option in VCSETUP causes hanging
+  if TSR manager in loaded VC is on.
+- Fixed  problem exiting from VC if critical error occurs during
+  loading command processor or VC.COM when TSR manager is on.
+
+
+Changes in version 4.03 shareware (October-24-1999)
+
+- Function 'File Attributes' sets  dates  with  year 2080...2099
+  instead of 1980...1999.
+- Format  of  year in function 'File Attributes' is changed from
+  2-digit to 4-digit.
+- Format of year in function 'Find File' is changed from 2-digit
+  to 4-digit and seconds are added in time format.
+- Added  hotkey  Enter for switching text or hexadecimal mode in
+  internal viewer (equal to F4).
+- File  pointer  lose  its  position after calculating directory
+  sizes by Alt-F6 if panel is sorted by size.
+- Arrow  is  displayed  in editor after last line if there is no
+  line feed at the end of this line and column offset is not 0.
+- Corrected some mistakes in Help.
+
+
+Changes in version 4.04 shareware (May-21-2000)
+
+- Garbage appears on screen after calculating directory sizes if
+  one of panels is off.
+- Menu  name  does  not  displayed in error message of User Menu
+  function if VC.MNU has 0 size.
+- Call  Copy/Move/Delete functions via pull-down menu just after
+  start  of  VC  sometimes process only single file under cursor
+  even if some files were selected.
+- 'Find File' function  works incorrectly if mask is longer than
+  12  characters  and its part before extension is longer than 8
+  characters.
+- The  following  sequence allows to view more than 100% of file
+  contents in internal viewer: End, search something in the last
+  line, Up, PgDn.
+- Path of panel displays root directory after changing drive and
+  current path of new drive contains long entries.
+
+
+Changes in version 4.05 shareware (June-16-2000)
+
+- Main user menu (Shift-F2) did not work.
+- Incorrect  size  of  the  last  memory  block  is displayed in
+  'Memory information' window (Alt-F5).
+- PgUp  does  not  work  in  the internal viewer after searching
+  string at the last line of a file.

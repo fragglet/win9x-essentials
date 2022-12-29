@@ -1,0 +1,5 @@
+zip:	pkunzip -d !.!
+arj:	arj x -v -y !.!
+lzh:	lha x !.!
+asm:	tasm /w0/m9 !;
+	tlink /t !;

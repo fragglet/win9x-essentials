@@ -1,0 +1,10 @@
+Z:	Compress with ZIP
+	PKZIP -Prex -whs ! @!@
+A:	Compress with ARJ
+	ARJ A -r ! !!!@
+L:	Compress with LHA
+	LHA A -rx ! @!@
+C:	Create the list of files
+	@ECHO The list of files was created in !@
+F10:	Main Menu
+	vc.mnu
