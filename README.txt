@@ -14,6 +14,8 @@ Windows 9x system.
 
     apps        - Programs and applications
 
+    dos         - MS-DOS utilities that are also useful on Win9x.
+
     drivers     - Drivers for common devices
 
     idlers      - Idler utilities (background programs that 
