@@ -21,12 +21,12 @@ krnex452.exe   - KernelEx 4.5.2. Allows some software designed for Windows
 
 myslow.b13     - MySlow beta 13. Slows down DOS programs that run too fast.
 
-ps2rate        - Adjusts sampling rate for PS/2 mouse.
+ps2rate.04     - Adjusts sampling rate for PS/2 mouse.
 
 putty063.exe   - PuTTY 0.63 SSH client.
 
-rawrit07       - Utility for writing raw floppy disks.
+rawwrite.07    - Utility for writing raw floppy disks.
 
-vdmsnd_a3      - VDMSound alpha version for Windows 9x. Emulator of legacy
+vdmsound.a3    - VDMSound alpha3 version for Windows 9x. Emulator of legacy
                  sound cards within the DOS environment.
 
