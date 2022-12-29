@@ -23,6 +23,8 @@ ps2rate        - Adjusts sampling rate for PS/2 mouse.
 
 putty063.exe   - PuTTY 0.63 SSH client.
 
+rawrit07       - Utility for writing raw floppy disks.
+
 softmpu.exe    - SoftMPU emulates an intelligent-mode MPU-401 card.
 
 vdmsnd_a3      - VDMSound alpha version for Windows 9x. Emulator of legacy
