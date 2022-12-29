@@ -25,3 +25,6 @@ putty063.exe   - PuTTY 0.63 SSH client.
 
 softmpu.exe    - SoftMPU emulates an intelligent-mode MPU-401 card.
 
+vdmsnd_a3      - VDMSound alpha version for Windows 9x. Emulator of legacy
+                 sound cards within the DOS environment.
+
