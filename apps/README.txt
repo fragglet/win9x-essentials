@@ -19,13 +19,13 @@ fzla2215.exe   - FileZilla 2.2.15. FTP client.
 krnex452.exe   - KernelEx 4.5.2. Allows some software designed for Windows
                  NT to be run on 9x.
 
+myslow.b13     - MySlow beta 13. Slows down DOS programs that run too fast.
+
 ps2rate        - Adjusts sampling rate for PS/2 mouse.
 
 putty063.exe   - PuTTY 0.63 SSH client.
 
 rawrit07       - Utility for writing raw floppy disks.
-
-softmpu.exe    - SoftMPU emulates an intelligent-mode MPU-401 card.
 
 vdmsnd_a3      - VDMSound alpha version for Windows 9x. Emulator of legacy
                  sound cards within the DOS environment.
