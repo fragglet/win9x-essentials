@@ -1,0 +1,24 @@
+Notes and stuff. Best viewed in Notepad(tm) because I typed it all up in Notepad(tm)!
+
+Files:
+
+vxdsound.asm	- Source for vxdsound.vxd
+vxdsound.def	- Some definitions needed for assembly of vxdsound.asm
+vxdsload.asm	- Source for vxdsload.exe
+vxdsdll.asm	- Source for vxdsdll.dll
+vxdsdll.def	- Some definitions needed for assembly of vxdsdll.asm
+vxdsound.vxd	- Core VxD module of vxdsound
+vxdsload.exe	- VxD loader (and win32 interface) for vxdsound
+vxdsdll.dll	- vxdsound's replacement for "ntvdm.exe"
+vxdsinit.exe	- Causes VddDispatch() routine to be called
+vxds1.exe	- Causes VddUserCreate() routine to be called
+vxds2.exe	- Does nothing at the moment
+vxdsboom.exe	- Causes vxd and win32 app to close down completely
+c.bat		- Batch file for assembly of vxdsound.asm
+d.bat		- Batch file for assembly of vxdsload.asm
+e.bat		- Batch file for assembly of vxdsdll.asm
+
+
+To anyone reading this, sorry about the horribly messy code! The reason for it was I had to change parts of the modules approximately 100 times, and in all those changes your source file(s) generally loses sanity. Also, a lot of this was done in my spare time so I had to put "cosmetic changes" at the lowest priority. And then again, you can always ask me about a bit.
+
+Oh yeah, and remember you need to regsvr32 all the dlls and all the dlls need to be an ANSI build because win9x don't support Unicode fully.

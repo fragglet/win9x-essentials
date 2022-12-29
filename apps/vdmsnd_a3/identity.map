@@ -1,0 +1,8 @@
+;
+; This file is an identity mapping
+; It maps GM to GM, MT-32 to MT-32, etc.
+;
+
+[patches]
+
+; this left deliberately empty

@@ -1,0 +1,47 @@
+VDMSound - Tip of the Day
+
+If a program complains about not finding the CD-ROM drive, you should enable low-level CD-ROM support by editing AUTOEXEC.VDMS (found in the VDMSound directory). Just uncomment the relevant section.
+
+Both Windows NT and Windows 2000 offer some degree of VESA support in DOS boxes, but only while in full-screen mode! If your applications complain about the absence of VESA, try starting them up in full-screen.
+
+Most DOS programs will run very well with VDMSound when given the correct settings. Use these values:
+ - Joystick:	port 201
+ - SoundBlaster:	port 220, IRQ 7 and DMA 1 (5)
+ - MPU-401 / MIDI:	port 330
+
+Certain hardware monitoring programs like Motherboard Monitor, SANDRA or CPUCool, can seriously impair VDMSound. You are affected if DOS applications that could detect a soundcard when run in a window cannot detect it anymore when switched to full-screen mode.
+See the VDMSound README file for additional details.
+
+If a game crashes or freezes you can try the following:
+ 1. Configure the game not to use sound. Does it run?
+ 2. Only configure music, and try running the game again.
+ 3. Finally, enable digital sound effects.
+Even the most problematic games will run fine with music, and only crash when digital sound is enabled.
+
+VDMSound uses the Scroll-Lock led on your keyboard to signal the exchange of System Exclusive MIDI messages between DOS applications and MIDI synthesizers. This is very useful because a blinking led means that the DOS program recognized and started using the emulated MIDI device.
+
+A few of the DOS applications that use MT-32/LAPC-1 for music (mainly Sierra games) may take a while to start up. Do not lose patience - as long as the Scroll-Lock led on your keyboard is flashing you can be certain that the game is not frozen and that it will eventually come up.
+
+Always consult the VDMSound compatibility list. Not only will it tell you what to expect from your DOS applications under Windows, but it will also tell you what to do in order to get them working optimally:
+ 
+http://ntvdm.cjb.net/compat/
+
+You can use the PITSET and MOSLO utilities to speed up or slow down most DOS applications that don't run at the right speed. You should be able to find these utilities by performing a simple search on the Web.
+
+VDMSound can output sound via DirectSound (default), or via WINMM. If you are running Windows NT 4 and are not satisfied with the latency of DirectSound 3, you can replace it with WINMM WaveOut sound by modifying VDMS.INI. Windows 2000 and Windows XP users do not have to worry about DirectSound latency.
+
+VDMSound can account for different types of MIDI synthesizers via its built-in MIDI-mapping mechanism. This allows you to play MT-32 music through a GM/GS device, or vice-versa. Of course, VDMSound can leave the music unaltered if it is played through the same type of synthesizer that the music was meant for.
+
+If you have a soundcard that supports soundfonts then you should upload a GM/GS soundfont (e.g. SYNTHGS.SBK) prior to running games that were configured for General MIDI/Roland Sound Canvas, or use an MT-32 soundfont (e.g. SYNTHMT.SBK) for games that expect a Roland MT-32 or LAPC-1.
+
+Unfortunately, it is not possible to always detect the type of MIDI synthesizer your system is equipped with, or the type that a game is expecting. VDMSound does not, therefore, attempt this detection. If the instruments in the music you hear sound wrong then you may want to manually change the MIDI mapping in VDMS.INI.
+
+If a game gives you a choice between FM (AdLib) music and MIDI music, you are usually better off with MIDI music. This is because today's sample-based MIDI synthesizers (be it your SoundBlaster or the DirectX 6 built-in softsynth) greatly surpass the (now obsolete) FM technology in terms of imitating real-life instruments.
+
+You can find a wealth of DOS game-related information on the VDMSound pages.  Just go to http://ntvdm.cjb.net/ and follow the links to the VDMSound FAQ and Troubleshooting Guide, the VDMSound Forum (Bravenet), and the VDMSound Support page (SourceForge).
+
+You can submit feature requests, report bugs, or place support calls on VDMSound's SourceForge page at:
+ 
+https://sourceforge.net/projects/vdmsound/
+ 
+Thank you for using VDMSound!

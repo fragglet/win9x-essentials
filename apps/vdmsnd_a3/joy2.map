@@ -1,0 +1,18 @@
+;
+; This file emulates two analog joysticks
+; (two buttons and two axes per joystick)
+;
+
+; Recognized joysticks: A (first) or B (second)
+; Recognized axes (analog): X, Y, Z (throttle), R (rudder), U, V, P (POV)
+; Recognized buttons (digital): B1, B2, ..., B32 (up to 32 buttons), P1, P2 (two discrete POV bits)
+
+[inputs]
+analog.1    = A.analog.X
+analog.2    = A.analog.Y
+analog.3    = B.analog.X
+analog.4    = B.analog.Y
+digital.1   = A.digital.B1
+digital.2   = A.digital.B2
+digital.3   = B.digital.B1
+digital.4   = B.digital.B2

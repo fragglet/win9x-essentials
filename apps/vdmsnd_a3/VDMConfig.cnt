@@ -1,0 +1,19 @@
+:Base VDMConfig.hlp
+:Title VDMSound Configuration
+1 Contents=HLP_CONTENTS
+1 INI files
+2 Overview=HLP_INI_FILES_INTRO
+2 INI sections=HLP_INI_FILES_SECTIONS
+2 Description of INI sections
+3 The loader section=HLP_INI_FILES_SECTIONS_LOADER
+3 The debug section=HLP_INI_FILES_SECTIONS_DEBUG
+3 The dependency section=HLP_INI_FILES_SECTIONS_DEPENDS
+3 The configuration section=HLP_INI_FILES_SECTIONS_CONFIG
+1 Error Messages
+2 Initialization
+3 Query object not properly initialized=HLP_ERR_QUERY_NOT_INIT
+3 Could not find the INI section [...] describing the dependencies of module '...'=HLP_ERR_QUERY_DEP_INISECTION
+3 Could not locate the dependency reference '...' in either of the [...] or [...] INI sections (see ...)=HLP_ERR_QUERY_DEP_INIKEY
+3 No instance of module '...' is available.  Module '...' ('...') is a dependency of '...' (see ...)=HLP_ERR_QUERY_DEP_INST
+3 Could not find the INI section [...] describing the configuration of module '...'=HLP_ERR_QUERY_CFG_INISECTION
+3 Could not locate the configuration property '...' in either of the [...] or [...] INI sections (see ...)=HLP_ERR_QUERY_CFG_INIKEY
