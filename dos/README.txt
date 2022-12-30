@@ -14,3 +14,6 @@ softmpu.191    - SoftMPU v1.91. Emulates an intelligent-mode MPU-401 card.
 vc.405         - Volkov Commander 4.05. Free clone of Norton Commander
                  file manager.
 
+xfdisk.093     - Extended FDISK v0.9.3. More featureful partitioning tool
+                 than the FDISK that ships with Win9x.
+
