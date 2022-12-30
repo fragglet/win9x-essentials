@@ -9,7 +9,7 @@ lfntools.405   - Extended versions of DOS commands that support long
 pkzip.250      - PKZIP v2.50 - the original progra, for creating and
                  decompressing .zip files.
 
-softmpu.exe    - SoftMPU emulates an intelligent-mode MPU-401 card.
+softmpu.191    - SoftMPU v1.91. Emulates an intelligent-mode MPU-401 card.
 
 vc.405         - Volkov Commander 4.05. Free clone of Norton Commander
                  file manager.
