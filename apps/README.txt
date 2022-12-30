@@ -16,6 +16,9 @@ endital2.exe   - EndItAll 2.0. More fully-featured replacement for Task
 
 fzla2215.exe   - FileZilla 2.2.15. FTP client.
 
+hwinf734.exe   - HWiNFO v7.34. Shows lots of information about the system
+                 hardware.
+
 krnex452.exe   - KernelEx 4.5.2. Allows some software designed for Windows
                  NT to be run on 9x.
 
