@@ -1,5 +1,5 @@
 
-4dos.exe       - 4DOS replacement for COMMAND.COM.
+4dos.750       - 4DOS v7.50. Extended replacement for COMMAND.COM.
 
 ctmouse.204    - CuteMouse PS/2 mouse driver v2.0alpha4.
 
