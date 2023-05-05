@@ -1,0 +1,215 @@
+;; NETRTS.INF
+;;
+;; Relatek RTL8139 Fast-Ethernet Network Interface Cards.
+;;
+;; Copyright 1997, Realtek Semiconductor Corporation
+
+[Version]
+LayoutFile=layout.inf
+Signature="$CHICAGO$"
+Class=Net
+ClassGUID={4d36e972-e325-11ce-bfc1-08002be10318}
+Provider=%V_MS%
+
+[Manufacturer]
+%V_Realtek%=Realtek
+
+[Realtek]
+%rtl8139.DeviceDesc%=rtl8139.ndi,PCI\VEN_10EC&DEV_8139
+%rtl8138.DeviceDesc%=rtl8138.ndi,PCI\VEN_10EC&DEV_8138
+
+[rtl8139.ndi]
+AddReg=rtl8139.ndi.reg,oncbs139.ndi.reg,pci139.ndi.reg,pci139.pci.reg
+CopyFiles=net139.inf.CopyFiles,net139.ndis3.CopyFiles
+RenFiles=netpci.inf.Renamefiles
+
+[rtl8138.ndi]
+AddReg=rtl8139.ndi.reg,oncbs138.ndi.reg,pci139.ndi.reg,pci139.pci.reg
+CopyFiles=net139.inf.CopyFiles,net139.ndis3.CopyFiles
+RenFiles=netpci.inf.Renamefiles
+
+;;****************************************************************************
+;;    *RTL8139	 Realtek RTL8139
+;;****************************************************************************
+
+[rtl8139.ndi.reg]
+
+
+HKR,NDI\Params\DuplexMode,flag,1,30,00,00,00
+HKR,Ndi\params\DuplexMode,ParamDesc,0,"Link Speed/Duplex Mode"
+HKR,Ndi\params\DuplexMode,type,0,enum
+HKR,Ndi\params\DuplexMode,default,0,1
+HKR,Ndi\params\DuplexMode\enum,1,0,"Auto Mode "
+HKR,Ndi\params\DuplexMode\enum,2,0,"10Half Mode"
+HKR,Ndi\params\DuplexMode\enum,3,0,"10Full Mode"
+HKR,Ndi\params\DuplexMode\enum,4,0,"100Half Mode"
+HKR,Ndi\params\DuplexMode\enum,5,0,"100Full Mode"
+
+
+HKR,Ndi\Params\EarlyTxThreshold,ParamDesc,0,"Early Tx Threshold"
+HKR,Ndi\Params\EarlyTxThreshold,Type,0,"int"
+HKR,Ndi\Params\EarlyTxThreshold,Default,0,"38"
+HKR,Ndi\Params\EarlyTxThreshold,Flag,1,20,00,00,00
+HKR,Ndi\Params\EarlyTxThreshold,Min,0,"0
+HKR,Ndi\Params\EarlyTxThreshold,Max,0,"63"
+HKR,Ndi\Params\EarlyTxThreshold,Step,0,"1"
+HKR,Ndi\Params\EarlyTxThreshold,Base,0,"10"
+
+HKR,NDI\Params\NetworkAddress,flag,1,30,00,00,00
+HKR,Ndi\params\NetworkAddress,ParamDesc,0,"Network Address"
+HKR,Ndi\params\NetworkAddress,type,0,edit
+HKR,Ndi\params\NetworkAddress,default,0,"000000000000"
+HKR,Ndi\params\NetworkAddress,LimitText,0,12
+HKR,Ndi\params\NetworkAddress,UpperCase,0,1
+HKR,Ndi\params\NetworkAddress,Optional,0,1
+
+;HKR,NDI\Params\TxMaxDMABurst,flag,1,30,00,00,00
+;HKR,Ndi\params\TxMaxDMABurst,ParamDesc,0,"Transmit DMA burst size"
+;HKR,Ndi\params\TxMaxDMABurst,type,0,enum
+;HKR,Ndi\params\TxMaxDMABurst,default,0,6
+;HKR,Ndi\params\TxMaxDMABurst\enum,0,0,"0:16 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,1,0,"1:32 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,2,0,"2:64 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,3,0,"3:128 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,4,0,"4:256 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,5,0,"5:512 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,6,0,"6:1024 bytes"
+;HKR,Ndi\params\TxMaxDMABurst\enum,7,0,"7:2048 bytes"
+
+;HKR,NDI\Params\RxMaxDMABurst,flag,1,30,00,00,00
+;HKR,Ndi\params\RxMaxDMABurst,ParamDesc,0,"Receive DMA burst size"
+;HKR,Ndi\params\RxMaxDMABurst,type,0,enum
+;HKR,Ndi\params\RxMaxDMABurst,default,0,6
+;HKR,Ndi\params\RxMaxDMABurst\enum,0,0,"0:16 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,1,0,"1:32 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,2,0,"2:64 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,3,0,"3:128 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,4,0,"4:256 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,5,0,"5:512 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,6,0,"6:1024 bytes"
+;HKR,Ndi\params\RxMaxDMABurst\enum,7,0,"7:unlimitted"
+
+;HKR,NDI\Params\EarlyRxThreshold,flag,1,30,00,00,00
+;HKR,Ndi\params\EarlyRxThreshold,ParamDesc,0,"Receive FIFO threshold"
+;HKR,Ndi\params\EarlyRxThreshold,type,0,enum
+;HKR,Ndi\params\EarlyRxThreshold,default,0,2
+;HKR,Ndi\params\EarlyRxThreshold\enum,0,0,"0:16 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,1,0,"1:32 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,2,0,"2:64 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,3,0,"3:128 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,4,0,"4:256 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,5,0,"5:512 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,6,0,"6:1024 bytes"
+;HKR,Ndi\params\EarlyRxThreshold\enum,7,0,"7:No threshold"
+
+;HKR,NDI\Params\TxInterFrameGap,flag,1,30,00,00,00
+;HKR,Ndi\params\TxInterFrameGap,ParamDesc,0,"Tx IFG(10M/100M)"
+;HKR,Ndi\params\TxInterFrameGap,type,0,enum
+;HKR,Ndi\params\TxInterFrameGap,default,0,3
+;HKR,Ndi\params\TxInterFrameGap\enum,0,0,"8.4us/840ns"
+;HKR,Ndi\params\TxInterFrameGap\enum,1,0,"8.8us/880ns"
+;HKR,Ndi\params\TxInterFrameGap\enum,2,0,"9.2us/920ns"
+;HKR,Ndi\params\TxInterFrameGap\enum,3,0,"9.6us/960ns"
+
+[oncbs139.ndi.reg]
+HKR,Ndi,DeviceID,0,"PCI\VEN_10EC&DEV_8139"
+HKR,,ChipOnCardbus,,0
+
+[oncbs138.ndi.reg]
+HKR,Ndi,DeviceID,0,"PCI\VEN_10EC&DEV_8138"
+HKR,,ChipOnCardbus,,1
+
+;;****************************************************************************
+;;
+;;****************************************************************************
+
+[pci139.ndi.reg]
+; key,subkey,valuname,type,value
+HKR,,DriverDesc,,"Realtek RTL8139 PCI Fast Ethernet Controller"
+HKR,,DevLoader,,*ndis
+HKR,,DeviceVxDs,,rtl8139.sys
+HKR,,EnumPropPages,,netdi.dll,EnumPropPages
+
+; NDIS Info
+HKR,NDIS,MajorNdisVersion,1,03
+HKR,NDIS,MinorNdisVersion,1,0a
+HKR,NDIS,LogDriverName,,"RTL8139"
+
+; Interfaces
+HKR,Ndi\Interfaces,DefLower,,"ethernet"
+HKR,Ndi\Interfaces,LowerRange,,"ethernet"
+HKR,Ndi\Interfaces,DefUpper,,"ndis3"
+HKR,Ndi\Interfaces,UpperRange,,"ndis3"
+
+ HKR,,MediaType,,1
+
+; Install sections
+;;****************************************************************************
+;; PCI common parameters
+;;****************************************************************************
+
+[pci139.pci.reg]
+;;params
+HKR,,AdapterType,,5
+HKR,,BusType,,5
+
+;; Resources
+HKR,,InterruptNumber,1,04,00,00,00
+HKR,,IOBaseAddress,1,02,00,00,00
+HKR,NDI\params\InterruptNumber,resc,1,04,00,00,00
+HKR,Ndi\params\interruptNumber,ParamDesc,0,"Interrupt Level"
+HKR,NDI\params\InterruptNumber,flag,1,20,00,00,00
+HKR,NDI\params\IOBaseAddress,resc,1,02,00,00,00
+HKR,NDI\params\IOBaseAddress,ParamDesc,0,"I/O Base Address"
+HKR,NDI\params\IOBaseAddress,flag,1,20,00,00,00
+
+
+;;****************************************************************************
+;; Drivers
+;;****************************************************************************
+
+;; Install NDIS3
+[net139.ndis3.CopyFiles]
+rtl8139.sys
+
+[net139.inf.CopyFiles]
+netrts.inf
+
+[netrts.inf.Renamefiles]
+netrts.inf
+
+
+[rtl8139.DelFiles]
+drvidx.bin,,,1
+drvdata.bin,,,1
+
+;;****************************************************************************
+;; Destination Directories
+;;****************************************************************************
+[DestinationDirs]
+DefaultDestDir		    =11 ; LDID_SYS
+net139.ndis3.CopyFiles	    =11
+net139.inf.CopyFiles	    =17 ; INF
+rtl8139.DelFiles	    =17
+netpci.inf.RenameFiles	    =17
+
+[SourceDisksNames]
+52="Realtek Fast Ethernet RTL8139 Adapter Driver Disk","",0
+
+[SourceDisksFiles]
+rtl8139.sys	=52,,12345
+
+;;****************************************************************************
+;; Localizable Strings
+;;****************************************************************************
+[strings]
+;;Provider
+V_MS="Microsoft"
+
+;;Manufacturers
+V_Realtek="Realtek"
+
+;;PCI Realtek Devices
+rtl8139.DeviceDesc="Realtek RTL8139(A/B/C/8130) PCI Fast Ethernet"
+rtl8138.DeviceDesc="Realtek RTL8139(B/C) CardBus Fast Ethernet"
+

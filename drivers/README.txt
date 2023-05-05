@@ -8,9 +8,11 @@ nusb33e.exe  - Windows 98 USB mass storage driver. Allows you to use
                USB flash drives and external hard drives if your
                machine has USB ports.
 
+rtl8139c     - Network drivers for the RealTek 8139c chips.
+
 sdd.653      - SciTech Display Doctor 6.53. Windows and DOS SVGA/VBE
                drivers. Used to be a commercial product but has since
                been released as freeware.
 
-vbemp        - VBE miniport drivers. 
+vbemp        - VBE miniport drivers.
 
