@@ -18,6 +18,9 @@ gusemu32-0.95 - Gravis Ultrasound emulator.
 hwinfo-7.34.exe - HWiNFO v7.34. Shows lots of information about the system
                   hardware.
 
+irfanview-4.44.exe - IrfanView image viewer v4.44 - the last version that
+                     supports Win9x.
+
 kernelex-4.5.2.exe - KernelEx 4.5.2. Allows some software designed for Windows
                      NT to be run on 9x. Needs Microsoft Layer for Unicode
                      (unicows.exe in \updates).
