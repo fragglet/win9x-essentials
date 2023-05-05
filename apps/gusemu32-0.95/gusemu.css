@@ -1,0 +1,46 @@
+/* css-datei fuer gusemu */
+
+body {background-color:#0000a0; color: #ffff60; margin:0.5%; background-image:url(back.jpg);}
+
+h1,h2,h3 {text-decoration:underline; text-align:center;}
+
+center {text-align:center;}
+
+.block {background:navy; border:1px solid yellow; border-bottom:1px solid yellow; border-right:1px solid yellow; border-top:1px dotted yellow; border-left:1px dotted yellow; padding:5px;}
+
+div.block {margin:10pt;}
+
+div.nb {font-size:20pt; text-align:center;}
+
+a:link.ilink    {background-color:gray; color:black; border:2px outset gray; font-family:sans-serif; font-weight:bold; text-decoration:none; font-size:10pt; padding:2px;}
+a:visited.ilink {background-color:gray; color:black; border:2px outset gray; font-family:sans-serif; font-weight:bold; text-decoration:none; font-size:10pt; padding:2px;}
+a:hover.ilink   {background-color:blue; color:white; border:2px outset gray; font-family:sans-serif; font-weight:bold; text-decoration:none; font-size:10pt; padding:2px;}
+a:active.ilink  { background-color:blue; color:white; border:2px inset gray; font-family:sans-serif; font-weight:bold; text-decoration:none; font-size:10pt; padding:2px;}
+
+table {text-align:center; padding:5%;}
+th {background:navy; padding:2px; text-decoration:underline; font-weight:bold;}
+th.sm {font-size:70%; font-weight:thin; text-decoration:none;}
+td {background:navy; padding:2px; border-top: 1px dotted green; text-align:middle;}
+
+img {margin:2px;}
+
+.calc {font-family:serif; border:1px solid #008000; background-color:#cdcd9c; color:black; padding:9px; font-weight:bold; margin:3px;}
+
+span.menu {background-color:#c0c0c0; color:black; font-size:12px; font-family:sans-serif; border:1px solid #c0c0c0; }
+div.menu {background-color:#c0c0c0; color:black; border:2px outset #808080; font-size:12px; font-family:sans-serif; width:250px;}
+div.smenu {margin-left:250px; background-color:#c0c0c0; color:black; border:2px outset #808080; font-size:12px; font-family: sans-serif; width:250px; position:relative; top: -20px; left: -5px; }
+
+li {list-style-image:url(card.gif); margin-bottom:3px;}
+
+li.q {list-style-image:url(q.gif); }
+li.a {list-style-image:url(a.gif); }
+
+hr { alignment:center; text-align:center; border:yellow 1px solid; }
+
+hr.lay { alignment:center; text-align:center; border:#808080 1px solid; }
+
+a:link { color:#ff8000; font-weight:bold; }
+a:visited { color:#ff7000; font-weight:bold; }
+a:hover { color:#ffffff; font-weight: bold; text-decoration: underline overline; }
+
+pre { background-color:#e0e0e0; color:black; margin:3px; padding:3px; font-size:12px; width:500px; font-family:sans-serif;  border:1px solid #d0d0d0; }
