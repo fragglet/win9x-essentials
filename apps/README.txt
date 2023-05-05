@@ -17,7 +17,8 @@ hwinfo-7.34.exe - HWiNFO v7.34. Shows lots of information about the system
                   hardware.
 
 kernelex-4.5.2.exe - KernelEx 4.5.2. Allows some software designed for Windows
-                     NT to be run on 9x.
+                     NT to be run on 9x. Needs Microsoft Layer for Unicode
+                     (unicows.exe in \updates).
 
 myslow-beta13 - MySlow beta 13. Slows down DOS programs that run too fast.
 
