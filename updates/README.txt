@@ -9,3 +9,5 @@ usbupd2.exe   - Windows 95 USB driver update.
 
 vcredist.exe  - Installs Visual C runtime DLLs.
 
+patcher9x-0.8.50-beta4 - Patcher to fix CPU issues with Windows 9x.
+

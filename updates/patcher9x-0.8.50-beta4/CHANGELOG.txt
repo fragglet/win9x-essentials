@@ -1,0 +1,46 @@
+0.8.50
+- Support for Windows 95 4.0.950
+- "exact mode" removed, replace is batch mode, with simpler actions but offers
+  more powerful combinations
+- Boot floppy now contain CD driver and utilities for create system disk and
+  copy files (fdisk, format, xcopy)
+- improved TLB patches for 98 and Me (are more complicated, but should be but
+  more stable)
+- more portable Win32/64 build (removed dependency on MSCRT.DLL) and default
+  path is now current work directory if program is running on NT
+
+0.7.45
+- CPU Speed Limit bug is now supported and fixed
+- Using -millennium argument is no longer needed, Me patch is included in TLB set
+- Updated for Windows 98 Q242161 and 98 SE Q288430 is supported too
+- Default action is now directly patch files instead of extract VXD and patch file
+  (is much better way for installing additional updates)
+- new patch confirmation screen
+
+0.6.27
+- Windows Millennium Edition tested and works (use with -millennium argument)
+- Better handling readonly files/media
+  (https://github.com/JHRobotics/patcher9x/issues/3#issuecomment-1159448172)
+- Working with multi volume archives correctly
+  (attempt to fix: https://github.com/JHRobotics/patcher9x/issues/3#issue-1275388352)
+
+0.6.23
+- (untested) Windows Millennium Edition support (with -millennium argument)
+- some minor fixes for copy/backup/patch files operations
+- fixed processing W4 files (DS compressions/decompressions bugs)
+
+0.6.13
+- more testing and stability
+- fixed memory leaks
+- temporary files cleanup
+- fixed generating bad file names 
+- "-patch" command line option renamed to "-patch-tlb" for adding future patches
+- "-v" command line option to print version
+
+0.5.8
+- fixed problem, that patched compressed files were not loadable
+  (system crash if you directly apply patch on system/vmm32.vxd)
+
+0.5.0
+- first public release
+- Windows 98 and Windows 98 SE are only supported
