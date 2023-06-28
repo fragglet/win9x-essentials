@@ -1,9 +1,9 @@
 95      - Windows 95 Powertoys:
 
           * CAB file viewer
-          * DeskMenu 
-          * DOS prompt here 1.0.  
-          * Explore from Here   
+          * DeskMenu
+          * DOS prompt here 1.0.
+          * Explore from Here
           * Fast Folder Contents
           * Find X
           * Flexi cd
@@ -11,7 +11,7 @@
           * Round clock
           * Send To X
           * Shortcut target menu
-          * TapiTNA (telephony taskbar notification application) 
+          * TapiTNA (telephony taskbar notification application)
           * TweakUI
           * XMouse
 
@@ -27,4 +27,8 @@
 98      - Windows 98 Powertoys. Only includes TweakUI; you might want to
           install some of the other utilities that were included in the
           Windows 95 Powertoy bundles.
+
+unauth  - Some utilities from the book "Unauthorized Windows 95". Third
+          party but these fit in the same general category as the official
+          Microsoft Powertoys.
 
