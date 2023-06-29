@@ -16,3 +16,5 @@ sdd.653      - SciTech Display Doctor 6.53. Windows and DOS SVGA/VBE
 
 vbemp        - VBE miniport drivers.
 
+vbemp-old    - Older version of VBE miniport drivers.
+
