@@ -1,7 +1,7 @@
 
 ISO = win9x_essentials.iso
 
-.PHONY: $(ISO) clean
+.PHONY: $(ISO) clean bootdisk.img
 $(ISO): bootdisk.img
 	genisoimage -J -m $@ -m .git -m .gitignore -m bootdisk \
 	            -b bootdisk.img -hard-disk-boot -o $@ .

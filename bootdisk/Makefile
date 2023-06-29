@@ -1,4 +1,4 @@
-.PHONY: clean
+.PHONY: clean ../bootdisk.img
 
 ../bootdisk.img: freedos-minimal.img
 	cp $< $@
