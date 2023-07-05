@@ -2,9 +2,9 @@
                    T H E   W I N D O W S   9 X
         ________________ _______   _______________    __   _____
        / ____/ ___/ ___// ____/ | / /_  __/  _/   |  / /  / ___/
-      / __/  \__ \\__ \/ __/ /  |/ / / /  / // /| | / /   \__ \ 
-     / /___ ___/ /__/ / /___/ /|  / / / _/ // ___ |/ /______/ / 
-    /_____//____/____/_____/_/ |_/ /_/ /___/_/  |_/_____/____/  
+      / __/  \__ \\__ \/ __/ /  |/ / / /  / // /| | / /   \__ \
+     / /___ ___/ /__/ / /___/ /|  / / / _/ // ___ |/ /______/ /
+    /_____//____/____/_____/_/ |_/ /_/ /___/_/  |_/_____/____/
 
                              D I S C
 
@@ -18,7 +18,8 @@ Windows 9x system.
 
     drivers     - Drivers for common devices
 
-    idlers      - Idler utilities (background programs that 
+    idlers      - Idler utilities (background programs that free up the
+                  CPU when nothing is running)
 
     powertoy    - The Microsoft Powertoy collections.
 
