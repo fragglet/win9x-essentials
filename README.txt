@@ -25,3 +25,5 @@ Windows 9x system.
 
     updates     - Important system updates you may need.
 
+    win3        - Small collection of drivers and updates for Windows 3.1.
+

@@ -1,0 +1,49 @@
+;; Windows for Workgroups 3.11
+;; OEMSETUP.INF for LAN-32PCI Adapter driver
+
+[data]
+  type=network
+  version=3.11.300
+
+[disks]
+  z=.," PCNET Family Ethernet adapter Driver Disk", diskz
+
+[netcard]
+;   key = description, MSID, type, media, mode, install, protini, style
+ms$pcntn3="Advanced Micro Devices PCNET family",0,ndis,ethernet,0x07,ms$PCNTN3,ms$pcntn3_nif,0x2000
+
+; Netcard Install and Protocol Sections
+;
+
+[ms$PCNTN3]
+ndis2=Z:pcntnd.dos
+ndis3=Z:pcntn3.386
+mlid=*:pcntnw.com
+
+[ms$pcntn3_nif]
+DRIVERNAME=PCNTND$
+;
+io=IOADDRESS,,hex,"0x0,0x3e0,0x20",0,0x38
+;
+irq=INTERRUPT,,enum,"Auto_Scan,0,3,3,4,4,5,5,9,9,10,10,11,11,12,12,15,15",0,0x38
+;
+dma=DMACHANNEL,"DMA Channel",enum,"Auto_Scan,0,3,3,5,5,6,6,7,7",0,0x38
+;
+param=BUS_TO_SCAN,"Bus Type to scan",text,"PCI,PCI1,PCI2,PNP,ISA,VESA,ALL",ALL,0x32
+;
+param=FDUP,"Full Duplex",enum,"Default,0,AUI,2,UTP,3,OFF,1",0,0x32
+;
+param=BUSTIMER,"Bus Timer",enum,"Default,0,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13",0,0x32
+;
+param=TP,"Twisted Pair Interface",enum,"OFF,0,ON,1",0,0x32
+;
+param=LED0,"LED0 function",text,"0x0,0x2,0x4,0x8,0x10,0x20,0x30,0x34,0x40,0x81,0xb0,0xc0,0x4088",,0x32
+;
+param=LED1,"LED1 function",text,"0x0,0x2,0x4,0x8,0x10,0x20,0x30,0x34,0x40,0x81,0xb0,0xc0,0x4088",,0x32
+;
+param=LED2,"LED2 function",text,"0x0,0x2,0x4,0x8,0x10,0x20,0x30,0x34,0x40,0x81,0xb0,0xc0,0x4088",,0x32
+;
+param=LED3,"LED3 function",text,"0x0,0x2,0x4,0x8,0x10,0x20,0x30,0x34,0x40,0x81,0xb0,0xc0,0x4088",,0x32
+
+
+

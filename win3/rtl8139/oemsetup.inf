@@ -1,0 +1,23 @@
+
+;RTSND OEMSETUP.INF File:
+
+[netcard]
+RTL8139="Realtek 8139 Fast Ethernet Adapter",000,ndis,ethernet,0x07,rtl8139,rtl8139_nif
+
+
+[rtl8139]
+ndis2=8:rtsnd.dos
+ndis3=7:rtsnd.386
+mlid=*:rtsodi.com
+
+[rtl8139_nif]
+drivername=rtsnd$
+param=Medium,"Medium Type",enum,"Auto,0,10Half,1,10Full,2,100Half,3,100Full,4",0,0x30
+param=NETADDRESS,"Network Address",chars,13,"@000000000000",0x02
+param=ETHERID,"Node Address",chars,13,"@000000000000",0x02
+param=BusNo ,"Adpater's Bus Number",int,"0,255,1",0,0x32
+param=DeviceNo ,"Adpater's Device Number",int,"0,31,1",0,0x32
+param=TxFIFO ,"Adpater's TX Early Threshold",int,"0,63,1",5,0x32
+
+
+

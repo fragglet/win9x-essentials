@@ -1,0 +1,279 @@
+# INSTALL.INF information file for INSTALL.EXE Application Installer Program
+# Copyright (c) 1992 by Jeffrey M. Richter - All rights reserved.
+# Copyright (c) 1995 Cirrus Logic, Inc. - All rights reserved.
+#
+# Notice: MAXIMUM LENGTH OF FILE THAT WILL BE PARSED = 20000 BYTES
+
+[Initialize]
+
+ApplicationName   =   GD5446 Installation
+DefaultDir{D}   =   {W}vgautil
+
+DstDiskSpaceApplication  =  1299
+;                         WinMode.ini
+DstDiskSpaceWindows      =  154
+;                         fonts + "drivers"
+DstDiskSpaceSystem       =  698 +  1279
+
+ShowDirectoryCreateMeter = yes
+ShowInstructions         = yes
+ShowCopyFileDescription  = yes
+
+; ReadmeFile = utils\Reados2.txt
+ReadmeFile = 
+LanguageParseReadmeFile  = no
+
+;LoadDLL  =
+;LoadDLL = alpine.dll
+
+
+[Background Title]
+
+English  = CL-GD5446 Drivers and Utilities for Windows
+Dutch    = CL-GD5446 Stuur- en hulpprogramma's voor Windows
+French   = Gestionnaires et utilitaires CL-GD5446 pour Windows
+German   = CL-GD5446-Treiber und -Dienstprogramme für Windows
+Italian  = Driver e utilità di CL-GD5446 per Windows
+Japanese = CL-GD5446 ƒhƒ‰ƒCƒo ‚Æƒ†[ƒeƒBƒŠƒeƒB(Microsoft Windows 3.1 “ú–{Œê”Å)
+Spanish  = Controladores y utilidades CL-GD5446 para Windows
+Swedish  = CL-GD5446 drivrutiner och funktioner för Windows
+Danish   = CL-GD5446 drivere og hjælpeværktøjer til Windows
+Portuguese Brazil = Unidades CL-GD5446 e utilit+arios para Windows
+Spanish Modern = Unidades CL-GD5446 y utilitarios para Windows
+Finnish  = CL-GD5446 -ajurit ja -apuohjelmat Windowsille
+Norwegian  = CL-GD5446-drivere og -hjelpeprogrammer for Windows
+Portuguese = Drivers e Utilitários CL-GD5446 Drivers para Windows
+Chinese Simp = Windows°æCL-GD5446Çı¶¯Æ÷¼°¹«ÓÃ³ÌÊ½
+Chinese Trad = Windows«¬CL-GD5446ÅX°Ê¾¹¤Î¤½¥Îµ{¦¡
+Korean = À©µµ¿ì¿ë CL-GD5446 µå¶óÀÌ¹ö ¹× À¯Æ¿¸®Æ¼
+Thailand = CL-GD5446 ä´Ã¿ìàÇÍÃìáÅĞÂÙ·ÔÅÔµÕÊÓËÃÑºÇÔ¹â´ÇÊì
+Czech = "Ovládaèe a utility CL-GD5446 pro Windows"
+Hungarian = "Windows alatt futó CL-GD5446 vezérlõk és segédprogramok"
+Polish = "Sterowniki CL-GD5446 i programy u¿ytkowe do Windows"
+Russian = "CL-GD5446 Äğàéâåğû è ñåğâèñíûå ïğîãğàììû äëÿ Windows"
+
+[Instructions]
+
+English  = Notice:   Before new display drivers can be installed, the Windows environment
+English  = must be running with one of Windows original display drivers, such as VGA.  If
+English  = this is not true, Exit now and using Windows Setup, change to one of these drivers.
+
+Dutch    = Let op:   Als u nieuwe schermstuurprogramma's wilt installeren moet Windows
+Dutch    = gestart zijn met een van de eigen stuurprogramma's, zoals VGA. Zo niet,
+Dutch    = dan stopt u nu en stelt u een van deze stuurprogramma's in met Windows Setup.
+
+French   = Attention : Pour que l'installation des nouveaux gestionnaires d'affichage soit
+French   = possible, l'environnement Windows doit être configuré avec un des gestionnaires
+French   = d'origine, tel que VGA. Si ce n'est pas le cas, vous devez quitter et
+French   = utiliser le programme d'installation de Windows pour changer les paramètres d'écran.
+
+German   = Hinweis:   Bevor neue Anzeigetreiber installiert werden können, muß Windows mit einem der
+German   = ursprünglichen Windows-Treiber, wie z.B. VGA, ausgeführt werden. Ist dies nicht
+German   = der Fall, beenden Sie das Programm jetzt, und wechseln Sie mit Windows-SETUP zu einem dieser Treiber über.
+
+Italian  = Nota:   prima di poter installare nuovi driver video, l'ambiente Windows deve essere
+Italian  = eseguito con uno dei driver originali di Windows, come ad esempio VGA. Se così
+Italian  = non fosse, uscire e impostare uno di questi driver utilizzando il Setup di Windows.
+
+Japanese = ’ˆÓ:   ƒfƒBƒXƒvƒŒƒC ƒhƒ‰ƒCƒo‚ğƒCƒ“ƒXƒg[ƒ‹‚·‚é‘O‚ÍAWindows•t‘®‚Ìƒhƒ‰ƒCƒo(VGAASVGA‚È‚Ç)‚ğ
+Japanese = g—p‚µ‚½ŠÂ‹«‚É‚µ‚Ä‚­‚¾‚³‚¢¡g—pƒhƒ‰ƒCƒo‚ªˆÙ‚È‚éê‡AWindows‚ÌƒZƒbƒgƒAƒbƒv‚ğÀs‚µ‚ÄA
+Japanese = ã‹L‚ÌğŒ‚É•ÏX‚µ‚Ä‚­‚¾‚³‚¢¡
+
+Spanish  = Advertencia: para poder instalar los nuevos controladores de pantalla, Windows debe estar
+Spanish  = utilizando alguno de sus controladores originales, ya sea VGA. Si no es éste
+Spanish  = el caso, seleccione Salir y utilice Instalar Windows para activar uno de los controladores citados.
+
+Swedish  = Obs! Innan nya drivrutiner för bildskärmen kan installeras måste Windows-miljön köras med
+Swedish  = en originaldrivrutin för Windows, t ex VGA. Om så inte är fallet avslutar du nu
+Swedish  = och ändrar till någon av dessa drivrutiner med hjälp av Windows installationsprogram.
+
+Danish   = Bemærk: Før nye skærmdrivere kan installeres, skal Windows-miljøet køre med én 
+Danish   = af de originale Windows-drivere, som f.eks. VGA. Hvis det ikke 
+Danish   = er tilfældet, skal du afslutte programmet nu og skifte til en af de nævnte drivere
+Danish   = ved hjælp af Windows Installation.
+
+Portuguese Brazil = Nota: Antes que as novas unidades  de exposição sejam instaladas, o ambiente Windows deve estar
+Portuguese Brazil = com uma das unidades originais de Windows como VGA.
+Portuguese Brazil = Se isto não for positivo, saia agora e, utilizando a Estrutura Windows, mude-se para uma destas unidades.
+
+Spanish Modern = Nota: Antes de instalar las nuevas unidades de pantalla, el ambiente Windows debe
+Spanish Modern = ejecutarse con una unidad original como VGA. Si no es el caso, salga ahora y, 
+Spanish Modern = utilizando la Estructura Window cámbiese a uno de estas unidades.
+
+Finnish  = Huomautus:  Ennen kuin uusia näyttöajureita voi asentaa, Windows-ympäristössä pitää olla käytössä
+Finnish  = jokin Windowsin alkuperäisistä ajureista, esimerkiksi VGA. Jos näin ei ole, lopeta tämä ohjelma nyt,
+Finnish  = käynnistä Windowsin asennusohjelma ja vaihda käyttöön jokin alkuperäisistä ajureista.
+
+Norwegian  = Obs!  Før du kan installere nye skjermdrivere, må Windows-miljøet kjøre med en av de
+Norwegian  = opprinnelige driverne for Windows, for eksempel VGA. Hvis dette ikke er 
+Norwegian  = tilfellet, må du avslutte nå og bruke installasjonsprogrammet for Windows til å bytte til en av disse driverne.
+
+Portuguese = Aviso:   Antes de poderem ser instalados novos drivers de monitor, o ambiente Windows deve estar a ser 
+Portuguese = executado utilizando um dos drivers originais do Windows, tal como VGA.  
+Portuguese = Se não for este o caso, saia da instalação e, utilizando o Windows Setup, mude para um destes drivers.
+
+Chinese Simp = ×¢Òâ:   ÔÚ°²×°ĞÂµÄÏÔÊ¾Çı¶¯Æ÷Ö®Ç°£¬±ØĞëÏÈÒÔÒ»¸öWindowsµÄÔ­Ê¼Çı¶¯×°ÖÃ£¬ÈçVGA»òSuper VGAÀ´Ö´ĞĞWindowsÊÓ´°»·¾³¡£·ñÔò¾ÍÓ¦Á¢¼´ÍË³ö£¬²¢Ê¹ÓÃWindowsÉè¶¨Ö¸Áî½«Æä¸Ä±ä³ÉÕâÀàµÄÇı¶¯×°ÖÃ¡£
+
+Chinese Trad = ª`·N:   ¦b¦w¸Ë·sªºÅã¥ÜÅX°Ê¾¹¤§«e¡A¥²¶·¥ı¥H¤@­ÓWindowsªº­ì©lÅX°Ê¸Ë¸m¡A¦pVGA©ÎSuper VGA¨Ó°õ¦æWindowsµøµ¡Àô¹Ò¡C§_«h¡AÀ³¥ß§Y°h¥X¡A¨Ã¨Ï¥ÎWindows³]©w«ü¥O±N¨ä§ïÅÜ¦¨³oÃşªºÅX°Ê¸Ë¸m¡C
+
+Korean = ÁÖÀÇ »çÇ×:»õ µğ½ºÇÃ·¹ÀÌ µå¶óÀÌ¹ö¸¦ ¼³Ä¡ÇÏ±â Àü¿¡ À©µµ¿ì È¯°æ¿¡¼­ VGA ¶Ç´Â
+Korean = SUPER VGA¿Í °°Àº À©µµ¿ì ¿ø·¡ µğ½ºÇÃ·¹ÀÌ µå¶óÀÌ¹ö Áß ÇÏ³ª°¡ ½ÇÇàµÇ°í ÀÖ¾î¾ß
+Korean = ÇÕ´Ï´Ù. ±×·¸Áö ¾ÊÀº °æ¿ì, ÇÁ·Î±×·¥À» Á¾·áÇÏ°í À©µµ¿ì ¼³Á¤À» »ç¿ëÇÏ¿© ÀÌ·¯ÇÑ
+Korean = µå¶óÀÌ¹ö Áß ÇÏ³ª¸¦ º¯°æÇÏ½Ê½Ã¿À.
+
+Thailand = ¢éÍÊÑ§à¡µ: ¡èÍ¹·Õè¨ĞµÔ´µÑé§ä´Ã¿ìàÇÍÃìÊÓËÃÑº¡ÒÃáÊ´§¼ÅµÑÇãËÁè  ¢ÍãËéá¹èã¨ÇèÒÊÀÒ¾áÇ´ÅéÍÁ
+Thailand = ¢Í§ÇÔ¹â´ÇÊì¹Ñé¹ÃÑ¹ÍÂÙèÀÒÂãµéä´Ã¿ìàÇÍÃìÊÓËÃÑº¡ÒÃáÊ´§¼ÅµÑÇà´ÔÁ¢Í§ÇÔ¹â´ÇÊì
+Thailand = µÑÇã´µÑÇË¹Öè§ àªè¹ VGA ËÃ×Í Super VGA   ¶éÒäÁèà»ç¹àªè¹¹Ñé¹ ¡ç¢ÍãËéÍÍ¡¨Ò¡¡ÒÃ
+Thailand = µÔ´µÑé§¡èÍ¹ áÅéÇãªéâ»Ãá¡ÃÁ¡ÒÃµÔ´µÑé§¢Í§ÇÔ¹â´ÇÊì à¾×èÍà»ÅÕèÂ¹ä»·Õèä´Ã¿ìàÇÍÃìàËÅèÒ¹ÕéäÁèµÑÇã´
+Thailand = ¡çµÑÇË¹Öè§
+
+Czech = Poznámka: Pøed instalací novıch ovládaèù displeje musí bìet prostøedí Windows s jedním z pùvodních ovládaèù displeje Windows, jako napø. VGA nebo Super VGA.
+Czech = Pokud tomu tak není, vystupte z programu nyní a pomocí programu Nastavení ve Windows proveïte zmìnu na jeden z tìchto ovládaèù.
+
+Hungarian = Megjegyzés: csak akkor tud új megjelenítésvezérlõt telepíteni, ha a Windows környezetben már fut a Windows valamelyik eredeti megjelenítésvezérlõje, például a VGA vagy a szuper VGA. Ha nem ez a helyzet, lépjen ki a programból és a Windows Telepítõvel állítsa be valamelyik említett vezérlõt
+
+Polish = Uwaga: Przed zainstalowaniem nowych sterowników obrazowania, œrodowisko Windows musi byæ uruchomione przy pomocy jednego z oryginalnych sterowników obrazowania Windows, takich jak VGA lub Super VGA.
+Polish = Je¿eli tak nie jest, zakoñcz program i zmieñ ustawienie na jeden z tych sterowników u¿ywaj¹c opcji Ustawienie Windows.
+
+[Group Title]
+English           = VGA Display
+Dutch             = VGA hulpprogramma
+French            = Utilitaire VGA
+German            = VGA-Dienstprogramm
+Italian           = Utility VGA
+Japanese          = VGAƒ†[ƒeƒBƒŠƒeƒB
+Spanish           = Visualización VGA
+Swedish           = VGA-verktyg
+Danish            = Hjælpeværktøjet VGA
+Portuguese Brazil = Utilitário VGA
+Spanish Modern    = Utilidad VGA
+Finnish           = VGA-apuohjelma
+Norwegian         = VGA Hjelpeprogrammet 
+Portuguese        = Utilitário VGA
+Czech             = Utilita VGA
+Hungarian         = VGA segédprogram
+Polish            = Program u¿ytkowy VGA
+Russian           = Ñåğâèñíàÿ ïğîãğàììà âèäåî-ãğàôè÷åñêîãî àäàïòåğà VGA
+Chinese Simp      = VGAÓ¦ÓÃ
+Chinese Trad      = VGAÀ³¥Î
+Korean            = VGA À¯Æ¿¸®Æ¼
+Thailand          = â»Ãá¡ÃÁÍÃÃ¶»ÃĞâÂª¹ì VGA
+
+
+[Disks]
+1 = INSTALL Disk 1 of 2
+2 = INSTALL Disk 2 of 2
+
+
+[SrcDirs]
+10 = 
+
+
+[DstDirs]
+20 = 
+
+
+[Files]
+#------------------------------------Source==================Destination=============================
+# ( File description max.50, )       Disk - Dir : Filename,  Dir : Filename  (, o|n|e  default = O)
+#----------------------------------------------------------------------------------------------------
+
+Microsoft 3D Controls,               1-10: CTL3D.DLL,     S: CTL3D.DLL,     Exists already?
+16 Color Multi-Resolution Driver,    1-10: 16_1280.DR_,   S: 16_1280.DRV,   Overwrite
+54X6 Linear Video Driver,            1-10: 54X6.DR_,      S: 54X6.DRV,      Overwrite
+;54X6 Linear Video Driver,            1-10: 54X6.DR_,      S: 5436.DRV,      Overwrite,     36
+;54X6 Linear Video Driver,            1-10: 54X6.DR_,      S: 5446.DRV,      Overwrite,     39
+5436 VL Linear Dynamic Library,      1-10: 5436_486.DL_,  S: CIREXT.DLL,    Overwrite,     , ,~P4
+5436 PCI Linear Dynamic Library,     1-10: 5436_PCI.DL_,  S: CIREXT.DLL,    Overwrite,     , ,P4
+Enhanced Mode Grabber,               1-10: AVGA.3G_,      S: AVGA.3GR,      Exists already?
+;Alpine Dynamic Library,              1-10: ALPINE.DLL,    S: ALPINE.DLL,    Exists already?
+Virtual Display Driver,              1-10: VDD54XX.38_,   S: VDD54XX.386,   Overwrite
+Large System Fixed Font,             1-10: 8514FIX.FO_,   S: 8514FIX.FON,   Exists already?
+Large System OEM Font,               1-10: 8514OEM.FO_,   S: 8514OEM.FON,   Exists already?
+Large System Font,                   1-10: 8514SYS.FO_,   S: 8514SYS.FON,   Exists already?
+CGA Mode Emulation Font,             1-10: CGA40850.FO_,  S: CGA40850.FON,  Exists already?
+CGA Mode Emulation Font,             1-10: CGA40WOA.FO_,  S: CGA40WOA.FON,  Exists already?
+CGA Mode Emulation Font,             1-10: CGA80850.FO_,  S: CGA80850.FON,  Exists already?
+CGA Mode Emulation Font,             1-10: CGA80WOA.FO_,  S: CGA80WOA.FON,  Exists already?
+Courier System Font,                 1-10: COURE.FO_,     S: COURE.FON,     Exists already?
+Large Courier Font,                  1-10: COURF.FO_,     S: COURF.FON,     Exists already?
+EGA Mode Emulation Font,             1-10: EGA40850.FO_,  S: EGA40850.FON,  Exists already?
+EGA Mode Emulation Font,             1-10: EGA40WOA.FO_,  S: EGA40WOA.FON,  Exists already?
+EGA Mode Emulation Font,             1-10: EGA80850.FO_,  S: EGA80850.FON,  Exists already?
+EGA Mode Emulation Font,             1-10: EGA80WOA.FO_,  S: EGA80WOA.FON,  Exists already?
+Modern Font,                         1-10: MODERN.FO_,    S: MODERN.FON,    Exists already?
+Power Management Screen Saver,       1-10: PMSAVER.SC_,   W: PMSAVER.SCR,   Overwrite
+Power Management Screen Saver Help,  1-10: PMSAVER.HL_,   W: PMSAVER.HLP,   Overwrite
+Power Management TSR,                1-10: PM.EX_,        W: PM.EXE,        Overwrite
+Times Roman Font,                    1-10: ROMAN.FO_,     S: ROMAN.FON,     Exists already?
+Script Font,                         1-10: SCRIPT.FO_,    S: SCRIPT.FON,    Exists already?
+Serif System Font,                   1-10: SERIFE.FO_,    S: SERIFE.FON,    Exists already?
+Large Serif System Font,             1-10: SERIFF.FO_,    S: SERIFF.FON,    Exists already?
+Small System Font,                   1-10: SMALLE.FO_,    S: SMALLE.FON,    Exists already?
+Larger Small System Font,            1-10: SMALLF.FO_,    S: SMALLF.FON,    Exists already?
+SansSerif System Font,               1-10: SSERIFE.FO_,   S: SSERIFE.FON,   Exists already?
+Large SansSerif System Font,         1-10: SSERIFF.FO_,   S: SSERIFF.FON,   Exists already?
+Symbol System Font,                  1-10: SYMBOLE.FO_,   S: SYMBOLE.FON,   Exists already?
+Large Symbol System font,            1-10: SYMBOLF.FO_,   S: SYMBOLF.FON,   Exists already?
+System Font,                         1-10: VGA850.FO_,    S: VGA850.FON,    Exists already?
+System Font,                         1-10: VGA860.FO_,    S: VGA860.FON,    Exists already?
+System Font,                         1-10: VGA861.FO_,    S: VGA861.FON,    Exists already?
+System Font,                         1-10: VGA863.FO_,    S: VGA863.FON,    Exists already?
+System Font,                         1-10: VGA865.FO_,    S: VGA865.FON,    Exists already?
+Standard Mode Grabber,               1-10: VGACOLOR.2G_,  S: VGACOLOR.2GR,  Exists already?
+Standard System Fixed Font,          1-10: VGAFIX.FO_,    S: VGAFIX.FON,    Exists already?
+Standard System OEM Font,            1-10: VGAOEM.FO_,    S: VGAOEM.FON,    Exists already?
+Standard System Font,                1-10: VGASYS.FO_,    S: VGASYS.FON,    Exists already?
+WinMode Configuration File,          1-10: WINMODE.INI,   W: WINMODE.INI,   Overwrite
+386 Enhanced DVA Driver,             1-10: DVA.38_,       S: DVA.386,       Overwrite
+VPM Provider,                        1-10: 5446VPM.DL_,   S: 5446VPM.DLL,   Overwrite,     39
+DCI Provider,                        1-10: DCI54X6.DR_,   S: DCI54X6.DRV,   Overwrite
+DCI Manager,                         1-10: DCIMAN.DL_,    S: DCIMAN.DLL,    Overwrite
+Cirrus Logic DCI Initialization file,1-10: CLDCI.IN_,     W: CLDCI.INI,     Overwrite
+Universal Draw Handler,              1-10: UDH.DL_,       S: UDH.DLL,       Overwrite
+Microsoft Video Dynamic Library,     1-10: MSVIDEO.DL_,   S: MSVIDEO.DLL,   Exists already?
+Cinepak Driver,                      1-10: ICCVID.DR_,    S: ICCVID.DRV,    Overwrite
+WinMode Configuration Utility,       1-10: WINMODE.EX_,  20: WINMODE.EXE,   Overwrite
+WinMode Help File,                   1-10: WINMODE.HL_,  20: WINMODE.HLP,   Overwrite
+WinMode Language Support,            1-10: WINMODEL.DL_, 20: WINMODEL.DLL,  Overwrite
+WinMode Resize Handler,              1-10: RESIZE.DL_,   20: RESIZE.DLL,    Overwrite
+WinMode Monitor Timing Data File,    1-10: TIMINGS.DA_,  20: TIMINGS.DAT,   Overwrite
+EZ-Res Change Resolution Utility,    1-10: EZRES.EX_,    20: EZRES.EXE,     Overwrite
+EZ-Res Localization File,            1-10: EZRESL.TX_,   20: EZRESL.TXT,    Overwrite
+Monitor Adjusting Utility TSR,       1-10: ADJUST.CO_,   20: ADJUST.COM,    Overwrite
+ID CHIP UTILITY,                     1-10: IDCHIP.EXE,   20: IDCHIP.EXE,    Overwrite
+
+
+[PM Info]
+
+DefaultPMGroup  =  VGAUtil.GRP  ,   VGA Utilities
+DeleteOldPMGroup = no
+
+#----------------------------------------------------------------------------------------------------
+# (y|n,)   Dir: Filename (,Description)(,Icon #)(,m|p)(,Accelerator)
+#----------------------------------------------------------------------------------------------------
+
+Yes, 20: WINMODE.EXE, WinMode
+No, 20: EZRES.EXE, EZ-Res
+
+#FOR MULTIDISK INSTALLATION COPY INI SECTION BELOW AND PLACE IN THE LAST DISK 
+[INI Info]
+#----------------------------------------------------------------------------------------------------
+# Dir: Filename, Section, Entry, Value ( or default directory {d})
+#----------------------------------------------------------------------------------------------------
+
+W:  WinMode.INI, CLMode, path, {D}
+W:  SYSTEM.INI,  Drivers, VIDS.DRAW, udh.dll
+W:  SYSTEM.INI,  Drivers, VIDC.CVID, iccvid.drv
+W:  SYSTEM.INI,  Drivers, DCI, DCI54X6
+W,ID=39: SYSTEM.INI, Drivers, VPM, 5446VPM.DLL
+W,WType=ADD: SYSTEM.INI, 386Enh, device, dva.386
+W:WType=ADD: WIN.INI, drawdib, cirrus.dll, NULL
+W:  SYSTEM.INI,  Svga256.drv, Resolution, 1
+W:  SYSTEM.INI,  Svga256.drv, svgamode, 95
+W:  SYSTEM.INI,  Svga256.drv, Chipset, CirrusLogic 5446
+W:  SYSTEM.INI,  Svga256.drv, LatchCapable, Yes
+
+
+;[End] optional
+
