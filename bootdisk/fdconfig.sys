@@ -1,0 +1,31 @@
+!SET DOSDIR=A:\FREEDOS
+
+!LASTDRIVE=Z
+!BUFFERS=20
+!FILES=40
+
+MENUDEFAULT=0
+MENU
+MENU                 T H E   W I N D O W S   9 X
+MENU      ________________ _______   _______________    __   _____
+MENU     / ____/ ___/ ___// ____/ | / /_  __/  _/   |  / /  / ___/
+MENU    / __/  \__ \\__ \/ __/ /  |/ / / /  / // /| | / /   \__ \
+MENU   / /___ ___/ /__/ / /___/ /|  / / / _/ // ___ |/ /______/ /
+MENU  /_____//____/____/_____/_/ |_/ /_/ /___/_/  |_/_____/____/
+MENU
+MENU                           D I S C
+MENU
+MENU Please select an option:
+MENU
+MENU 0 - Run Patch9x (fix Win9x CPU bugs)
+MENU 1 - FreeDOS prompt with CD-ROM
+MENU 2 - FreeDOS without CD-ROM
+MENU
+
+1?DEVICE=A:\DRIVERS\HIMEMX.EXE
+1?DEVICEHIGH=A:\DRIVERS\UDVD2.SYS /D:SHSU-CDX
+1?INSTALLHIGH=A:\DRIVERS\SHSUCDX.COM /D:SHSU-CDX
+
+0?SHELL=A:\COMMAND.COM /K A:\PATCH9X\PATCH9X.EXE
+12?SHELL=A:\COMMAND.COM /E:512 /P
+
