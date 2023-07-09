@@ -2,7 +2,7 @@
 
 ../bootdisk.img: freedos-minimal.img
 	cp $< $@
-	SDL_VIDEODRIVER=dummy SDL_AUTIODRIVER=dummy \
+	SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy \
 	    dosbox -conf mkdisk.cfg
 
 clean:
