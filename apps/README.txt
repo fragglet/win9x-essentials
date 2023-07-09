@@ -7,6 +7,8 @@ daemon_tools-3.47.exe - Daemon Tools 3.47. Virtual CD/DVD drive that can
                         mount .iso images as though they're on a real drive.
                         Useful for playing games that require a CD to be
                         present, without needing an actual drive or disk.
+                        Needs Windows Installer 2.0 update (found in
+                        \updates\instmsi.exe).
 
 enditall-2.exe - EndItAll 2.0. More fully-featured replacement for Task
                  Manager.
