@@ -15,8 +15,6 @@ enditall-2.exe - EndItAll 2.0. More fully-featured replacement for Task
 
 filezilla-2.2.15.exe - FileZilla 2.2.15. FTP client.
 
-gusemu32-0.95 - Gravis Ultrasound emulator.
-
 hwinfo-7.34.exe - HWiNFO v7.34. Shows lots of information about the system
                   hardware.
 
