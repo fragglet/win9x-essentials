@@ -20,6 +20,8 @@ hwinfo-7.34.exe - HWiNFO v7.34. Shows lots of information about the system
 
 irfanview-4.10 - IrfanView image viewer v4.10, plus plugins pack.
 
+neko-98 - Essential desktop utility, crucial for any Windows 9x install.
+
 kernelex-4.5.2.exe - KernelEx 4.5.2. Allows some software designed for Windows
                      NT to be run on 9x. Needs Microsoft Layer for Unicode
                      (unicows.exe in \updates).
