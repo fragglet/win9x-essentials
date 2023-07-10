@@ -1,0 +1,4 @@
+[autorun]
+icon=icon.ico
+shell\README\command=notepad README.txt
+shell\README=Open READ&ME file...
