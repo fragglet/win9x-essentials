@@ -27,3 +27,11 @@ Windows 9x system.
 
     win3        - Small collection of drivers and updates for Windows 3.1.
 
+
+This is a bootable CD. Boot from this disc to get a minimal FreeDOS
+system that contains:
+
+ * Patcher9x, which fixes CPU bugs that make new Win9x systems unbootable.
+ * Memtest86+ hardware memory tester
+ * XFDISK partitioning tool
+
