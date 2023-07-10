@@ -34,7 +34,7 @@ putty-0.63.exe - PuTTY 0.63 SSH client.
 
 rawwrite-0.7 - Utility for writing raw floppy disks.
 
-tcp-optimizer-3.0 - Optimizer for Windows TCP/IP stack to improve performance.
+tcp-optimizer-3.08 - Optimizer for Windows TCP/IP stack to improve performance.
 
 vdmsound-alpha3 - VDMSound alpha3 version for Windows 9x. Emulator of legacy
                  sound cards within the DOS environment.
