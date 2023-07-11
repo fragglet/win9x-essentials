@@ -4,7 +4,7 @@ cirrus       - Drivers for the Cirrus Logic CL-GD54xx graphics cards.
                can emulate these cards, in case you're running a VM
                using one of these two.
 
-nusb33e.exe  - Windows 98 USB mass storage driver. Allows you to use
+nusb36e.exe  - Windows 98 USB mass storage driver. Allows you to use
                USB flash drives and external hard drives if your
                machine has USB ports.
 
