@@ -9,7 +9,7 @@ pcnet        - Drivers for AMD PCnet network card, emulated by both
 rtl8139      - Network drivers for the Realtek 8139c chips, emulated by
                QEMU and an incredibly common chipset in general.
 
-tcp32b.exe   - Microsoft TCP/IP-32 for Windows 3.11.
+tcp32b       - Microsoft TCP/IP-32 for Windows 3.11.
 
 vmwmouse     - VMware mouse driver for Windows 3.x (works with QEMU and
                other emulators too).
