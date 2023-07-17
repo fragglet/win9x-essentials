@@ -17,4 +17,12 @@ jobs:
     - name: Install dependencies
       run: sudo apt -q install dosbox genisoimage
     - name: make
-      run: make
+      run: |
+        make
+        mkdir -p artifacts
+        cp win9x_essentials.iso artifacts/
+    - name: Upload ISO
+      uses: actions/upload-artifact@v1
+      with:
+        path: "artifacts"
+        name: win9x_essentials_iso
