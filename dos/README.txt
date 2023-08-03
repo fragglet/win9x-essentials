@@ -3,6 +3,10 @@
 
 ctmouse.204    - CuteMouse PS/2 mouse driver v2.0alpha4.
 
+dlmanip        - Drive letter manipulator v0.33 beta. Can be used to
+                 rearrange drive letters and also "delete" floppy drives
+                 on machines where one is not connected.
+
 lfntools.405   - Extended versions of DOS commands that support long
                  filenames.
 
