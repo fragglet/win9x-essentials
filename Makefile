@@ -1,6 +1,6 @@
 
 ISO = win9x_essentials.iso
-EXCLUDES = bootdisk .git .gitignore Makefile $(ISO)
+EXCLUDES = bootdisk .git .gitignore .github Makefile $(ISO)
 
 .PHONY: $(ISO) clean bootdisk.img
 $(ISO): bootdisk.img
