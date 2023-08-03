@@ -13,6 +13,9 @@ rtl8139      - Network drivers for the Realtek 8139c chips, emulated by
 
 tcp32b       - Microsoft TCP/IP-32 for Windows 3.11.
 
+vgapatch     - Patch for Win 3.1 SVGA driver to make it work with emulated
+               SVGA devices.
+
 vmwmouse     - VMware mouse driver for Windows 3.x (works with QEMU and
                other emulators too).
 

@@ -1,0 +1,124 @@
+
+INTRODUCTION
+============
+
+This program patches SVGA256.DRV to make it work for VMware.
+SVGA256.DRV is a 256 color video driver for Win 3.x but it
+supports only several particular graphic cards by itself.
+The driver is included in Win 3.11 and WfW 3.11 but you should
+be able to find it somewhere in the net to use on Win 3.1
+(google "SVGA.EXE").
+
+It's not perfect and has many limits and caveats as noted below,
+but I guess it's much better than 640x480/16 screen.
+And although it's not lightning fast, it certainly runs faster
+and responsive than standard VGA.
+
+This patch is written based on Japheth's SVGApatch program
+(http://www.japheth.de/).  His version is a more generic patch
+for VESA compliancy.  I just adjusted it for VMware and fixed a
+few VMware specific problems.  Many thanks to him and cheers to
+free software developers over the world!
+
+
+INSTALL
+=======
+
+ 1) See if you have SVGA256.DRV in your WINDOWS\SYSTEM directory.
+    If not, you have to get SVGA.EXE.  Execute it in an empty
+    directory and it expands into numerous files, including
+    SVGA256.DRV.
+
+ 2) Run VGAPATCH.COM in the same directory where SVGA256.DRV is.
+    It should report how patching went.  You may want to take a
+    backup of SVGA256.DRV before patching.
+
+    This patch is confirmed to work with the following versions
+    of SVGA256.DRV.
+
+    - Date: 1993/2/23 Size: 117,312 bytes Version: 4.0.0.52490
+      Comes with SVGA.EXE in circulation on the net. There are a
+      few different versions of SVGA.EXE circulating in the net,
+      but as far as I was able to check they all contain the same
+      version of SVGA256.DRV file.
+
+    - Date: 1993/11/11 Size: 117,440 bytes Version: 3.11.0.300
+      Comes with Windows for Workgroups 3.11
+
+    - Date: 1993/12/31 Size: 117,456 bytes Version: 4.0.0.58
+      Comes with Windows 3.11
+
+ 3) Start Windows Setup from the Main group in Windows, or run
+    WINDOWS\SETUP.EXE in DOS, then choose "Super VGA 1024x768 256"
+    display.  You'll have to first choose "other display" and
+    specify the directory where you put SVGA256.DRV if you get
+    SVGA256.DRV from SVGA.EXE.  It's a good idea also to read
+    the documents included in SVGA.EXE.
+
+ 4) Start or restart Windows, and Enjoy!
+
+
+LIMITS and CAVEATS
+==================
+
+ -- Only 1024x768/256 mode works properly. 640x480 and 800x600
+    256 color modes kind of work, but VMware guest area is still
+    1024x768 in those cases (Windows uses only part of the guest
+    screen).  16 color modes does not work at all because VMware
+    does not support 16 color SVGA modes.
+
+ -- If you enable file and/or printer sharing in WfW, you'll see
+    garbled display every time you start Windows (just when you
+    should see the WfW logon box).  When that happens, press
+    Ctrl+Alt+Del (or Ctrl+Alt+Ins on Windows host) once, then press
+    another key when the blue screen is displayed, and the display
+    will go back to normal.
+
+ -- You cannot start a DOS prompt in window mode.
+    Switching from full screen to window mode works just fine,
+    but the other way round (from window mode to full screen)
+    does not work.  So I suggest that you start DOS prompt always
+    in full screen mode, and switch back to window mode with
+    Alt+Enter whenever necessary (well it's the only way, actually).
+
+ -- Changing video mode in window mode DOS prompt (such as switching
+    between English and Japanese and using DOS programs which runs
+    in graphic mode) may lead to a system crash.
+    Full screen DOS prompt has no such problem.
+
+ -- Window mode DOS prompts generally don't work very well.
+    Two items above are the most notable of the issue, but there
+    are many other problems, small and big.  I believe you shoud
+    generally avoid using DOS prompt in window mode.
+
+
+TECHNICALS
+==========
+
+I put these information here in the hope that someone more
+familiar with Win 3.x drivers would fix problems mentioned above.
+
+ 1) Why only 1024x768?
+
+    SVGA256.DRV seems to handle only a fixed logical scan length
+    of 1024.  However, VMware supports only the same logical scan
+    length as actual screen width.  Thus, for example, when VMware
+    guest screen is 800x600, VMware only supports the logical scan
+    line length of 800 where the driver expects 1024, and the
+    result is a completely garbled screen.  So I decided to use a
+    fixed guest screen size (VESA mode 105h) regardless of
+    Windows display size (because, although I have managed to
+    discover where to fix for cursor and text drawing, I have
+    never been able to find out where to fix for general window
+    drawing).  It's ugly but at least it's usable this way.
+
+ 2) Why the file/printer sharing problem?
+
+    I have absolutely no idea.  In fact I have discovered the
+    connection just by an accident.
+
+ 3) Why the DOS prompt problems?
+
+    I think all window mode DOS prompt issues are caused by lack
+    of a VDD to work with the patched version of SVGA256.DRV.
+    Someone?
