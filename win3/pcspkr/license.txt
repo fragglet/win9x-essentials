@@ -1,0 +1,63 @@
+
+MICROSOFT SOFTWARE LICENSE
+
+1. 	GRANT OF LICENSE.  Microsoft grants to you the right
+        to use and to make an unlimited number of copies of
+        the Windows 3.1 Driver Library  ("Software")
+        provided that such copies are used only in connection
+        with licensed copies of Microsoft's Windows 3.x
+        products.
+
+2.	COPYRIGHT.  The Software is owned by Microsoft or its
+        suppliers and is protected by United States copyright
+        laws and international treaty provisions any you may
+        not remove the copyright notice form any copy of the
+        Software.   
+
+3.	OTHER RESTRICTIONS.  This Microsoft License Agreement
+        is your proof of license to exercise the rights
+        granted herein and must be retained by you.  You may
+        not rent or lease the Software.  You may not reverse
+        engineer, decompile or disassemble the Software.
+
+NO WARRANTY.  ANY USE BY YOU OF THE SOFTWARE IS AT YOUR OWN
+RISK.  THE SOFTWARE IS PROVIDED FOR USE ONLY WITH MICROSOFT
+WINDOWS 3.X AND RELATED SOFTWARE.  THE SOFTWARE IS PROVIDED
+FOR USE "AS IS" WITHOUT WARRANTY OF ANY KIND.  MICROSOFT AND
+ITS SUPPLIERS DISCLAIM ALL WARRANTIES OF ANY KIND, EITHER
+EXPRESS OR IMPLIED, INCLUDING, WITHOUT LIMITATION, IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE.
+
+NO LIABILITY FOR CONSEQUENTIAL DAMAGES.  In no event shall
+Microsoft or its suppliers be liable for any damages
+whatsoever (including, without limitation, damages for loss
+of business profits, business interruption, loss of business
+information, or other pecuniary loss) arising out of the use
+or inability to use this Microsoft product, even if Microsoft
+has been advised of the possibility of such damages.  Because
+some states do not allow the exclusion or limitation of
+liability for consequential or incidental damages, the above
+limitation may not apply to you.
+
+U.S. GOVERNMENT RESTRICTED RIGHTS
+
+The Software and documentation are provided with RESTRICTED
+RIGHTS.  Use, duplication, or disclosure by the Government
+is subject to restrictions as set forth in subparagraph
+(c)(1)(ii) of The Rights in Technical Data and Computer
+Software clause at DFARS 252.227-7013 or subparagraphs (c)(1)
+and (2) of the Commercial Computer Software - Restricted
+Rights at 48 CFR 52.227-19, as applicable.  Manufacturer is
+Microsoft Corporation/One Microsoft Way/Redmond, WA
+98052-6399.
+
+This Agreement is governed by the laws of the State of
+Washington.
+
+Should you have any questions concerning this Agreement, or
+if you desire to contact Microsoft for any reason, please
+write: Microsoft Customer Sales and Service/One Microsoft
+Way/Redmond, WA  98052-6399.
+
+04/06/92    filename LE911640.001

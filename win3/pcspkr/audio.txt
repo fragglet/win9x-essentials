@@ -1,0 +1,34 @@
+PLEASE READ
+-------------------------------------------------
+By using the following Windows 3.1 Driver Library
+(the "Software"), you are hereby agreeing to the
+included license agreement.  Please review the
+file LICENSE.TXT.
+
+Installing an Audio Driver
+-----------------------------------
+Follow the instructions given in "Installing a 
+Driver Not Supplied with Windows," in Chapter 5,
+"Control Panel," in the "Microsoft Windows User's
+Guide." When you are requested to insert the disk
+containing the setup information, insert the disk
+you made during the downloading procedure, or
+type the path of the directory where you
+downloaded the driver.
+
+Note: If you are using the IBM M-Audio Sound
+Driver and would like the most recent version of
+the MIDIMAP.CFG file, do the following:
+
+1.  Change to the disk or directory to which you
+    downloaded.
+
+2.  At the MS-DOS prompt, type:
+
+         copy midimap.ibm <path>midimap.cfg
+
+    where <path> is the drive and directory
+    containing your existing MIDIMAP.CFG file.
+
+This overwrites your existing MIDIMAP.CFG file.
+Any changes you have made will be lost.

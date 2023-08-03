@@ -1,0 +1,7 @@
+; Names of the disks Setup can prompt for.
+[disks]
+    1 =. ,"",speaker.drv
+
+[Installable.Drivers]
+; key    = filename, type(s), description, VxD(s), Default Params
+pcwave   = 1:speaker.drv,   "Wave",     "Sound Driver for PC-Speaker",, 

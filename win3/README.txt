@@ -6,6 +6,8 @@ cirrus       - Drivers for the Cirrus Logic CL-GD54xx graphics cards.
 pcnet        - Drivers for AMD PCnet network card, emulated by both
                QEMU and VirtualBox.
 
+pcspkr       - PC speaker audio driver.
+
 rtl8139      - Network drivers for the Realtek 8139c chips, emulated by
                QEMU and an incredibly common chipset in general.
 

@@ -1,0 +1,46 @@
+PLEASE READ
+-------------------------------------------------
+By using the following Windows 3.1 Driver Library
+(the "Software"), you are hereby agreeing to the
+included license agreement.  Please review the
+file LICENSE.TXT.
+
+"Enable interrupts during playback" Setup Option
+------------------------------------------------
+By default, the PC Speaker driver disables all 
+interrupts while playing sounds for optimal sound 
+quality.  As a result, you will noticed that the 
+mouse cursor, keyboard or other processes will not 
+respond while sounds are being played through the 
+PC Speaker.  You can set PC Speaker to enable 
+interrupts for serial port activity and mouse 
+movements in the PC Speaker setup dialog, at the 
+expense of sound quality.  
+
+To set this option:
+    - Run Control Panel
+    - Open the Drivers icon
+    - Select the Sound Driver for PC Speaker from
+      the list of Installed Drivers
+    - Choose Setup
+    - Select or clear the Enable interrupts during
+      playback check box.
+
+Note: It may be necessary to select option when 
+running some communication applications.
+
+
+Using the PC Speaker driver with AST systems
+--------------------------------------------
+If you experience problems using the PC Speaker 
+driver on an AST system, you should contact AST 
+Technical Support at 1-800-727-1278.
+
+Using Media Player with the PC Speaker driver
+---------------------------------------------
+The version of Media Player provided with Windows
+3.1 does not play *.WAV files with the PC Speaker
+driver.  To play *.WAV files, you should use Sound
+Recorder.  Windows 3.1 will install the Sound
+Recorder icon in your Accessories Program Manager
+group.
