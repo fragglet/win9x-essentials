@@ -18,6 +18,9 @@ softmpu.191    - SoftMPU v1.91. Emulates an intelligent-mode MPU-401 card.
 tweakpci.10    - TweakPCI v1.0. Can be used to inspect and modify PCI
                  registers.
 
+vbados         - MS-DOS TSRs for VirtualBox mouse and shared folder
+                 integration.
+
 vc.405         - Volkov Commander 4.05. Free clone of Norton Commander
                  file manager.
 

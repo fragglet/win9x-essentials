@@ -1,0 +1,60 @@
+# Language: English
+# Codepage: 437
+#
+# Spaces before text must be kept. Be sure that no spaces are
+# added to the end of the lines.
+#
+0.0:Usage:
+0.1:  VBSF <ACTION> <ARGS..> [<OPTIONS..>]
+0.2:Supported actions and options:
+0.3:  install                 Install the driver (default).
+0.4:    low                     Install in conventional memory (otherwise UMB).
+0.5:  uninstall               Uninstall the driver from memory.
+0.6:  list                    List available shared folders.
+0.7:  mount <FOLD> <X:> ...   Mount a shared folder into drive X:.
+0.8:    /hash <n>               Number of hash chars following the '~'
+0.9:                              for generated DOS short filenames.
+0.10:                              (between %d and %d; default %d; 0 to disable)\n
+0.11:    /host                   Use short file names from Windows hosts.
+0.12:    /upper                  Require uppercase host filenames.
+0.13:  remount <X:> ...        Change mount options for mounted drive X:.
+0.14:  umount <X:>             Unmount shared folder from drive X:.
+0.15:  rescan                  Unmount everything and recreate automounts.
+1.0:Mounted drives:\n
+1.1: %s on %c:  %s\n
+1.2:Available shared folders:\n
+1.3:Shared folder '%s' mounted as drive %c:\n
+1.4:Drive %c: unmounted\n
+1.5:Using timezone from TZ variable (%s)\n
+1.6:Connected to VirtualBox shared folder service\n
+1.7:Driver installed\n
+1.8:Driver uninstalled\n
+1.9:\nVBSharedFolders %x.%x\n
+1.10:VBSF already installed\n
+2.0:Warning: Active code page not found
+2.1:Warning: Can't find Unicode table: %s
+2.2:Warning: Can't load Unicode table: %s
+2.3:Warning: Invalid file format: %s
+2.4:. Defaulting to cp437\n
+3.0:Error on Query Map Name, err=%ld\n
+3.1:Error on Query Mappings, err=%ld\n
+3.2:Error on Close File, err=%ld\n
+3.3:Cannot mount shared folder '%s', err=%d\n
+3.4:Error on Query Map Info for mounted drive, err=%ld\n
+3.5:Cannot unmount shared folder, err=%d\n
+3.6:Invalid drive %c:\n
+3.7:Drive %c: is after LASTDRIVE\n
+3.8:Drive %c already mounted\n
+3.9:Drive %c: already exists\n
+3.11:Drive %c not mounted\n
+3.12:Error en Query Map Info
+3.13:Cannot get the NLS tables
+3.14:Cannot find VirtualBox PCI device, err=%ld\n
+3.15:Cannot lock buffer used for VirtualBox communication, err=%ld\n
+3.16:VirtualBox communication is not working, err=%ld\n
+3.17:Cannot connect to shared folder service, err=%ld\n
+3.18:Cannot configure UTF-8 on shared folder service, err=%ld\n
+3.19:INT2F has been hooked by someone else, cannot safely remove\n
+3.20:Driver data not found (driver not installed?)\n
+3.21:Invalid argument '%s'\n
+3.22:Argument required for '%s'\n
