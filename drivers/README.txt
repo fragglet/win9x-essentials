@@ -18,3 +18,7 @@ vbemp        - VBE miniport drivers.
 
 vbemp-old    - Older version of VBE miniport drivers.
 
+vbmouse      - Mouse driver with VirtualBox mouse integration support.
+               Note that this is a Windows 3.x driver but it can also be
+               configured to work on Windows 9x (see the README.txt).
+
