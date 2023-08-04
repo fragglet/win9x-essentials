@@ -1,0 +1,770 @@
+[data]
+    Version="3.10"
+
+; Names of the disks Setup can prompt for.
+[disks]
+    1 =., "S3 Flat Model Trio64V Driver Disk",disk1
+
+[display]
+;
+D608    = 1:s3trio.drv,  "S3 Trio64V 1.70.04  640x480  256 ","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D0608
+D615    = 1:s3trio.drv,  "S3 Trio64V 1.70.04  640x480  32K ","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D0615
+D616    = 1:s3trio.drv,  "S3 Trio64V 1.70.04  640x480  64K ","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D0616
+S3_24  =1:s3vsnd24.drv,  "S3 Trio64V 1.70.04  640x480 16.7M  1MB","100,96,96", 1:s3vga.2gr,    1:vgalogo.lgo, 1:vddS3.386,    1:s3vga.3gr,,    1:vgalogo.rle, s3
+D632L   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  640x480 16.7M ","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D0632
+;D400   = 1:s3trio32.drv,"S3 Trio64V 1.70.04  640x400 16.7M  1MB","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, S3400
+
+;
+DL808   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  256 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D808L
+DS808   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  256 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D808S
+DL815   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  32K C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D815L
+DS815   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  32K C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D815S
+DL816   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  64K C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D816L
+DS816   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600  64K C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D816S
+DL832   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600 16.7M C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D832L
+DS832   = 1:s3trio.drv,  "S3 Trio64V 1.70.04  800x600 16.7M C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D832S
+;                        
+DL1008  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 256 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D108L
+DS1008  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 256 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D108S
+DL1015  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 32K C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D115L
+DS1015  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 32K C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D115S
+DL1016  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 64K C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D116L
+DS1016  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1024x768 64K C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D116S
+;;DL1032 = 1:s3trio.drv, "S3 Trio64V 1.70.04 1024x768 16.7M C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D132L
+;;DS1032 = 1:s3trio.drv, "S3 Trio64V 1.70.04 1024x768 16.7M C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D132S
+;                                                
+DL1108  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1152x864 256 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D118L
+DS1108  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1152x864 256 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D118S
+;
+;;DL1204  = 1:s3trio.drv,"S3 Trio64V 1.70.04 1280x1024 16 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D204L
+;;DS1204  = 1:s3trio.drv,"S3 Trio64V 1.70.04 1280x1024 16 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D204S
+DL1208  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1280x1024 256 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D208L
+DS1208  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1280x1024 256 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D208S
+;
+DL1608  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1600x1200 256 C LF","100,120,120", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D608L
+DS1608  = 1:s3trio.drv,  "S3 Trio64V 1.70.04 1600x1200 256 C SF","100,96,96", 1:vgacolor.2gr, 1:vgalogo.lgo, 1:vdds3764.386, 1:vga_eng.3gr,, 1:vgalogo.rle, D608S
+;
+[D0608]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=640"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D0615]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=640"
+,,system.ini, DISPLAY, "color-format=",     "color-format=15"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D0616]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=640"
+,,system.ini, DISPLAY, "color-format=",     "color-format=16"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D0632]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=640"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D808L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D808S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D815L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=15"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D815S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=15"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D816L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=16"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D816S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=16"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D832L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D832S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=800"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D108L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D108S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D115L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=15"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+,,system.ini, DISPLAY, "decimation",        "decimation=3000"    
+
+[D115S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=15"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+,,system.ini, DISPLAY, "decimation",        "decimation=3000"    
+
+[D116L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=16"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+,,system.ini, DISPLAY, "decimation",        "decimation=3000"    
+
+[D116S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=16"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,progman.ini,Settings,"display.drv=",      ""
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+,,system.ini, DISPLAY, "decimation",        "decimation=3000"    
+
+[D132L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D132S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1024"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D118L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1152"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D118S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1152"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D204L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1280"
+,,system.ini, DISPLAY, "color-format=",     "color-format=4"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D204S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1280"
+,,system.ini, DISPLAY, "color-format=",     "color-format=4"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D208L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1280"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D208S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1280"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D608L]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1600"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=120"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[D608S]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=on"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=on"
+,,system.ini, DISPLAY, "font-caching",      ""
+,,system.ini, DISPLAY, "scache",            "scache=on"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "fastmmio",          "fastmmio=on"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=1600"
+,,system.ini, DISPLAY, "color-format=",     "color-format=8"
+,,system.ini, DISPLAY, "dpi",               "dpi=96"
+,,system.ini, DISPLAY, "virtualize-vga=",   ""
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+[S3400]
+1:8811_swc.ini, 0:
+1:rfmk2v.ini, 0:
+1:dciman.dll, 0:system
+1:udh.dll,    0:system, system.ini, DRIVERS, "VIDS.DRAW", "VIDS.DRAW=UDH.DLL"
+1:rfmdci.drv, 0:system, system.ini, DRIVERS, "DCI", "DCI=RFMDCI"
+1:rfmk2v.dll, 0:system
+,,system.ini, Debug,   "OutputTo",          "OutputTo=NUL"
+,,system.ini, DISPLAY, "dac-type",          "dac-type=nbt"
+,,system.ini, DISPLAY, "aperture-base",     ""
+,,system.ini, DISPLAY, "polygon-support",   "polygon-support=off"
+,,system.ini, DISPLAY, "ellipse-support",   "ellipse-support=off"
+,,system.ini, DISPLAY, "font-caching",      "font-caching=off"
+,,system.ini, DISPLAY, "scache",            "scache=off"
+,,system.ini, DISPLAY, "textrmw",           "textrmw=0"
+,,system.ini, DISPLAY, "screen-size=",      "screen-size=640x400"
+,,system.ini, DISPLAY, "color-format=",     "color-format=32"
+,,system.ini, DISPLAY, "dpi",               "dpi=96 "
+,,system.ini, DISPLAY, "virtualize-vga=",   "virtualize-vga=no"
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  
+
+; copy these fonts depending on the 386 grabber being used
+[vga_eng.3gr]
+1:CGA40WOA.FON,1:CGA40850.FON
+1:CGA80WOA.FON,1:CGA80850.FON
+1:EGA40WOA.FON,1:EGA40850.FON
+1:EGA80WOA.FON,1:EGA80850.FON
+
+[sysfonts]
+1:vgasys.fon,"VGA (640x480) resolution System Font", "100,96,96"
+1:8514sys.fon,"8514/a (1024x768) resolution System Font", "100,120,120"
+
+[fixedfonts]
+1:vgafix.fon,"VGA (640x480) resolution Fixed System Font", "100,96,96"
+1:8514fix.fon,"8514/a (1024x768) resolution Fixed System Font",  "100,120,120"
+
+[oemfonts]
+1:vgaoem.fon,"VGA (640x480) resolution Terminal Font (USA/Europe)", "100,96,96",1
+1:8514oem.fon,"8514/a (1024x768) resolution Terminal Font (USA/Europe)", "100,120,120",1
+
+[fonts]
+   1:SSERIFE.FON, "MS Sans Serif 8,10,12,14,18,24 (VGA res)", "100,96,96"
+   1:SSERIFF.FON, "MS Sans Serif 8,10,12,14,18,24 (8514/a res)", "100,120,120"
+
+   1:COURE.FON, "Courier 10,12,15 (VGA res)", "100,96,96"
+   1:COURF.FON, "Courier 10,12,15 (8514/a res)", "100,120,120"
+
+   1:SERIFE.FON, "MS Serif 8,10,12,14,18,24 (VGA res)", "100,96,96"
+   1:SERIFF.FON, "MS Serif 8,10,12,14,18,24 (8514/a res)", "100,120,120"
+
+   1:SYMBOLE.FON, "Symbol 8,10,12,14,18,24 (VGA res)", "100,96,96"
+   1:SYMBOLF.FON, "Symbol 8,10,12,14,18,24 (8514/a res)", "100,120,120"
+
+   1:SMALLE.FON, "Small Fonts (VGA res)", "100,96,96"
+   1:SMALLF.FON, "Small Fonts (8514/a res)", "100,120,120"
+
+   1:ROMAN.FON, "Roman (Plotter)",   "CONTINUOUSSCALING"
+   1:SCRIPT.FON, "Script (Plotter)", "CONTINUOUSSCALING"
+   1:MODERN.FON, "Modern (Plotter)", "CONTINUOUSSCALING"
+
+[s3]
+,,system.ini,s3_24.drv,"WidthXHeight=","WidthXHeight=640x480" 
+,,system.ini,s3_24.drv,"FontSize=","FontSize=small" 
+,,system.ini, DISPLAY, "MCenter",           ""  
+,,system.ini, DISPLAY, "Refresh",           ""  

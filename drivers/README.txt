@@ -10,6 +10,8 @@ nusb36e.exe  - Windows 98 USB mass storage driver. Allows you to use
 
 rtl8139c     - Network drivers for the RealTek 8139c chips.
 
+s3           - Drivers for S3 Trio64, as emulated by DOSbox by default.
+
 sdd.653      - SciTech Display Doctor 6.53. Windows and DOS SVGA/VBE
                drivers. Used to be a commercial product but has since
                been released as freeware.

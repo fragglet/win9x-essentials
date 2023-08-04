@@ -11,6 +11,8 @@ pcspkr       - PC speaker audio driver.
 rtl8139      - Network drivers for the Realtek 8139c chips, emulated by
                QEMU and an incredibly common chipset in general.
 
+s3           - Drivers for S3 Trio64, as emulated by DOSbox by default.
+
 tcp32b       - Microsoft TCP/IP-32 for Windows 3.11.
 
 vgapatch     - Patch for Win 3.1 SVGA driver to make it work with emulated

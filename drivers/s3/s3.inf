@@ -1,0 +1,322 @@
+; INF file for S3 display driver.
+; Copyright 1994, Microsoft Corporation
+
+[Version]
+Class=Display
+Signature="$CHICAGO$"
+Provider=%Mfg%
+
+[DestinationDirs]
+DefaultDestDir=11
+S3-765Ini.Copy=10
+
+[SourceDisksNames]
+51="Windows 95 S3 Driver Disk",,1
+
+[SourceDisksFiles]
+s3_1.drv=51
+s3_2.drv=51
+s324bpp.drv=51
+s324bpp.vxd=51
+s3vdd.vxd=51
+s3_32.dll=51
+s3_16.dll=51
+k2v_hwc.ini=51
+k2v_swc.ini=51
+k2v_dig.ini=51
+
+
+;----------------------------------------
+; Manufacturers 
+
+[Manufacturer]
+"%Mfg%"=Mfg
+
+;----------------------------------------
+; Driver sections
+
+[Mfg]
+%S3911.DeviceDesc%=                 S3_1, S3911_ISA
+%S3801.DeviceDesc%=                 S3_1, S3801_ISA
+%S3928.DeviceDesc%=                 S3_1, S3928_VLB
+%S3864.DeviceDesc%=                 S3_1, S3864_VLB
+%S3964.DeviceDesc%=                 S3_1, S3964_VLB
+%S3868.DeviceDesc%=                 S3_4, S3868_VLB
+%S3968.DeviceDesc%=                 S3_4, S3968_VLB
+%S3764.DeviceDesc%=                 S3_2, S3764_VLB
+%S3765.DeviceDesc%=                 S3_3, S3765_VLB
+%PCI\VEN_5333&DEV_88B0.DeviceDesc%= S3_1, PCI\VEN_5333&DEV_88B0
+%PCI\VEN_5333&DEV_88C0.DeviceDesc%= S3_1, PCI\VEN_5333&DEV_88C0
+%PCI\VEN_5333&DEV_88C1.DeviceDesc%= S3_1, PCI\VEN_5333&DEV_88C1
+%PCI\VEN_5333&DEV_88D0.DeviceDesc%= S3_1, PCI\VEN_5333&DEV_88D0
+%PCI\VEN_5333&DEV_88D1.DeviceDesc%= S3_1, PCI\VEN_5333&DEV_88D1     
+%PCI\VEN_5333&DEV_8880.DeviceDesc%= S3_4, PCI\VEN_5333&DEV_8880
+%PCI\VEN_5333&DEV_88F0.DeviceDesc%= S3_4, PCI\VEN_5333&DEV_88F0     
+%PCI\VEN_5333&DEV_8811.DeviceDesc%= S3_2, PCI\VEN_5333&DEV_8811  
+%PCI\VEN_5333&DEV_8811p.DeviceDesc%=S3_2, PCI\VEN_5333&DEV_8811
+%PCI\VEN_5333&DEV_8811&REV_40.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_40
+%PCI\VEN_5333&DEV_8811&REV_42.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_42
+%PCI\VEN_5333&DEV_8811&REV_52.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_52
+%PCI\VEN_5333&DEV_8811&REV_43.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_43
+%PCI\VEN_5333&DEV_8811&REV_53.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_53
+%PCI\VEN_5333&DEV_8811&REV_54.DeviceDesc%= S3_3, PCI\VEN_5333&DEV_8811&REV_54
+
+;----------------------------------------
+; Install sections
+
+[S3_1]
+CopyFiles=S3_1_CopyFiles
+AddReg=S3_1_AddReg
+DelReg=DEL_CURRENT_REG
+
+[S3_2]
+CopyFiles=S3_2_CopyFiles
+AddReg=S3_2_AddReg
+DelReg=DEL_CURRENT_REG
+
+[S3_3]
+CopyFiles=S3_3_CopyFiles,S3-765ini.Copy
+AddReg=S3_3_AddReg
+DelReg=DEL_CURRENT_REG
+
+[S3_4]
+CopyFiles=S3_2_CopyFiles
+AddReg=S3_4_AddReg
+DelReg=DEL_CURRENT_REG
+
+[S3_5]
+CopyFiles=S3_2_CopyFiles
+AddReg=S3_5_AddReg
+DelReg=DEL_CURRENT_REG
+
+;----------------------------------------
+; Common AddReg sections
+
+[DEL_CURRENT_REG]
+HKR,,DevLoader,0,
+HKR,,Ver,0,
+HKR,DEFAULT,,0,
+HKR,MODES,,0,
+HKR,CURRENT,,0,
+
+;----------------------------------------
+; Model AddReg sections
+
+
+[S3_1_AddReg]                            
+;----------------------------------------911/924/801/805/864/964
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_1.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600"
+HKR,"MODES\4\1024,768"
+HKR,"MODES\4\1280,1024"
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480" ,drv,,s324bpp.drv
+HKR,"MODES\24\640,480" ,minivdd,,s324bpp.vxd
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1280,1024"
+HKR,"MODES\32\1600,1200"
+
+[S3_2_AddReg]
+;----------------------------------------732/764
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_2.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600"
+HKR,"MODES\4\1024,768"
+HKR,"MODES\4\1280,1024"
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480" ,drv,,s324bpp.drv
+HKR,"MODES\24\640,480" ,minivdd,,s324bpp.vxd
+HKR,"MODES\32\640,400"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+
+[S3_3_AddReg]
+;----------------------------------------765
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_2.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\4\1280,1024"
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\24\640,480" ,drv,,s324bpp.drv
+HKR,"MODES\24\640,480" ,minivdd,,s324bpp.vxd
+HKR,"MODES\32\640,400"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+
+[S3_4_AddReg]
+;----------------------------------------868/968
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_2.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1152,864"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\8\1600,1200"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\16\1280,1024"
+HKR,"MODES\16\1600,1200"
+HKR,"MODES\24\640,480"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+HKR,"MODES\32\1024,768"
+HKR,"MODES\32\1600,1200"
+
+[S3_5_AddReg]
+;----------------------------------------M65
+HKR,,Ver,,4.0
+HKR,,DevLoader,,*vdd
+HKR,DEFAULT,Mode,,"8,640,480"
+HKR,DEFAULT,drv,,s3_2.drv
+HKR,DEFAULT,vdd,,"*vdd,*vflatd"
+HKR,DEFAULT,minivdd,,s3vdd.vxd
+HKR,DEFAULT,RefreshRate,,"-1"
+HKR,DEFAULT,DDC,,"1"
+HKR,"MODES\4\640,480",drv,,vga.drv
+HKR,"MODES\4\640,480",vdd,,*vdd
+HKR,"MODES\4\800,600",drv,,supervga.drv
+HKR,"MODES\4\800,600",vdd,,*vdd
+HKR,"MODES\4\1280,1024"
+HKR,"MODES\8\640,480"
+HKR,"MODES\8\800,600"
+HKR,"MODES\8\1024,768"
+HKR,"MODES\8\1280,1024"
+HKR,"MODES\16\640,480"
+HKR,"MODES\16\800,600"
+HKR,"MODES\16\1024,768"
+HKR,"MODES\32\640,400"
+HKR,"MODES\32\640,480"
+HKR,"MODES\32\800,600"
+
+;----------------------------------------
+; CopyFiles sections
+
+[S3_1_CopyFiles]
+s3_32.dll
+s3_16.dll
+s324bpp.vxd
+s324bpp.drv
+s3vdd.vxd
+s3_1.drv
+
+[S3_2_CopyFiles]
+s3_32.dll
+s3_16.dll
+s324bpp.vxd
+s324bpp.drv
+s3vdd.vxd
+s3_2.drv
+
+[S3_3_CopyFiles]
+s3_32.dll
+s3_16.dll
+s324bpp.vxd
+s324bpp.drv
+s3vdd.vxd
+s3_2.drv
+
+[S3-765ini.Copy]
+k2v_hwc.ini
+k2v_swc.ini
+k2v_dig.ini
+
+;----------------------------------------
+; User visible strings
+
+[Strings]
+ClassName="Display"
+Mfg="S3"
+S3911.DeviceDesc=       " S3 Inc. 911/924"
+S3801.DeviceDesc=       " S3 Inc. 801/805"
+S3928.DeviceDesc=       " S3 Inc. 928 ISA/VLB"
+S3864.DeviceDesc=       " S3 Inc. Vision864 VLB"
+S3964.DeviceDesc=       " S3 Inc. Vision964 VLB"
+S3868.DeviceDesc=       " S3 Inc. Vision868 VLB"
+S3968.DeviceDesc=       " S3 Inc. Vision968 VLB"
+S3764.DeviceDesc=       " S3 Inc. Trio32/64 VLB"
+S3765.DeviceDesc=       " S3 Inc. Trio64V+ VLB"
+PCI\VEN_5333&DEV_88B0.DeviceDesc= " S3 Inc. 928 PCI"
+PCI\VEN_5333&DEV_88C0.DeviceDesc= " S3 Inc. Vision864 PCI"
+PCI\VEN_5333&DEV_88C1.DeviceDesc= " S3 Inc. Vision864 PCI"
+PCI\VEN_5333&DEV_88D0.DeviceDesc= " S3 Inc. Vision964 PCI"
+PCI\VEN_5333&DEV_88D1.DeviceDesc= " S3 Inc. Vision964 PCI"
+PCI\VEN_5333&DEV_8880.DeviceDesc= " S3 Inc. Vision868 PCI"
+PCI\VEN_5333&DEV_88F0.DeviceDesc= " S3 Inc. Vision968 PCI"
+PCI\VEN_5333&DEV_8811.DeviceDesc= " S3 Inc. Trio32/64 PCI"
+PCI\VEN_5333&DEV_8811p.DeviceDesc=" S3 Inc. Trio32/64 Plug and Play PCI"
+PCI\VEN_5333&DEV_8811&REV_40.DeviceDesc= " S3 Inc. Trio64V+ PCI"
+PCI\VEN_5333&DEV_8811&REV_42.DeviceDesc= " S3 Inc. Trio64V+ PCI"
+PCI\VEN_5333&DEV_8811&REV_52.DeviceDesc= " S3 Inc. Trio64V+ PCI"
+PCI\VEN_5333&DEV_8811&REV_43.DeviceDesc= " S3 Inc. Trio64V+ PCI"
+PCI\VEN_5333&DEV_8811&REV_53.DeviceDesc= " S3 Inc. Trio64V+ PCI"
+PCI\VEN_5333&DEV_8811&REV_54.DeviceDesc= " S3 Inc. Trio64V+ PCI"
