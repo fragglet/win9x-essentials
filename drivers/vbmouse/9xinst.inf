@@ -1,0 +1,26 @@
+
+[Version]
+Signature = "$CHICAGO$"
+
+[DestinationDirs]
+driverCopy = 11
+
+[DefaultInstall]
+CopyFiles = driverCopy
+UpdateInis = driver.Ini
+
+[driverCopy]
+vbmouse.drv
+
+[driver.Ini]
+system.ini,boot,"mouse.drv=mouse.drv","mouse.drv=vbmouse.drv", 1
+
+[SourceDisksNames]
+1 = %DrvDisk%,,1
+
+[SourceDisksFiles]
+vbmouse.drv = 1
+
+[Strings]
+DrvDisk = "Mouse Driver Disk"
+
