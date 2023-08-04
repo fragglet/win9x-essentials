@@ -1,0 +1,51 @@
+Version 0.6 (2022-09-04)
+  * Fix: Set correct file size in WriteFile()
+  * Implement CloseAll()
+  * Port to Open Watcom v2. Remove dependencies with GNU make and nasm
+  * Add debugging support
+  * Shared folders can now be configured while the VM is running
+  * Code Page change with CHCP with the new, optional VMCHCPD.SYS driver
+  * Build unicode transcode tables from source
+  * Various code cleanups
+
+Version 0.5c (2020-08-20)
+
+  * Update file modification time in CloseFile() (Many thanks to 
+    Alan Kamrowski II for the extensive bug report, testing and
+    code review)
+
+Version 0.5b (2011-11-06)
+
+  * Add support for lower case shares when /LFN is set
+  
+Version 0.5 (2011-11-06)
+
+  * Partial LFN support: mangles long file names to valid DOS 8.3 names
+    (New options /LFN, /M:<number> and /CI or /CS)
+  * New /QQ (silent) option
+  
+Version 0.4 (2011-10-17)
+
+  * BUGFIX: writing 0 bytes to a file MUST truncate it
+  * Uninstallation (new /U option)
+  * Add CPU test
+  * Optimizations and cleanup for smaller, more efficient code (Tom, me)
+  * Configurable read/write buffer size (new /B option)
+  * New /Q (quiet) option
+
+Version 0.3 (2011-10-07)
+
+  * BUGFIX: stack too small (Tom Ehlert)
+  * Improved performance: fast _fmemcpy() implementation
+    by Tom Ehlert
+  * Various enhancements for size reduction (Tom Ehlert)
+
+Version 0.2 (2011-10-01) 
+
+  * Fixed a bug when printing the default messages in English
+  * New errorlevels (now exits with the asigned drive number)
+  * Dutch translation
+  
+Version 0.1 (2011-09-30)
+
+  Initial version

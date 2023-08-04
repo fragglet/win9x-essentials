@@ -24,6 +24,9 @@ vbados         - MS-DOS TSRs for VirtualBox mouse and shared folder
 vc.405         - Volkov Commander 4.05. Free clone of Norton Commander
                  file manager.
 
+vmsmount.06p   - VMSMOUNT 0.6 preview 2. DOS redirector for mounting VMware's
+                 Shared Folders.
+
 xfdisk.093     - Extended FDISK v0.9.3. More featureful partitioning tool
                  than the FDISK that ships with Win9x.
 
