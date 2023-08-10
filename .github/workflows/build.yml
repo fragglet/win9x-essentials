@@ -21,8 +21,13 @@ jobs:
         make
         mkdir -p artifacts
         cp win9x_essentials.iso artifacts/
+    - name: Find Git version
+      id: version
+      run: |
+        export VERSION=$(git rev-parse --short HEAD)
+        echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
     - name: Upload ISO
       uses: actions/upload-artifact@v1
       with:
         path: "artifacts"
-        name: win9x_essentials_iso
+        name: win9x_essentials_iso-${{steps.version.outputs.VERSION}}
