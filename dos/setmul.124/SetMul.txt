@@ -1,0 +1,177 @@
+
+SetMul v1.24 - Multiplier control for VIA C3, AMD K6+7+8 Mobile and Cyrix 5x86
+G. Broers 2014..2019 - Free for non-profit use.
+
+
+DESCRIPTION
+-----------
+The main purpose of this program is to quickly change the multiplier of a select
+range of x86 processors in MS-DOS and Windows 9X. In addition it can enable and 
+disable processor L1 and L2 caches.
+SetMul does not stay resident, but the toggled CPU registers will remain as set,
+until the next system reset/reboot.
+
+
+BACKGROUND
+----------
+Many DOS game and programs have issues with a CPU speed higher then expected,
+while other software benefits from increased CPU speed. Having a means to
+adjust the processor speed is important for making a system suitable for a
+broad range of vintage software.
+Originally a classic Pentium processor multiplier was set through jumpers,
+without any means to adjust this through software. Around 2000 came a line of
+'mobile' processors specifically aimed at laptops, which had a new feature to
+preserve battery life when idle:
+- Intel called this feature (Enhanced) SpeedStep.
+- AMD   called this feature PowerNow!, later renamed to Cool'n'Quiet.
+- VIA/Centaur called this feature Longhaul, later renamed to PowerSaver.
+In all cases it is about temporarily decreasing the processor multiplier by
+software. The resulting net processor speed is the Front Side Bus speed times
+the selected multiplier. For example: 66 MHz FSB times 5.5 = 366 MHz.
+
+
+MULTIPLIER OPTIONS
+------------------
+This table shows the available options for each supported processor:
+VIA C3 Samuel 1:         3.0x to  8.0x, 11 choices
+VIA C3 Samuel 2 step 0:  3.0x to  8.0x, 11 choices
+VIA C3 Samuel 2 step 1+: 3.0x to 12.0x, 16 choices
+VIA C3 Ezra:             3.0x to 12.0x, 16 choices
+VIA C3 Ezra-T:           3.0x to 16.0x, 27 choices
+VIA C3 Nehemiah:         4.0x to 16.0x, 25 choices
+AMD K6-2+ / K6-III+:     2.0x to  6.0x,  8 choices  (2.5x is excluded)
+AMD K7 Mobile (Athlon)   3.0x to 24.0x, 32 choices
+AMD K8 (Athlon 64 etc.)  4.0x to 25.0x, 22 choices  (integer only)
+Cyrix 5x86               1.0x to jumpered multiplier (2, 3 or 4), 2 choices
+A VIA C3 may, or may not work reliably at a total core speed below 250MHz.
+
+
+BUILD-IN CACHE OPTIONS
+----------------------
+Disabling L1 Cache makes a processor very slow, at least half the processing
+speed is cut. Disabling L2 Cache also slows the net speed, but has far less
+impact.
+SetMul allows disabling the L1 cache on any x86 processor from the 486 onwards.
+SetMul allows disabling the L2 cache on the K6 Mobile and VIA C3. Note that
+the C3 Samuel 1 has no L2 cache.
+Contrary to many other cache disabling tools it still works when EMM386 or
+Windows 9X are loaded.
+
+
+PARAMETERS
+----------
+/?            - default help screen.
+[Multiplier]  - as a single digit like '5', or '5.0', or halves like '5.5'.
+L1D           - L1 Cache Disable.
+L1E           - L1 Cache Enable.
+L1DX          - L1 Cache Disable, exclusively, leaves L2 untouched, for K6-2+/III+.
+L1EX          - L1 Cache Enable,  exclusively, leaves L2 untouched, for K6-2+/III+.
+L2D           - L2 Cache Disable, but cannot toggle any motherboard L2/L3 cache.
+L2E           - L2 Cache Enable,  but cannot toggle any motherboard L2/L3 cache.
+ICD           - L1 I-Cache Disable, on VIA C3 or Winchip.
+ICE           - L1 I-Cache Enable,  on VIA C3 or Winchip.
+BPD           - Branch Prediction Disable, on VIA C3.
+BPE           - Branch Prediction Enable,  on VIA C3.
+INFO          - Show PowerNow! info of AMD K7 or K8.
+CMD           - Disable clock speed measurement. 
+
+Pentium P54C and MMX test register "TR12" options. Parameters:
+BPD           - Disable Branch Prediction.
+VPD           - Disable V Pipeline.
+L1DX          - Disable L1 cache exclusively.
+CCD           - Disable L1 code cache.
+DCD           - Disable L1 data cache.
+PFE           - Pentium Features Enable; Resets the above TR12 options to default.
+The status of register TR12 cannnot be read by design.
+
+Multiple commands can be passed at once.
+
+Running SetMul on a K6 mobile / VIA C3 without parameters gives the current
+speed. It will also give the multiplier range and parameters that apply.
+
+Also supported are 4 or 5 wide raw bit patterns: like '1010b' or '01010b'. But
+these values are not checked for support, and allow for faulty register input!
+
+
+HARDWARE AND OPERATING SYSTEM COMPATIBILITY
+-------------------------------------------
+- Runs on a 386 or later x86 Processor.
+- Compatible with MS-DOS, both with and without EMM386 loaded.
+- Compatible with Windows 95, 98 and ME.
+- SetMul requires CWSDPMI.exe or a compatible DPMI host.
+- SetMul sets up a Ring0 exploit to get privileged access to the CPU registers.
+  Windows NT/2K/XP/Vista/7/8/10 or later cannot be fooled this way,
+  these operating systems are not supported.
+- SetMul or CWSDPMI may conflict with motherboard chipset Throttling or with
+  ISA emulation drivers for PCI sound cards.
+- Athlon K7 multiplier adjustment requires support from the motherboard
+  chipset to work. The earliest K7 chipsets do not offer this support. 
+
+
+DISCLAIMER
+----------
+Use SetMul at your own risk! The author takes no responsibility for loss
+of data or damage to hardware through the use of this software.
+This program is for vintage hardware hobby use only. It has not been
+sufficiently tested to be used while simultaneously working on important data.
+
+
+ALTERNATIVES
+------------
+C3Mul for DOS, all functionality retained in SetMul. Relies on CWSDPR0.exe.
+WCPUID for Windows       (works with Samuel 1, does not work with Ezra-T)
+CrystalCPUID for Windows (Does not work with Samuel 1, works with Ezra-T)
+K6DOS config.sys Driver for DOS, and K6Speed for windows.
+AMD K6 Central Tweaking Unit (CTU), for Windows.
+http://falcosoft.hu/ has DOS-based multiplier tools for AMD Athlon etc.
+
+
+VERSION HISTORY
+---------------
+
+v1.1 of 20-05-2014
+- Fixed protection fault when running SetMul on a 486 system
+- K6-2+/III+ : Exclusively toggle L1 cache.
+- Pentium Pro/2/3 toggle L2 cache.
+  (Unfortunately Pentium Pro has been reported not to work with this)
+- Winchip C6 toggle I-cache.
+- Pentium P54C test register "TR12" options.
+
+v1.2 of 08-07-2015
+- Cyrix 5x86 support.
+  It can switch between the jumpered startup multiplier and 1.0x and back.
+  Some intended functions do not work, despite following the datasheet by the letter.
+  Like Multiplier readout, and Half-speed enable/disable (Parameter HSE and HSD).
+  Half-speed may only come to effect in idle mode of the CPU. Regardless,
+  these options remain in the program for now.
+- Recompiled, seems to have fixed protection fault in v1.2A.
+
+v1.21 of 22-02-2017
+- Shows the bootup multiplier of the Pentium Pro, II and III. (Cannot change it).
+
+v1.23 of 19-01-2019
+- AMD K7 mobile and K8 multiplier adjustment and readback. 
+- Better checks in case of unexpected parameters.
+- Changed CWSDPMI version to 025 of 2006 as suggested by Mercury127.
+- Expanded and cleaned up this Document.
+
+v1.24 of 04-02-2019
+- Improved accuracy of RDTSC clockspeed measurements. 
+- Added alternate clockspeed measurement of older processors, like 386/486/Cx5x86. 
+- More consistent message colors and CPU information display.
+- Cleaned up debug output mode, which is triggered with parameter DBG.
+- Added option to disable clockspeed measurements with parameter CMD.
+- Retain some CPU information functionality within Windows NT based OS.
+- Overhauled CPU identification with proper use of extended family and model. 
+
+
+CREDITS
+-------
+Author: G. Broers http://members.quicknet.nl/lm.broers/
+Thanks to:
+- C3MUL source, 2001/4/28, http://blue.ribbon.to/~als4kmaniac/i2/
+- CrystalCPUID sources by hiyohiyo.
+- RayeR for the idea on Ring0 access through DJGPP.
+- FalcoSoft for testing AMD K8 Support.
+- osdev.org for the concept of clockspeed measurement using XOR. 
+- DJGPP and GCC team. 

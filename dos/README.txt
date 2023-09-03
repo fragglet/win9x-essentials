@@ -19,6 +19,9 @@ lfntools.405   - Extended versions of DOS commands that support long
 pkzip.250      - PKZIP v2.50 - the original program for creating and
                  decompressing .zip files.
 
+setmul.124     - SetMul v1.24. Allows CPU speed to be adjusted on various
+                 Intel, AMD, Cyrix and VIA CPUs, useful for playing old games.
+
 softmpu.191    - SoftMPU v1.91. Emulates an intelligent-mode MPU-401 card.
 
 tweakpci.10    - TweakPCI v1.0. Can be used to inspect and modify PCI
