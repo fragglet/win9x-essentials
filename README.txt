@@ -18,6 +18,8 @@ Windows 9x system.
 
     drivers     - Drivers for common devices
 
+    fonts       - Fonts
+
     idlers      - Idler utilities (background programs that free up the
                   CPU when nothing is running)
 
