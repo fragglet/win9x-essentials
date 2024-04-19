@@ -16,6 +16,8 @@ Windows 9x system.
 
     dos         - MS-DOS utilities that are also useful on Win9x.
 
+    dlls        - Common DLLs that may be missing on a new Win9x system.
+
     drivers     - Drivers for common devices
 
     fonts       - Fonts
