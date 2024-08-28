@@ -6,6 +6,8 @@
 
 ctmouse.204    - CuteMouse PS/2 mouse driver v2.0alpha4.
 
+cwsdpmi.r7     - CWSDPMI DPMI host release 7
+
 dlmanip        - Drive letter manipulator v0.33 beta. Can be used to
                  rearrange drive letters and also "delete" floppy drives
                  on machines where one is not connected.
