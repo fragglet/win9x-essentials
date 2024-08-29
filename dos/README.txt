@@ -18,9 +18,6 @@ edoskey.28     - Enhanced DOSKEY.COM with tab completion, Long Filename
 lfntools.405   - Extended versions of DOS commands that support long
                  filenames.
 
-pkzip.250      - PKZIP v2.50 - the original program for creating and
-                 decompressing .zip files.
-
 setmul.124     - SetMul v1.24. Allows CPU speed to be adjusted on various
                  Intel, AMD, Cyrix and VIA CPUs, useful for playing old games.
 
@@ -28,6 +25,8 @@ softmpu.191    - SoftMPU v1.91. Emulates an intelligent-mode MPU-401 card.
 
 tweakpci.10    - TweakPCI v1.0. Can be used to inspect and modify PCI
                  registers.
+
+unzip.600      - Info-ZIP Unzip tool v6.00
 
 vbados         - MS-DOS TSRs for VirtualBox mouse and shared folder
                  integration.
@@ -41,3 +40,4 @@ vmsmount.06p   - VMSMOUNT 0.6 preview 2. DOS redirector for mounting VMware's
 xfdisk.093     - Extended FDISK v0.9.3. More featureful partitioning tool
                  than the FDISK that ships with Win9x.
 
+zip.232        - Info-ZIP ZIP tool v2.32
