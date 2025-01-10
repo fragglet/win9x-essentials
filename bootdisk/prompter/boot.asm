@@ -11,10 +11,28 @@ real_start:
     push cs              ; ds=cs
     pop ds
 
+    mov al, '!'
+    call print_char
+
+loop:
+    call read_key
+    test al, al
+    jz loop
+    call print_char
+    jmp loop
+
+; Returns ah=scancode, al=ascii
+read_key:
+    mov ah, 0x00
+    int 0x16
+    ret
+
+; Call with al=key
+print_char:
     mov ah, 0x0e
-    mov al, '!'          ; !
     mov bx, 0x000f
     int 0x10
+    ret
 
 forever:
     jmp forever
