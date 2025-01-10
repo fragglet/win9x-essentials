@@ -1,4 +1,7 @@
-    org 0x7c00
+%define BIOS_READ_KEY        0x00
+%define BIOS_PRINT_CHAR      0x0e
+
+org 0x7c00
 
 entrypoint:
     jmp real_start
@@ -23,13 +26,13 @@ loop:
 
 ; Returns ah=scancode, al=ascii
 read_key:
-    mov ah, 0x00
+    mov ah, BIOS_READ_KEY
     int 0x16
     ret
 
 ; Call with al=key
 print_char:
-    mov ah, 0x0e
+    mov ah, BIOS_PRINT_CHAR
     mov bx, 0x000f
     int 0x10
     ret
