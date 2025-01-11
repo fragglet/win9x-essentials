@@ -16,6 +16,8 @@ real_start:
     push cs              ; ds=cs
     pop ds
 
+    call relocate_high
+
     mov al, '?'
     call print_char
 
@@ -94,6 +96,26 @@ forever:
 
 do_ret:
     ret
+
+; Copy the whole boot sector to a different segment and jump to it
+relocate_high:
+    mov si, entrypoint
+    mov di, entrypoint
+    mov bx, cs
+    add bx, 32                   ; segment +512 bytes up
+    push bx
+    pop es
+    mov cx, 512
+    rep movsb
+
+    ; Move ds to new segment
+    push es
+    pop ds
+
+    ; Jump to do_ret but in the copied space
+    push es
+    push do_ret
+    retf
 
     ; PC BIOS boot signature
     times 0x1fe - ($ - $$) db 0
