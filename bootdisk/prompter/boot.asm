@@ -23,23 +23,33 @@ real_start:
     call print
 
     mov cx, 54            ; 3 seconds
+    mov di, 18
 
 wait_loop:
     push cx
+    push di
     call check_enter_pressed
     jz enter_pressed
 
+    call sleep_one_tick
+
+    pop di
+    dec di
+    cmp di, 0
+    jne wait_loop_repeat
+
+    mov di, 18
     mov al, '.'
     call print_char
 
-    call sleep_one_tick
+wait_loop_repeat:
     pop cx
     loop wait_loop
 
-    mov al, '|'
-    call print_char
-
     ; Enter wasn't pressed, so proceed to boot from the hard drive instead
+    mov bx, newline_msg
+    call print
+
     mov ch, 0                ; track
     mov cl, 1                ; boot sector
     mov dh, 0                ; head
@@ -175,7 +185,9 @@ abort_error:
 boot_prompt_msg:
     db "Press enter to boot from CD.", 0
 error_msg:
-    db 13, 10, "Error reading from disk. Press a key to reboot.", 13, 10, 0
+    db 13, 10, "Error reading from disk. Press a key to reboot."
+newline_msg:
+    db 13, 10, 0
 
     times 0x1fe - ($ - $$) db 0
 
