@@ -19,7 +19,10 @@ real_start:
     mov al, '?'
     call print_char
 
-loop:
+    mov cx, 54            ; 3 seconds
+
+wait_loop:
+    push cx
     call check_enter_pressed
     jz enter_pressed
 
@@ -27,7 +30,12 @@ loop:
     call print_char
 
     call sleep_one_tick
-    jmp loop
+    pop cx
+    loop wait_loop
+
+    mov al, '|'
+    call print_char
+    jmp forever
 
 enter_pressed:
     mov al, '!'
