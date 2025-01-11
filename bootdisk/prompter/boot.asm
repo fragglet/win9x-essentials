@@ -19,8 +19,8 @@ real_start:
 
     call relocate_high
 
-    mov al, '?'
-    call print_char
+    mov bx, boot_prompt_msg
+    call print
 
     mov cx, 54            ; 3 seconds
 
@@ -172,6 +172,8 @@ abort_error:
     call read_key
     int 0x19                   ; Reboot
 
+boot_prompt_msg:
+    db "Press enter to boot from CD.", 0
 error_msg:
     db 13, 10, "Error reading from disk. Press a key to reboot.", 13, 10, 0
 
