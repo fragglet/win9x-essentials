@@ -67,7 +67,7 @@ wait_loop_repeat:
     loop wait_loop
 
     ; Enter wasn't pressed, so proceed to boot from the hard drive instead
-    mov bx, newline_msg
+    mov bx, booting_from_hdd_msg
     call print
 
     mov ch, 0                ; track
@@ -204,6 +204,8 @@ abort_error:
 
 boot_prompt_msg:
     db "Press enter to boot from CD.", 0
+booting_from_hdd_msg:
+    db " booting from hard drive.", 13, 10, 13, 10, 0
 error_msg:
     db 13, 10, "Error reading from disk. Press a key to reboot."
 newline_msg:
