@@ -2,6 +2,7 @@
 %define BIOS_CHECK_KEY       0x01
 %define BIOS_PRINT_CHAR      0x0e
 %define BIOS_GET_SYSTEM_TIME 0x00
+%define BIOS_READ_SECTOR     0x02
 
 org 0x7c00
 
@@ -37,7 +38,26 @@ wait_loop:
 
     mov al, '|'
     call print_char
-    jmp forever
+
+    ; Enter wasn't pressed, so proceed to boot from the hard drive instead
+    mov ch, 0                ; track
+    mov cl, 1                ; boot sector
+    mov dh, 0                ; head
+    mov dl, 0x80             ; first hard drive
+    push dx
+    mov bx, entrypoint
+    call load_sector
+    pop dx                   ; bootloader expects dx=drive number
+    ; TODO: handle error; try other hard disks?
+
+chainload:
+    mov bx, cs
+    sub bx, 32
+    push bx
+    push entrypoint
+    mov cx, 1
+    mov bx, entrypoint
+    retf
 
 enter_pressed:
     mov al, '!'
@@ -116,6 +136,18 @@ relocate_high:
     push es
     push do_ret
     retf
+
+; Read sector given by cx:dx into memory at entrypoint location
+load_sector:
+    mov ah, BIOS_READ_SECTOR
+    mov al, 1                       ; One sector
+    mov bx, ds
+    sub bx, 32
+    push bx
+    pop es
+    mov bx, entrypoint
+    int 0x13
+    ret
 
     ; PC BIOS boot signature
     times 0x1fe - ($ - $$) db 0
