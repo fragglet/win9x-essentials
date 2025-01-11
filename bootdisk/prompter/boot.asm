@@ -48,7 +48,7 @@ wait_loop:
     mov bx, entrypoint
     call load_sector
     pop dx                   ; bootloader expects dx=drive number
-    ; TODO: handle error; try other hard disks?
+    ; TODO: on error, try other hard disks?
 
 chainload:
     mov bx, cs
@@ -70,9 +70,14 @@ check_enter_pressed:
     int 0x16
     jz enter_not_pressed
 
+    call read_key
+    cmp al, 13
+    ret
+
+; Blocks until keypress, then returns al=key, ah=scancode
+read_key:
     mov ah, BIOS_READ_KEY
     int 0x16
-    cmp al, 13
     ret
 
 enter_not_pressed:
@@ -86,6 +91,17 @@ print_char:
     mov bx, 0x000f
     int 0x10
     ret
+
+; Call with bx=message address
+print:
+    mov al, [bx]
+    test al, al
+    jz do_ret
+    push bx
+    call print_char
+    pop bx
+    inc bx
+    jmp print
 
 ; Sleeps for 1/18.2 of a second and then returns
 sleep_one_tick:
@@ -147,8 +163,19 @@ load_sector:
     pop es
     mov bx, entrypoint
     int 0x13
+    jc abort_error
     ret
 
-    ; PC BIOS boot signature
+abort_error:
+    mov bx, error_msg
+    call print
+    call read_key
+    int 0x19                   ; Reboot
+
+error_msg:
+    db 13, 10, "Error reading from disk. Press a key to reboot.", 13, 10, 0
+
     times 0x1fe - ($ - $$) db 0
+
+    ; PC BIOS boot signature
     db 0x55, 0xaa
