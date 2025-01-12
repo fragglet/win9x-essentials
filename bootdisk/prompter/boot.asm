@@ -90,9 +90,16 @@ chainload:
     retf
 
 enter_pressed:
-    mov al, '!'
-    call print_char
-    jmp forever
+    ; Load the real boot sector from disk:
+    mov ch, [real_track]
+    mov cl, [real_sector]
+    mov dh, [real_side]
+    mov dl, 0
+    mov bx, entrypoint
+    call load_sector
+    mov dx, 0                ; bootloader expects dx=drive number
+
+    jmp chainload
 
 ; Returns zf unset if enter has been pressed
 check_enter_pressed:
@@ -157,9 +164,6 @@ sleep_loop:
     push bx
     jmp sleep_loop
 
-forever:
-    jmp forever
-
 do_ret:
     ret
 
@@ -211,7 +215,15 @@ error_msg:
 newline_msg:
     db 13, 10, 0
 
-    times 0x1fe - ($ - $$) db 0
+    times 0x1fb - ($ - $$) db 0
+
+    ; Location of real boot sector. Set by the install script.
+real_track:
+    db 79
+real_side:
+    db 1
+real_sector:
+    db 18
 
     ; PC BIOS boot signature
     db 0x55, 0xaa
