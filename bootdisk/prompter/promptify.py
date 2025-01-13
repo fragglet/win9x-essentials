@@ -63,7 +63,18 @@ def read_fat(f, bpb):
         fat = b''.join(blocks)
         assert i == 0 or fat == first_fat, ("FAT %d does not match FAT 0" % i)
         first_fat = fat
-    return first_fat
+
+    table = []
+    for i in range(bpb.total_sectors):
+        base = (i // 2) * 3
+        if i % 2 == 0:
+            w, = struct.unpack("<H", fat[base:base+2])
+            table.append(w & 0xfff)
+        else:
+            w, = struct.unpack("<H", fat[base+1:base+3])
+            table.append((w >> 4) & 0xfff)
+
+    return table
 
 with open("boot", "rb") as f:
     prompt_boot_sector = f.read()
