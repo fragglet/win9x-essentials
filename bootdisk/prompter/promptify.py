@@ -57,6 +57,11 @@ def read_block(f, block_num):
     assert(len(result) == SECTOR_SIZE)
     return result
 
+def leading_sectors(bpb):
+    """Returns number of sectors before first data sector"""
+    return (bpb.reserved_sectors + bpb.num_fats * bpb.sectors_per_fat
+          + bpb.num_root_entries // 16)
+
 def read_fat(f, bpb):
     first_fat = None
     for i in range(bpb.num_fats):
@@ -68,8 +73,10 @@ def read_fat(f, bpb):
         assert i == 0 or fat == first_fat, ("FAT %d does not match FAT 0" % i)
         first_fat = fat
 
+    # Unmarshal to FAT array. The table has two special leading entries.
+    num_clusters = bpb.total_sectors - leading_sectors(bpb)
     table = []
-    for i in range(bpb.total_sectors):
+    for i in range(num_clusters + 2):
         base = (i // 2) * 3
         if i % 2 == 0:
             w, = struct.unpack("<H", fat[base:base+2])
