@@ -28,6 +28,9 @@ kernelex-4.5.2.exe - KernelEx 4.5.2. Allows some software designed for Windows
 
 myslow-beta13 - MySlow beta 13. Slows down DOS programs that run too fast.
 
+notepad-plus-3.8.exe - Notepad++ v3.8. An error may occur on Windows 95, just
+                       click ignore and it should be fine.
+
 ps2rate-0.4 - Adjusts sampling rate for PS/2 mouse.
 
 putty-0.63.exe - PuTTY 0.63 SSH client.
