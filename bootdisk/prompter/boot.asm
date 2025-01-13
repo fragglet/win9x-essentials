@@ -23,6 +23,7 @@
 %define BIOS_PRINT_CHAR      0x0e
 %define BIOS_GET_SYSTEM_TIME 0x00
 %define BIOS_READ_SECTOR     0x02
+%define BIOS_SET_MODE        0x00
 
 org 0x7c00
 
@@ -90,6 +91,8 @@ chainload:
     retf
 
 enter_pressed:
+    call clrscr
+
     ; Load the real boot sector from disk:
     mov ch, [real_track]
     mov cl, [real_sector]
@@ -139,6 +142,12 @@ print:
     pop bx
     inc bx
     jmp print
+
+clrscr:
+    mov ah, BIOS_SET_MODE
+    mov al, 0x03                   ; 80x25 color
+    int 0x10
+    ret
 
 ; Sleeps for 1/18.2 of a second and then returns
 sleep_one_tick:
