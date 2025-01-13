@@ -118,7 +118,7 @@ def to_chs(sectors_per_track, block_num):
         (block_num % sectors_per_track) + 1 # sector
     )
 
-with open("boot", "rb") as f:
+with open("prompter-boot.bin", "rb") as f:
     prompt_boot_sector = f.read()
 
 disk_image = open(sys.argv[1], "rb+")
