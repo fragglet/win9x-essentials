@@ -5,7 +5,7 @@ EXCLUDES = bootdisk .git .gitignore .github Makefile $(ISO)
 .PHONY: $(ISO) clean bootdisk.img
 $(ISO): bootdisk.img
 	genisoimage -J $(patsubst %, -m %, $(EXCLUDES)) \
-	            -V "9x Essentials" \
+	            -V "Essentials" \
 	            -b bootdisk.img -o $@ .
 
 bootdisk.img:
