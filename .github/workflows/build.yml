@@ -12,7 +12,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt update
-        sudo apt -q install dosbox genisoimage
+        sudo apt -q install dosbox genisoimage nasm
     - name: make
       timeout-minutes: 20
       run: |
