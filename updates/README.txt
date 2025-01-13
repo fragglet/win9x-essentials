@@ -10,6 +10,3 @@ unicows.exe   - Microsoft Layer for Unicode
 usbsupp.exe   - Windows 95 USB driver supplement.
 
 usbupd2.exe   - Windows 95 USB driver update.
-
-vcredist.exe  - Installs Visual C runtime DLLs.
-
