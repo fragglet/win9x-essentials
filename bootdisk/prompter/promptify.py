@@ -27,6 +27,9 @@ import sys
 
 SECTOR_SIZE = 512
 
+BPB_OFFSET_START = 11
+BPB_OFFSET_END = 28
+
 Bpb = namedtuple('Bpb', (
     'bytes_per_sector', 'sectors_per_cluster', 'reserved_sectors', 'num_fats',
     'num_root_entries', 'total_sectors', 'media_descriptor', 'sectors_per_fat',
@@ -35,7 +38,8 @@ Bpb = namedtuple('Bpb', (
 
 def decode_bpb(boot_sector):
     assert boot_sector[0x36:0x3b] == b"FAT12", "only FAT12 volumes supported"
-    fields = struct.unpack("<HBHBHHBHHH", boot_sector[11:28])
+    bpb = boot_sector[BPB_OFFSET_START:BPB_OFFSET_END]
+    fields = struct.unpack("<HBHBHHBHHH", bpb)
     result = Bpb(*fields)
     assert result.bytes_per_sector == SECTOR_SIZE, (
         "want %d bytes per sector, got %d in existing boot sector" % (
@@ -83,5 +87,10 @@ disk_image = open(sys.argv[1], "rb")
 boot_sector = read_block(disk_image, 0)
 bpb = decode_bpb(boot_sector)
 print(bpb)
+
+# Copy BPB real boot sector into ours so we have disk params etc.
+prompt_boot_sector = (prompt_boot_sector[:BPB_OFFSET_START] +
+                      boot_sector[BPB_OFFSET_START:BPB_OFFSET_END] +
+                      prompt_boot_sector[BPB_OFFSET_END:])
 
 print(read_fat(disk_image, bpb))
