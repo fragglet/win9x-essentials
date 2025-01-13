@@ -27,5 +27,7 @@ set DIRCMD=/on/p
 cd \
 PROMPT $p$g
 %WINDRV%:\WINDOWS\COMMAND.COM %WINDRV%:
+echo.
+ver
 
 :end
