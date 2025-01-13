@@ -27,6 +27,8 @@ import sys
 
 SECTOR_SIZE = 512
 
+FAT12_BAD_SECTOR = 0xff7
+
 BPB_OFFSET_START = 11
 BPB_OFFSET_END = 28
 
@@ -56,6 +58,11 @@ def read_block(f, block_num):
     result = f.read(SECTOR_SIZE)
     assert(len(result) == SECTOR_SIZE)
     return result
+
+def write_block(f, block_num, block):
+    assert(len(block) == SECTOR_SIZE)
+    f.seek(block_num * SECTOR_SIZE)
+    f.write(block)
 
 def leading_sectors(bpb):
     """Returns number of sectors before first data sector"""
@@ -87,10 +94,17 @@ def read_fat(f, bpb):
 
     return table
 
+def to_chs(sectors_per_track, block_num):
+    return (
+        block_num // (2 * sectors_per_track),  # cylinder
+        (block_num // sectors_per_track) % 2, # head (side)
+        (block_num % sectors_per_track) + 1 # sector
+    )
+
 with open("boot", "rb") as f:
     prompt_boot_sector = f.read()
 
-disk_image = open(sys.argv[1], "rb")
+disk_image = open(sys.argv[1], "rb+")
 boot_sector = read_block(disk_image, 0)
 bpb = decode_bpb(boot_sector)
 print(bpb)
@@ -100,4 +114,23 @@ prompt_boot_sector = (prompt_boot_sector[:BPB_OFFSET_START] +
                       boot_sector[BPB_OFFSET_START:BPB_OFFSET_END] +
                       prompt_boot_sector[BPB_OFFSET_END:])
 
-print(read_fat(disk_image, bpb))
+fat = read_fat(disk_image, bpb)
+print(fat)
+
+# Which sector are we going to patch?
+for c in reversed(range(len(fat))):
+    if fat[c] == 0:
+        patch_cluster = c
+        break
+else:
+    assert False, "Failed to find a free sector for the real boot sector"
+
+patch_sector = (patch_cluster - 2) + leading_sectors(bpb)
+patch_c, patch_h, patch_s = to_chs(bpb.sectors_per_track, patch_sector)
+
+fat[patch_cluster] = FAT12_BAD_SECTOR
+
+# Save the old boot sector:
+write_block(disk_image, patch_sector, boot_sector)
+print("Saved old boot sector to block #%d (CHS: %d/%d/%d)" % (
+    patch_sector, patch_c, patch_h, patch_s))
