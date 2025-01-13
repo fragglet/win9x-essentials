@@ -20,6 +20,8 @@ echo.
 echo Windows install found in %WINDRV%:\WINDOWS
 echo Running Windows COMMAND.COM, type EXIT to return to FreeDOS:
 
+set OLDPATH=%PATH%
+set OLDTEMP=%TEMP%
 set PATH=%WINDRV%:\WINDOWS;%WINDRV%:\WINDOWS\COMMAND
 set TEMP=%WINDRV%:\WINDOWS\TEMP
 set DIRCMD=/on/p
@@ -27,6 +29,13 @@ set DIRCMD=/on/p
 cd \
 PROMPT $p$g
 %WINDRV%:\WINDOWS\COMMAND.COM %WINDRV%:
+
+set PATH=%OLDPATH%
+set TEMP=%OLDTEMP%
+set OLDPATH=
+set OLDTEMP=
+set WINDRV=
+a:
 echo.
 ver
 
