@@ -1,7 +1,9 @@
 
 7zip-9.20.exe  - 7-zip 9.20. Fully-featured decompression tool that (unlike
                  others like WinZip or WinRAR) does not have shareware nag
-                 screens. Supports most archive formats.
+                 screens. Supports most archive formats. On Windows 95 you
+                 need to make sure you have the MSVC runtime installed
+                 (\updates\vcredist.exe).
 
 daemon_tools-3.47.exe - Daemon Tools 3.47. Virtual CD/DVD drive that can
                         mount .iso images as though they're on a real drive.
