@@ -13,11 +13,16 @@ Bpb = namedtuple('Bpb', (
 ))
 
 def decode_bpb(boot_sector):
+    assert boot_sector[0x36:0x3b] == b"FAT12", "only FAT12 volumes supported"
     fields = struct.unpack("<HBHBHHBHHH", boot_sector[11:28])
     result = Bpb(*fields)
     assert result.bytes_per_sector == SECTOR_SIZE, (
         "want %d bytes per sector, got %d in existing boot sector" % (
             SECTOR_SIZE, result.bytes_per_sector,
+        ))
+    assert result.sectors_per_cluster == 1, (
+        "only one sector per cluster supported, got %d" % (
+            results.sectors_per_cluster,
         ))
     return result
 
