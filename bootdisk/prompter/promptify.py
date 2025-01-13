@@ -29,8 +29,12 @@ SECTOR_SIZE = 512
 
 FAT12_BAD_SECTOR = 0xff7
 
-BPB_OFFSET_START = 11
-BPB_OFFSET_END = 28
+BOOT_HEADER_AREA_START = 0x03
+BOOT_HEADER_AREA_END = 0x3c
+BPB_OFFSET_START = 0x0b
+BPB_OFFSET_END = 0x1c
+
+BOOT_OFFSET_CHS = (512 - 5)
 
 Bpb = namedtuple('Bpb', (
     'bytes_per_sector', 'sectors_per_cluster', 'reserved_sectors', 'num_fats',
@@ -59,8 +63,8 @@ def read_block(f, block_num):
     assert(len(result) == SECTOR_SIZE)
     return result
 
-def write_block(f, block_num, block):
-    assert(len(block) == SECTOR_SIZE)
+def write_blocks(f, block_num, block):
+    assert(len(block) % SECTOR_SIZE == 0)
     f.seek(block_num * SECTOR_SIZE)
     f.write(block)
 
@@ -94,6 +98,19 @@ def read_fat(f, bpb):
 
     return table
 
+def write_fat(f, bpb, fat):
+    fat += [0]
+    chunks = []
+    for i in range(len(fat) // 2):
+        val = fat[i * 2] | (fat[i * 2 + 1] << 12)
+        chunks.append(struct.pack("<L", val)[:3])
+    fat_data = b"".join(chunks)
+    fat_data += b"\0" * (SECTOR_SIZE * bpb.sectors_per_fat - len(fat_data))
+
+    for i in range(bpb.num_fats):
+        offset = bpb.reserved_sectors + i * bpb.sectors_per_fat
+        write_blocks(f, offset,fat_data)
+
 def to_chs(sectors_per_track, block_num):
     return (
         block_num // (2 * sectors_per_track),  # cylinder
@@ -109,13 +126,7 @@ boot_sector = read_block(disk_image, 0)
 bpb = decode_bpb(boot_sector)
 print(bpb)
 
-# Copy BPB real boot sector into ours so we have disk params etc.
-prompt_boot_sector = (prompt_boot_sector[:BPB_OFFSET_START] +
-                      boot_sector[BPB_OFFSET_START:BPB_OFFSET_END] +
-                      prompt_boot_sector[BPB_OFFSET_END:])
-
 fat = read_fat(disk_image, bpb)
-print(fat)
 
 # Which sector are we going to patch?
 for c in reversed(range(len(fat))):
@@ -128,9 +139,20 @@ else:
 patch_sector = (patch_cluster - 2) + leading_sectors(bpb)
 patch_c, patch_h, patch_s = to_chs(bpb.sectors_per_track, patch_sector)
 
-fat[patch_cluster] = FAT12_BAD_SECTOR
-
 # Save the old boot sector:
-write_block(disk_image, patch_sector, boot_sector)
+write_blocks(disk_image, patch_sector, boot_sector)
 print("Saved old boot sector to block #%d (CHS: %d/%d/%d)" % (
     patch_sector, patch_c, patch_h, patch_s))
+
+# Update the FAT, mark the old boot sector as a bad sector:
+fat[patch_cluster] = FAT12_BAD_SECTOR
+write_fat(disk_image, bpb, fat)
+
+# Now we can construct the replacement boot sector. We copy the FAT header from
+# the real boot sector and bake in the C/H/S address of the original:
+prompt_boot_sector = bytearray(prompt_boot_sector)
+prompt_boot_sector[BOOT_HEADER_AREA_START:BOOT_HEADER_AREA_END] = (
+    boot_sector[BOOT_HEADER_AREA_START:BOOT_HEADER_AREA_END])
+prompt_boot_sector[BOOT_OFFSET_CHS:BOOT_OFFSET_CHS + 3] = (
+    patch_c, patch_h, patch_s)
+write_blocks(disk_image, 0, prompt_boot_sector)
