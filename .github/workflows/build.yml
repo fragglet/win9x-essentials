@@ -4,7 +4,7 @@ on:
   push:
   pull_request:
   workflow_dispatch:
-  schedule:  # Nightly build
+  schedule:  # Monthly build
     - cron: "0 5 1 * *"
 
 jobs:
